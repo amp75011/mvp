@@ -1,0 +1,160 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comprix - Compare, Save, Shop Smart!</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style_landing.css') }}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    </head>
+    <body>
+        <section class="header_landing">
+            <nav class="nav">
+                <a href="{{ url_for('landing') }}"><img src="{{ url_for('static', filename='images/logo_small.png') }}" class="logo-img"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i> 
+                    <ul>
+                        <li><a href="">Price Comparison Tool</a></li>
+                        <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
+                        <li><a href="">Sustainability & Health Badges</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">FAQs & Support</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+
+        <div class="text-box-landing">
+            <h1>Get the Best Prices on Your Groceries, Instantly!</h1>
+            <p>Compare your grocery list across top supermarkets and shop smart.</p>
+            <a href="{{ url_for('shopping_list') }}" class="hero-btn">GET STARTED</a>
+
+        </div>
+        
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <h1>How It Works</h1>
+           <!---- <p>Lorem ipsum</p> -->
+           <div class="row">
+                <div class="steps">
+                    <h3>Create your list</h3>
+                    <p>Start by creating your grocery list. Input as many or as few details as you want. Specify brands or package sizes if you prefer, or let the website propose the cheapest options for you.</p>
+                </div>
+                <div class="steps">
+                    <h3>Compare prices</h3>
+                    <p>ComPrix finds the cheapest option for your entire shopping list. <br><br> You can choose your preferred delivery method (home delivery or pick-up), and the supermarket choice will reflect where the overall price is the lowest.</p>
+                </div>
+                <div class="steps">
+                    <h3>Choose & shop</h3>
+                    <p>Choose your favorite supermarket and products. If any of the suggested options aren't your favourites, you have the flexibility to further customize them. <br><br> ComPrix simplifies the shopping process with direct links to online stores, and the final shop choice adjusts automatically based on your preferences.</p>
+                 </div>
+                 <div class="steps">
+                    <h3>Enjoy savings & quality</h3>
+                    <p>Shop smart and enjoy savings on your grocery bills while ensuring you're selecting the most cost-effective options for your needs and gaining insights into nutritional and eco scores.</p>
+                </div>
+           </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h1>Our Main Features</h1>
+           <!---- <p>Lorem ipsum</p> -->
+           <div class="row">
+                <div class="feature">
+                    <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/feature1.png') }}">
+                    </div>
+                    <!--<div class="layer">SEE MINUTE 44</div> -->
+                    <h3>Real-Time Price Comparison</h3>
+                    <p>Instantly compare prices of your grocery list across multiple supermarkets.</p>
+                </div>
+                <div class="feature">
+                    <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/feature2.png') }}">
+                    </div>
+                    <h3>Healthy Recipes & Substitutes</h3>
+                    <p>Discover healthy recipes and find substitutes for better choices.</p>
+                </div>
+                <div class="feature">
+                    <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/feature3.png') }}">
+                    </div>
+                    <h3>Sustainability Badges</h3>
+                    <p>Identify eco-friendly and sustainable products with our badges.</p>
+                 </div>
+           </div>
+        </section>
+        <!-----SEE MINUTE 49 !!! --->
+
+        <!----- Newsletter --->
+        <section class="newsletter">
+            <h1>Subscribe to Newsletter</h1>
+            <a href="" class="hero-btn">SUBSCRIBE</a>
+        </section>
+
+        <!----- FOOTER --->
+        <footer>
+            <div class="row">
+                 <div class="col">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Recipes & Substitutes</a></li>
+                        <li><a href="">Sustainability & Health Badges</a></li>
+                        <li><a href="">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                
+                <div class="col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms and conditions</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>                
+               
+                <div class="col">
+                    <h3>Newsletter</h3>
+                    <form>
+                         <i class="far fa-envelope"></i>
+                        <input type="email" placeholder="Enter your email id" required>
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                    <div class="social-icons">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-linkedin-in"></i>        
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">© 2023 ComPrix</p>
+        </footer>
+
+       <!-----Java Script for toggle menu--->
+        <script>
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right = "0";
+            }
+
+            function hideMenu(){
+                navLinks.style.right = "-200px";
+            }
+        </script>
+    </body>
+</html>
