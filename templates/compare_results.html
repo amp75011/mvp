@@ -31,7 +31,7 @@ Comprix - Comparison Results
                 {% for store, price in prices.items() %}
                 <td>
                     {% if price is not none %}
-                    ${{ "%.2f"|format(price) }}
+                    €{{ "%.2f"|format(price) }}
                     {% else %}
                     N/A
                     {% endif %}
@@ -44,7 +44,7 @@ Comprix - Comparison Results
                 <td>Total</td>
                 {% for store, total_price in total_prices.items() %}
                     <td class="{{ 'cheapest' if total_price == min_total_price else '' }}">
-                        ${{ "%.2f"|format(total_price) }}
+                        €{{ "%.2f"|format(total_price) }}
                     </td>
                 {% endfor %}
             </tr>
