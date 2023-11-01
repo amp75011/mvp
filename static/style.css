@@ -308,41 +308,90 @@ nav .fa{
     }
 }
 
-/* RECIPES PAGE */
+/* -------Recipes----------- */
 .recipes{
     width: 80%;
     margin: auto;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 50px;
 }
-h1{
-    font-size: 36px;
-    font-weight: 600;
+
+#portfolio{
+    padding: 50px 0;
 }
-/* Style for the image gallery */
-#image-gallery {
+.work-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 0;
+}
+.work{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.work img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+.layer{
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4));
+    /*background: linear-gradient(rgba(0,0,0,0.6), #ff004f);*/
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 20px 0;
-}
-
-.image-container {
-    margin: 0 10px; /* Adjust the margin as needed */
-}
-
-.image-container img {
-    width: 300px; /* You can adjust the width as needed */
-    height: auto;
-    border-radius: 5px; /* Optional: for rounded corners */
-}
-/* Style for the "Get Inspired" heading */
-#get-inspired {
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
     text-align: center;
-    margin: 40px 0; /* Adjust as needed to add space above and below the heading */
-    font-size: 24px; /* Adjust as needed to change the font size */
+    font-size: 14px;
+    color: #fff;
+   transition: height 0.5s;
 }
-
+.layer h3{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.layer a{
+    margin-top: 20px;
+    color: #ff004f;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+.work:hover img{
+    transform: scale(1.1);
+}
+.work:hover .layer{
+    height: 100%;
+}
+.btn{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #ff004f;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.5s;
+}
+.btn:hover{
+    background: #ff004f;
+}
 
 /* FOOTER PAGES */
 .footer_pages{

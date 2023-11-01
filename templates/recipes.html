@@ -1,245 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprix - Recipes</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+{% extends "base.html" %}
 
+{% block title %}
+Comprix - Recipes
+{% endblock %}
 
-    <!-- Load jQuery and jQuery UI -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
-    <!-- Load Bootstrap's JS (which includes Popper.js) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <section class="header">
-        <nav class="nav">
-            <a href="{{ url_for('landing') }}"><img src="{{ url_for('static', filename='images/logo_small.png') }}" class="logo-img"></a>
-            <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
-                <ul>
-                    <li><a href="">Price Comparison Tool</a></li>
-                    <li><a href="">Recipes & Substitutes</a></li>
-                    <li><a href="">Sustainability & Health Badges</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">FAQs & Support</a></li>
-                </ul>
-            </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
-        </nav>
-
-    </section>
-
-    <!-- Recipes -->
-    <section class="recipes">        
-        <h1>Get Inspired</h1>
-
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-target="#recipeModal">
-            Manual Trigger
-        </button>
-        
-        <div id="image-gallery">
-            <div class="image-container">
-                <a href="#" data-bs-toggle="modal" data-target="#recipeModal" data-recipe="#recipe1" data-title="Thai Curry with Chickpeas, Pumpkin and Spinach">
-                    <img src="{{ url_for('static', filename='images/recipe1.png') }}" alt="Recipe 1">
-                </a>
-            </div>
-            <div class="image-container">
-                <a href="#" data-bs-toggle="modal" data-target="#recipeModal" data-recipe="#recipe2" data-title="Salmon Baked in Red Pesto">
-                    <img src="{{ url_for('static', filename='images/recipe2.png') }}" alt="Recipe 2">
-                </a>
-            </div>
-            <div class="image-container">
-                <a href="#" data-bs-toggle="modal" data-target="#recipeModal" data-recipe="#recipe3" data-title="Pasta with Shrimp and Zucchini">
-                    <img src="{{ url_for('static', filename='images/recipe3.png') }}" alt="Recipe 3">
-                </a>
-            </div>            
-        </div>
-        
-
-        <div id="recipe1" style="display: none;">
-            <div style="display: flex; margin-bottom: 20px;">
-                <div style="flex: 1; padding-right: 20px;">
-                    <h5>Ingredients for 2 Servings</h5>
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li><input type="checkbox" id="selectAll"><label for="selectAll">Select All Ingredients</label></li>
-                        <li><input type="checkbox" id="ingredient1"><label for="ingredient1">1 cup cooked chickpeas (or canned)</label></li>
-                        <li><input type="checkbox" id="ingredient2"><label for="ingredient2">300 g pumpkin (weighed before peeling)</label></li>
-                        <li><input type="checkbox" id="ingredient3"><label for="ingredient3">1 small onion</label></li>
-                        <li><input type="checkbox" id="ingredient4"><label for="ingredient4">1 teaspoon of red curry paste (or 1 teaspoon of grated garlic and ginger and 1/2 teaspoon of ground hot pepper)</label></li>
-                        <li><input type="checkbox" id="ingredient5"><label for="ingredient5">1/2 teaspoon ground turmeric</label></li>
-                        <li><input type="checkbox" id="ingredient6"><label for="ingredient6">150 ml coconut milk</label></li>
-                        <li><input type="checkbox" id="ingredient7"><label for="ingredient7">Approx. 1/2 cup of broth</label></li>
-                        <li><input type="checkbox" id="ingredient8"><label for="ingredient8">A large handful of spinach</label></li>
-                    </ul>
-                </div>
-                <div style="flex: 1; padding-left: 20px;">
-                    <h5>Preparation</h5>
-                    <p>• Peel the pumpkin and cut into cubes. Cut the onion into slices.</p>
-                    <p>• In a pan, fry the curry paste in 2 tablespoons of coconut milk. Add pumpkin, onion, season with salt and fry, stirring occasionally, for about 2 minutes.</p>
-                    <p>• Add ground turmeric and cooked or canned chickpeas (if possible, add a few tablespoons of the chickpeas water). Add another 2 tablespoons of milk and fry for 1 minute.</p>
-                    <p>• Pour in the rest of the coconut milk and bring to a boil. Cook for about 15 minutes, stirring occasionally. Pour the broth gradually and cook for approx. 5 - 10 minutes until the pumpkin is soft. In the meantime, stir every now and then. Finally, add the spinach, mix and set aside from the heat.</p>
-                    <p>• Sprinkle with coriander and fresh chili, serve with rice and a lime wedge.</p>
-                </div>
-            </div>
-            <button type="button" onclick="addToShoppingList()">Add to Shopping List</button>
-        </div>
-
-        <div id="recipe2" style="display: none;">
-            <div style="display: flex; margin-bottom: 20px;">
-                <div style="flex: 1; padding-right: 20px;">
-                    <h5>Ingredients for 2 Servings</h5>
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li><input type="checkbox" id="selectAll2"><label for="selectAll2">Select All Ingredients</label></li>
-                        <li><input type="checkbox"><label>600 g salmon</label></li>
-                        <li><input type="checkbox"><label>Salt pepper</label></li>
-                        <li><input type="checkbox"><label>2 tablespoons of red pesto (made from dried tomatoes)</label></li>
-                        <li><input type="checkbox"><label>1/2 can of chopped, peeled tomatoes (or 1 fresh)</label></li>
-                        <li><input type="checkbox"><label>2 teaspoons of dried oregano</label></li>
-                        <li><input type="checkbox"><label>2 tablespoons of extra olive oil</label></li>
-                        <li><input type="checkbox"><label>Fresh basil</label></li>
-                        <li><input type="checkbox"><label>1/2 cup grated Parmesan cheese</label></li>
-                    </ul>
-                </div>
-                <div style="flex: 1; padding-left: 20px;">
-                    <h5>Preparation</h5>
-                    <p>• Cut off the skin from the fillets, rinse the salmon, dry it and cut into portions. Season with salt and pepper and spread with red pesto. Place in an ovenproof dish.</p>
-                    <p>• Place 2 tablespoons of chopped tomatoes on each portion and season with dried oregano, salt, and pepper. Drizzle with olive oil, sprinkle with basil and Parmesan. Preheat the oven to 200 degrees C and bake for about 15 - 17 minutes.</p>
-                </div>
-            </div>
-            <button type="button" onclick="addToShoppingList(2)">Add to Shopping List</button> 
-        </div>
-
-        <div id="recipe3" style="display: none;">
-            <div style="display: flex; margin-bottom: 20px;">
-                <div style="flex: 1; padding-right: 20px;">
-                    <h5>Ingredients for 2 Servings</h5>
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li><input type="checkbox" id="selectAll3"><label for="selectAll3">Select All Ingredients</label></li>
-                        <li><input type="checkbox"><label>12-16 shrimps</label></li>
-                        <li><input type="checkbox"><label>1 small zucchini (approx. 250 g)</label></li>
-                        <li><input type="checkbox"><label>150 g tagliatelle pasta</label></li>
-                        <li><input type="checkbox"><label>4 tablespoons of chopped parsley</label></li>
-                        <li><input type="checkbox"><label>6 tablespoons of whipping cream 30%</label></li>
-                        <li><input type="checkbox"><label>2 cloves of garlic</label></li>
-                        <li><input type="checkbox"><label>6 tablespoons of white wine</label></li>
-                        <li><input type="checkbox"><label>1 and 1/2 tablespoons of olive oil</label></li>
-                        <li><input type="checkbox"><label>2 tablespoons of butter</label></li>
-                        <li><input type="checkbox"><label>A pinch of saffron (optional)</label></li>
-                        <li><input type="checkbox"><label>2 lemon pieces</label></li>
-                    </ul>
-                </div>
-                <div style="flex: 1; padding-left: 20px;">
-                    <h5>Preparation</h5>
-                    <p>• Clean, wash, and dry the shrimp. Cut the zucchini into slices and halves. Chop the parsley and grate the garlic. Cook the pasta al dente, drain, reserving some pasta water.</p>
-                    <p>• In a pan with olive oil and grated garlic, fry lightly, add zucchini, and stir-fry for about 5 minutes. Add butter, salt, optionally saffron, and fry for another 2-3 minutes.</p>
-                    <p>• Move zucchini to the edge of the pan, add butter and shrimps in the free space, season them with salt, and fry for half a minute on each side over higher heat.</p>
-                    <p>• Add parsley, mix all ingredients in the pan, and fry for a while. Pour in the wine and let it evaporate over high heat.</p>
-                    <p>• Add the heavy cream, pasta, and a few tablespoons of pasta water. Mix and bring to a boil. Remove from heat when the sauce becomes thick. Serve with a lemon wedge.</p>
-                </div>
-            </div>
-            <button type="button" onclick="addToShoppingList(3)">Add to Shopping List</button> 
-        </div>
-    </section>
-
-    <!----- JAVA FOR RECIPES --->
-    
-    <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="recipeModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="recipeModalLabel">Recipe</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="recipeContent">
-                    <!-- Recipe content will be inserted here -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
+{% block content %}
+<div class="recipes">
+<section class="hero">
+    <div class="hero-text">
+        <h1>Recipes</h1>
+        <p>Get Inspired</p>
     </div>
+</section>
 
-    <!----- Footer --->
-    <section class="footer_pages">
-        <h4>Contact Us</h4>
-        <p>Lorem ipsum</p>
-        <div class="icons">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
+<!---------- recipes ---------->
+<div id="portfolio">
+    <div class="container">
+        <!----------<h1 class="sub-title">My Work</h1>---------->
+        <div class="work-list">
+            <div class="work">
+                <img src="{{ url_for('static', filename='images/recipe1.png') }}">
+                <div class="layer">
+                    <h3>Thai Curry with Chickpeas, Pumpkin and Spinach</h3>
+                    <!----------<p>The app connects you yo the talented people around the world. Download it from play store.</p>---------->
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="{{ url_for('static', filename='images/recipe2.png') }}">
+                <div class="layer">
+                    <h3>Salmon Baked in Red Pesto</h3>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="{{ url_for('static', filename='images/recipe3.png') }}">
+                <div class="layer">
+                    <h3>Pasta with Shrimp and Zucchini</h3>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
         </div>
-        <p>© 2023 ComPrix</p>
-    </section>
+        <!----------<a href="#" class="btn">See more</a>---------->
+    </div>
+</div>
 
-    <!-- JavaScript for menu toggle and autocomplete -->
-    <script type="text/javascript">
-        var navLinks = document.getElementById("navLinks");
-
-        function showMenu() {
-            navLinks.style.right = "0";
-        }
-
-        function hideMenu() {
-            navLinks.style.right = "-200px";
-        }
-
-        $(document).ready(function() {
-            var availableTags = {{ product_names|tojson|safe }};
-            $("input[name='shopping_list']").autocomplete({
-                source: availableTags
-            });
-
-            $('#recipeModal').on('show.bs.modal', function (event) {
-                 console.log('Attempting to show the modal...');
-                var button = $(event.relatedTarget);
-                var recipe = $(button.data('recipe')).html();
-                var recipeTitle = $(button.data('title'));
-                 var modal = $(this);
-                 modal.find('.modal-body').html(recipe);
-                modal.find('.modal-title').text(recipeTitle);
-                });
-
-            $('#selectAll').change(function() {
-                var isChecked = $(this).prop('checked');
-                $('#recipe1 input[type="checkbox"]').not(this).prop('checked', isChecked);
-            });
-
-            $('#selectAll2').change(function() {
-                var isChecked = $(this).prop('checked');
-                $('#recipe2 input[type="checkbox"]').not(this).prop('checked', isChecked);
-            });
-
-            $('#selectAll3').change(function() {
-                var isChecked = $(this).prop('checked');
-                $('#recipe3 input[type="checkbox"]').not(this).prop('checked', isChecked);
-            });
-        });
-
-        function addToShoppingList(recipeNumber) {
-            var shoppingList = document.getElementById('shoppingList');
-            var ingredients = document.querySelectorAll(`#recipe${recipeNumber} input[type="checkbox"]:checked + label`);
-
-            ingredients.forEach(function(ingredient) {
-                shoppingList.value += ingredient.textContent + '\n';
-            });
-        }
-        document.addEventListener('DOMContentLoaded', function () {
-    var recipeModal = new bootstrap.Modal(document.getElementById('recipeModal'));
-});
-
-    </script>
-</body>
-</html>
-
+{% endblock %}
+</div>
