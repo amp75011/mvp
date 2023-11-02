@@ -236,11 +236,13 @@ ul li .fa-circle {
 /* For mobile devices */
 @media (max-width: 480px) {
     .list {
-        padding: 80px 20px 50px;
+        padding: 130px 20px 50px; /* keep the right padding at 20px */
+        padding-left: 10px; /* reduce the left padding to 10px */
     }
     .shopping-list {
-        max-width: 95%;
+        max-width: 100%;
         padding: 20px 15px 40px;
+        padding-left: 5px; /* reduce the left padding to 5px */
     }
     input {
         font-size: 12px;
@@ -251,6 +253,8 @@ ul li .fa-circle {
         padding: 10px 30px;
     }
 }
+
+
 
 /* COMPARE BUTTON */
 .compare-button {
