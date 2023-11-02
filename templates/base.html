@@ -3,7 +3,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Comprix - Default Title{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -24,6 +23,7 @@
             background-image: url({{ url_for('static', filename='images/checked.png') }});
         }
     </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <section class="header">
@@ -71,5 +71,8 @@
             navLinks.style.right = "-200px";
         }
     </script>
+    {% block scripts %}
+    <!-- This is where the content of derived templates will be inserted -->
+    {% endblock %}
 </body>
 </html>
