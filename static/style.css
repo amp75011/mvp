@@ -68,7 +68,7 @@
     width: 80%;
     margin: auto;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 170px;
 }
 
 /* SEARCH BAR */
@@ -216,6 +216,9 @@ ul li .fa-circle {
 /*tablet*/
 /* For tablets and medium-sized devices */
 @media (max-width: 768px) {
+    .list {
+        padding: 80px 20px 50px;
+    }
     .shopping-list {
         max-width: 80%;
         padding: 30px 20px 50px;
@@ -232,6 +235,9 @@ ul li .fa-circle {
 
 /* For mobile devices */
 @media (max-width: 480px) {
+    .list {
+        padding: 80px 20px 50px;
+    }
     .shopping-list {
         max-width: 95%;
         padding: 20px 15px 40px;
