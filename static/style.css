@@ -599,6 +599,16 @@ nav .fa{
     .sub-header h1{
         font-size: 24px;
     }
+    .blog-right {
+        display: none;
+    }
+    .blog-left {
+        flex-basis: 100%; /* Make it occupy the full width */
+        max-width: 100%; /* Ensure it doesn't get restricted by any max-width */
+    }
+    .row {
+        justify-content: center; /* Center .blog-left */
+    }
 } 
 .blog-post {
     border: 1px solid #ccc;
