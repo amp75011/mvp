@@ -32,10 +32,10 @@
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="">Price Comparison Tool</a></li>
+                    <li><a href="{{ url_for('shopping_list') }}">Price Comparison Tool</a></li>
                     <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
                     <li><a href="">Sustainability & Health Badges</a></li>
-                    <li><a href="">Blog</a></li>
+                    <li><a href="{{ url_for('blog') }}">Blog</a></li>
                     <li><a href="">About Us</a></li>
                     <li><a href="">FAQs & Support</a></li>
                 </ul>

@@ -49,6 +49,11 @@ def compare_prices():
 
     return render_template('compare_results.html', results=results, total_prices=total_prices, min_total_price=min_total_price)
 
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=True)
+
