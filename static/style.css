@@ -9,6 +9,10 @@
     min-height: 10vh;
     width: 100%;
     background: #001F3F;
+    position: fixed;   /* This will fix the header at the top */
+    top: 0;            /* This ensures it's at the very top */
+    left: 0;           /* This ensures it's at the very left */
+    z-index: 1000;  
 }
 
 
