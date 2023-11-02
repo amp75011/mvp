@@ -613,6 +613,9 @@ nav .fa{
     .row {
         justify-content: center; /* Center .blog-left */
     }
+    .blog{
+        padding-top: 18vh;
+    }
 } 
 .blog-post {
     border: 1px solid #ccc;
