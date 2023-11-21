@@ -2,29 +2,84 @@ from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import re
 import os
+import unicodedata
+
 
 app = Flask(__name__)
 
+#normalising french characters
+def normalize_string(s):
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', s)
+        if unicodedata.category(c) != 'Mn'
+    )
+
+
 # Read data from Excel file
-df = pd.read_excel('./unique_supermarket_prices.xlsx', index_col="Goods")
+df = pd.read_excel('./unique_supermarket_prices.xlsx')
 
 # Convert the DataFrame to a dictionary
 products = df.to_dict(orient="index")
-products = {k.lower(): v for k, v in products.items()}
+products = {str(k).lower(): v for k, v in products.items()}
+# products = {k.lower(): v for k, v in products.items()}
 
 @app.route('/', methods=['GET'])
 def landing():
-    return render_template('landing.html')
+    try:
+        # Load data from Excel file
+        df = pd.read_excel('./arrondissements.xlsx')
+        
+        # Check if 'ZIP_code' column exists
+        if 'ZIP_code' not in df.columns:
+            raise ValueError("Column 'ZIP_code' not found in Excel file")
 
+        # Combine columns
+        arrondissements = [f"{row['Arrondissement']} ({row['ZIP_code']})" for _, row in df.iterrows()]
+    except Exception as e:
+        print(f"Error reading Excel file: {e}")
+        arrondissements = []  # Return an empty list in case of error
+
+    # Pass the arrondissements data to the landing.html template
+    return render_template('landing.html', arrondissements=arrondissements)
+
+
+
+# shopping list with a sophisticated autocompletion
 @app.route('/shopping_list', methods=['GET', 'POST'])
 def shopping_list():
-    product_names = [name.lower() for name in df.index.tolist()]
-    return render_template('shopping_list.html', product_names=product_names)
+    # Assuming df is your DataFrame
+    print(df.columns)  # To check if 'Core Identity' is in the columns
+    print(df.head())   # To see the first few rows of the DataFrame
+
+    # Extracting the necessary columns
+    core_identity = df['Core Identity'].dropna().unique().tolist()
+    extended_core_identity = df['Extended Core Identity'].dropna().unique().tolist()
+    cleaned_description = df['Cleaned Description'].dropna().unique().tolist()
+
+    # Read categories from Excel
+    df_categories = pd.read_excel('categories.xlsx')
+    # categories = [{'name': cat, 'image': cat.lower().replace(' ', '_') + '.jpg'} for cat in df_categories['category'].dropna().unique()]
+    # categories = [{'name': cat, 'image': cat.lower().replace(' ', '_').replace('&', 'and').replace('è', 'e') + '.jpg'} for cat in df_categories['category'].dropna().unique()]
+    categories = [
+    {
+        'name': cat, 
+        'image': normalize_string(cat).lower().replace(' ', '_').replace('&', 'and') + '.jpg'
+    } 
+    for cat in df_categories['category'].dropna().unique()
+]
+    
+    # Sending the data to the frontend
+    return render_template('shopping_list.html', 
+                           core_identity=core_identity, 
+                           extended_core_identity=extended_core_identity, 
+                           cleaned_description=cleaned_description,
+                            categories=categories)
 
 
 @app.route('/recipes')
+
 def recipes():
-    product_names = [name.lower() for name in df.index.tolist()]
+    product_names = [str(name).lower() for name in df.index.tolist()]
     return render_template('recipes.html', product_names=product_names)
 
 

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprix - Shopping List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+    <style>
+        ul li::before {
+            background-image: url({{ url_for('static', filename='images/unchecked.png') }});
+        }
+        ul li.checked::before {
+            background-image: url({{ url_for('static', filename='images/checked.png') }});
+        }
+    </style>
+    
+</head>
+<body>
+    <section class="header">
+        <nav class="nav">
+            <a href="{{ url_for('landing') }}"><img src="{{ url_for('static', filename='images/logo_small.png') }}" class="logo-img"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="">Price Comparison Tool</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
+                    <li><a href="">Sustainability & Health Badges</a></li>
+                    <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">FAQs & Support</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+    </section>
+
+    <!-- Shopping list section -->
+    <section class="list">        
+        <h1>Create Your Shopping List!</h1>
+       
+        <div class="container">
+            <div class="shopping-list">
+                <!-- <h2>To-Do List <img src="{{ url_for('static', filename='images/icon.png') }}"></h2>-->
+                <div class="row">
+                    <input type="text" id="input-box" placeholder="Enter your shopping list items, one by one">
+                    <button onclick="addTask()">Add</button>
+                </div>
+                <ul id="list-container">
+
+                    <!-- <li class="checked">Task 1</li>
+                    <li>Task 2</li>
+                    <li>Task 3</li> -->
+                </ul>
+                <button id="compare-button" class="compare-button" onclick="compareItems()" style="display: block;">Compare</button>
+            </div>
+        </div>
+    </section>
+
+ <!----- Footer --->
+    <section class="footer_pages">
+        <h4>Contact Us</h4>
+        <p>Lorem ipsum</p>
+        <div class="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+        <p>© 2023 ComPrix</p>
+    </section>
+
+    <!-- JavaScript for menu toggle and autocomplete -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+
+    function hideMenu() {
+        navLinks.style.right = "-200px";
+    }
+/*come back here!!!
+    $(document).ready(function() {
+        var availableTags = {{ product_names|tojson|safe }};
+        $("input[name='shopping_list']").autocomplete({
+            source: availableTags
+        });
+    });*/
+
+const inputBox = document.getElementById("input-box");
+const listContainer = document.getElementById("list-container");
+
+function checkButtonVisibility() {
+    const compareButton = document.getElementById("compare-button");
+    if (listContainer.children.length > 0) {
+        compareButton.style.display = "block";
+    } else {
+        compareButton.style.display = "none";
+    }
+}
+
+function addTask() {
+    let inputValue = inputBox.value.trim();  // Store the trimmed value first
+
+    if (inputValue === '') {
+        alert("Please add the first item");
+    } else {
+        let li = document.createElement("li");
+        li.innerHTML = inputValue;
+
+        // Add the circle icon
+        let icon = document.createElement("i");
+        icon.className = "fa fa-circle";
+        icon.setAttribute("aria-hidden", "true");
+        li.prepend(icon); // This will add the icon to the beginning of the list item
+
+        listContainer.appendChild(li);
+
+        let span = document.createElement("span");
+        span.innerHTML = "\u00d7";
+        li.appendChild(span);
+    }
+
+    inputBox.value = "";  // Clear the input box after all other logic
+    saveData();
+}
+
+
+listContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "SPAN"){
+        e.target.parentElement.remove();
+        saveData();
+    }
+}, false);
+
+
+function saveData(){
+    localStorage.setItem("data", listContainer.innerHTML);
+    checkButtonVisibility();  // Check visibility after saving data
+}
+function showTask(){
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();
+
+$(document).ready(function() {
+    var availableTags = {{ product_names|tojson|safe }};
+    $("#input-box").autocomplete({
+        source: availableTags,
+        select: function(event, ui) {
+            event.preventDefault(); // Prevents the default action
+            inputBox.value = ui.item.value; // Sets the value of the input box to the selected item
+            addTask();
+        }
+    });
+});
+
+
+function compareItems() {
+    // Get all the list items
+    const items = Array.from(listContainer.children).map(li => li.innerText.slice(0, -1)); // slice to remove the "x" character
+    if (items.length === 0) {
+        alert("Please add items to your shopping list before comparing.");
+        return;
+    }
+
+    // Create a URL with the items as a parameter
+    const shoppingList = items.join(",");
+    const compareURL = `{{ url_for('compare_prices') }}?shopping_list=${encodeURIComponent(shoppingList)}`;
+
+    // Open the comparison results in a new window/tab
+    window.open(compareURL, '_blank');
+}
+
+
+
+</script>
+
+</body>
+</html>

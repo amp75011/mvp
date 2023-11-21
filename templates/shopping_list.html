@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-
     <style>
         ul li::before {
             background-image: url({{ url_for('static', filename='images/unchecked.png') }});
@@ -18,7 +17,6 @@
             background-image: url({{ url_for('static', filename='images/checked.png') }});
         }
     </style>
-    
 </head>
 <body>
     <section class="header">
@@ -37,32 +35,38 @@
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
-
     </section>
 
     <!-- Shopping list section -->
     <section class="list">        
         <h1>Create Your Shopping List!</h1>
-       
         <div class="container">
             <div class="shopping-list">
-                <!-- <h2>To-Do List <img src="{{ url_for('static', filename='images/icon.png') }}"></h2>-->
                 <div class="row">
                     <input type="text" id="input-box" placeholder="Enter your shopping list items, one by one">
                     <button onclick="addTask()">Add</button>
                 </div>
                 <ul id="list-container">
-
-                    <!-- <li class="checked">Task 1</li>
-                    <li>Task 2</li>
-                    <li>Task 3</li> -->
+                    <!-- List items will be added here -->
                 </ul>
                 <button id="compare-button" class="compare-button" onclick="compareItems()" style="display: block;">Compare</button>
             </div>
         </div>
     </section>
 
- <!----- Footer --->
+    <section class="categories">
+        <h2 class="centered-title">Browse Categories</h2>
+        <div class="category-container">
+            {% for category in categories %}
+            <div class="category-item">
+                <img src="{{ url_for('static', filename='images/Products/Categories/' + category.image) }}" alt="{{ category.name }}" class="category-image">
+                <p class="category-name">{{ category.name }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Footer section -->
     <section class="footer_pages">
         <h4>Contact Us</h4>
         <p>Lorem ipsum</p>
@@ -74,97 +78,108 @@
         <p>© 2023 ComPrix</p>
     </section>
 
-    <!-- JavaScript for menu toggle and autocomplete -->
+    
+    <!-- JavaScript for menu toggle and new autocomplete -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript">
-    var navLinks = document.getElementById("navLinks");
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        var navLinks = document.getElementById("navLinks");
 
-    function showMenu() {
-        navLinks.style.right = "0";
-    }
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
 
-    function hideMenu() {
-        navLinks.style.right = "-200px";
-    }
-/*come back here!!!
-    $(document).ready(function() {
-        var availableTags = {{ product_names|tojson|safe }};
-        $("input[name='shopping_list']").autocomplete({
-            source: availableTags
-        });
-    });*/
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
 
-const inputBox = document.getElementById("input-box");
-const listContainer = document.getElementById("list-container");
+        const inputBox = document.getElementById("input-box");
+        const listContainer = document.getElementById("list-container");
 
-function checkButtonVisibility() {
-    const compareButton = document.getElementById("compare-button");
-    if (listContainer.children.length > 0) {
-        compareButton.style.display = "block";
-    } else {
-        compareButton.style.display = "none";
-    }
-}
+        function checkButtonVisibility() {
+            const compareButton = document.getElementById("compare-button");
+            if (listContainer.children.length > 0) {
+                compareButton.style.display = "block";
+            } else {
+                compareButton.style.display = "none";
+            }
+        }
 
-function addTask() {
-    let inputValue = inputBox.value.trim();  // Store the trimmed value first
+        function addTask() {
+            let inputValue = inputBox.value.trim();
+            if (inputValue === '') {
+                alert("Please add the first item");
+            } else {
+                let li = document.createElement("li");
+                li.innerHTML = inputValue;
+                let icon = document.createElement("i");
+                icon.className = "fa fa-circle";
+                icon.setAttribute("aria-hidden", "true");
+                li.prepend(icon);
+                listContainer.appendChild(li);
+                let span = document.createElement("span");
+                span.innerHTML = "\u00d7";
+                li.appendChild(span);
+            }
+            inputBox.value = "";
+            saveData();
+        }
 
-    if (inputValue === '') {
-        alert("Please add the first item");
-    } else {
-        let li = document.createElement("li");
-        li.innerHTML = inputValue;
+        listContainer.addEventListener("click", function(e){
+            if(e.target.tagName === "SPAN"){
+                e.target.parentElement.remove();
+                saveData();
+            }
+        }, false);
 
-        // Add the circle icon
-        let icon = document.createElement("i");
-        icon.className = "fa fa-circle";
-        icon.setAttribute("aria-hidden", "true");
-        li.prepend(icon); // This will add the icon to the beginning of the list item
+        function saveData(){
+            localStorage.setItem("data", listContainer.innerHTML);
+            checkButtonVisibility();
+        }
 
-        listContainer.appendChild(li);
+        function showTask(){
+            listContainer.innerHTML = localStorage.getItem("data");
+            checkButtonVisibility();
+        }
+        showTask();
 
-        let span = document.createElement("span");
-        span.innerHTML = "\u00d7";
-        li.appendChild(span);
-    }
+        // New Autocomplete Logic
+        $(document).ready(function() {
+    var coreIdentity = {{ core_identity|tojson|safe }};
+    var extendedCoreIdentity = {{ extended_core_identity|tojson|safe }};
+    var cleanedDescription = {{ cleaned_description|tojson|safe }};
 
-    inputBox.value = "";  // Clear the input box after all other logic
-    saveData();
-}
-
-
-listContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "SPAN"){
-        e.target.parentElement.remove();
-        saveData();
-    }
-}, false);
-
-
-function saveData(){
-    localStorage.setItem("data", listContainer.innerHTML);
-    checkButtonVisibility();  // Check visibility after saving data
-}
-function showTask(){
-    listContainer.innerHTML = localStorage.getItem("data");
-}
-showTask();
-
-$(document).ready(function() {
-    var availableTags = {{ product_names|tojson|safe }};
     $("#input-box").autocomplete({
-        source: availableTags,
+        source: function(request, response) {
+            var terms = request.term.toLowerCase().split(/\s+/); // Split the term into words
+
+            // Custom filter function to match the start of any word in the string
+            function matchStartOfWord(sourceArray) {
+                return sourceArray.filter(function(item) {
+                    return terms.every(function(term) {
+                        var words = item.split(/\s+/); // Split the item into words
+                        return words.some(word => word.toLowerCase().startsWith(term));
+                    });
+                });
+            }
+
+            var coreMatches = matchStartOfWord(coreIdentity);
+            var extendedMatches = matchStartOfWord(extendedCoreIdentity);
+            var descriptionMatches = matchStartOfWord(cleanedDescription);
+
+            var allMatches = [...new Set([...coreMatches, ...extendedMatches, ...descriptionMatches])];
+            response(allMatches);
+        },
         select: function(event, ui) {
-            event.preventDefault(); // Prevents the default action
-            inputBox.value = ui.item.value; // Sets the value of the input box to the selected item
+            event.preventDefault(); // Prevents the default action. This is important for clearing the search bar after hitting enter
+            inputBox.value = ui.item.value;
             addTask();
         }
     });
 });
 
 
-function compareItems() {
+        function compareItems() {
     // Get all the list items
     const items = Array.from(listContainer.children).map(li => li.innerText.slice(0, -1)); // slice to remove the "x" character
     if (items.length === 0) {
@@ -179,10 +194,6 @@ function compareItems() {
     // Open the comparison results in a new window/tab
     window.open(compareURL, '_blank');
 }
-
-
-
-</script>
-
+    </script>
 </body>
 </html>

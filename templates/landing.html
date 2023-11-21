@@ -7,7 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
     rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    </head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        
+</head>
     <body>
         <section class="header_landing">
             <nav class="nav">
@@ -29,8 +32,20 @@
         <div class="text-box-landing">
             <h1>Get the Best Prices on Your Groceries, Instantly!</h1>
             <p>Compare your grocery list across top supermarkets and shop smart.</p>
-            <a href="{{ url_for('shopping_list') }}" class="hero-btn">GET STARTED</a>
-
+            <button type="submit" class="hero-btn" onclick="openPopup()">GET STARTED</button>
+            <div class="popup" id="popup">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+              <img src="{{ url_for('static', filename='images/location.png') }}">
+              <h2>Where do you want to shop?</h2>
+              <!--<input type="text" id="input-box" placeholder="Please enter your ZIP code">-->
+              <div class="row">
+                <!--<input type="text" id="input-box" placeholder="Please enter your ZIP code">-->
+                <input type="text" id="arrondissement-search-input" placeholder="Please enter your ZIP code">
+            </div>
+              <!--<button type="submit" class="hero-btn" onclick="closePopup()">Create the shopping list</button>-->
+              <!--<a href="{{ url_for('shopping_list') }}" class="hero-btn">Create the shopping list</a>-->
+              <button type="submit" class="hero-btn" onclick="window.location.href='{{ url_for('shopping_list') }}'">Create the shopping list</button>
+            </div>
         </div>
         
         </section>
@@ -155,6 +170,35 @@
             function hideMenu(){
                 navLinks.style.right = "-200px";
             }
+        
+            let popup = document.getElementById("popup");
+
+            // opening and closing the pop-up
+            function openPopup() {
+                popup.classList.add("open-popup"); 
+            }
+
+            function closePopup() {
+                popup.classList.remove("open-popup"); 
+            }
+
         </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var arrondissements = {{ arrondissements | tojson | safe }};
+                
+                $("#arrondissement-search-input").autocomplete({
+                    source: arrondissements,
+                    open: function() {
+                        // Add a custom class to the autocomplete menu
+                        $(".ui-autocomplete").addClass("custom-scroll");
+                    }
+                });
+
+            });
+
+        
+        </script>
+        
     </body>
 </html>
