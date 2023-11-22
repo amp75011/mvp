@@ -311,13 +311,15 @@ nav .fa{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 50px;
+    margin: 70px;
 }
 
 .category-item {
     width: 15%; /* Adjust width to fit 5 items per line */
     text-align: center;
     margin-bottom: 20px;
+    color: inherit; /* This makes the text color the same as its parent element */
+    text-decoration: none; /* Removes the underline typically found in links */
 }
 
 .category-image {
@@ -329,9 +331,9 @@ nav .fa{
     margin-top: 10px;
 }
 
-.container, .category-container, .shopping-list, .nav-links ul {
+/*.container, .category-container, .shopping-list, .nav-links ul {
     width: 87%; /* Full width on smaller screens */
-}
+/*}
 
 /*correcting for mobile devices (below 700px)*/
 @media(max-width: 700px){
@@ -389,6 +391,68 @@ nav .fa{
         height: auto; /* Maintain aspect ratio */
     }
 }
+
+
+/* -------SUBCATEGORIES--for the category_page.html--------- */
+.subcategories {
+    margin-top: 140px; /* Adjust this value as needed */
+}
+.subcategories h2 {
+    text-align: center;
+}
+
+.subcategory-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 100px;
+}
+
+.subcategory-item {
+    width: 15%; /* Adjust width to fit 5 items per line */
+    text-align: center;
+    margin-bottom: 20px;
+    color: inherit; /* This makes the text color the same as its parent element */
+    text-decoration: none; /* Removes the underline typically found in links */
+}
+
+
+.subcategory-image {
+    width: 100%;
+    height: auto; /* Keep the aspect ratio */
+}
+
+.subcategory-name {
+    margin-top: 10px;
+}
+
+
+
+/*correcting for mobile devices (below 700px)*/
+@media(max-width: 700px){
+    
+    .subcategory-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* This will space out the items evenly */
+        margin: 0 auto; /* Center the container */
+        padding: 0 15px; /* Add padding to the left and right */
+    }
+
+    .subcategory-item {
+        width: 50%; /* Set width to 50% for two items per line */
+        box-sizing: border-box; /* Include padding and border in the element's width */
+        padding: 13px; /* Optional padding for spacing between items */
+    }
+
+    /* Adjust image size within category items if necessary */
+    .subcategory-image {
+        width: 100%; /* Ensure the image takes the full width of its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+
 
 /* -------PREFERENCES----------- */
 /* Flex container styling */

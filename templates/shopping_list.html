@@ -94,10 +94,10 @@
         <h2 class="centered-title">Browse Categories</h2>
         <div class="category-container">
             {% for category in categories %}
-            <div class="category-item">
-                <img src="{{ url_for('static', filename='images/Products/Categories/' + category.image) }}" alt="{{ category.name }}" class="category-image">
-                <p class="category-name">{{ category.name }}</p>
-            </div>
+                <a href="{{ url_for('category_page', category_name=category.name) }}" class="category-item">
+                    <img src="{{ url_for('static', filename='images/Products/Categories/' + category.image) }}" alt="{{ category.name }}" class="category-image">
+                    <p class="category-name">{{ category.name }}</p>
+                </a>
             {% endfor %}
         </div>
     </section>

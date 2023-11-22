@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Comprix - {{ subcategory_name }}
+{% endblock %}
+
+{% block content %}
+<section class="subcategories2">
+    <h2 class="centered-title">{{ subcategory_name }}</h2>
+    <div class="subcategory2-container">
+        {% for subcategory2 in subcategories2 %}
+            <div class="subcategory2-item">
+                <img src="{{ url_for('static', filename='images/Products/Subcategories2/' + subcategory2.image) }}" alt="{{ subcategory2.name }}" class="subcategory2-image">
+                <p class="subcategory2-name">{{ subcategory2.name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+<!-- This one displays different types of e.g. Fruits (categories), such as Pommes (subcategory). It pulls from subcategories.xlxs  -->

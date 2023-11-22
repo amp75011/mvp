@@ -76,6 +76,34 @@ def shopping_list():
                             categories=categories)
 
 
+# SUBCATEGORIES PAGE (Different Fruits) (Subcategories of a given Category, browsing through the subcategories.xlxs)
+@app.route('/category/<category_name>')
+def category_page(category_name):
+    # Read the Excel file
+    df = pd.read_excel('./subcategories.xlsx')
+
+    # Get the subcategories for the specified category
+    raw_subcategories = df[category_name].dropna().tolist()
+
+    # Create a list of dictionaries for subcategories with name and image
+    subcategories = [
+        {
+            'name': subcategory, 
+            'image': normalize_string(subcategory).lower().replace(' ', '_') + '.png'
+        } 
+        for subcategory in raw_subcategories
+    ]
+
+    return render_template('category_page.html', 
+                           subcategories=subcategories, 
+                           category_name=category_name)
+
+
+
+
+
+#RECIPES
+
 @app.route('/recipes')
 
 def recipes():
