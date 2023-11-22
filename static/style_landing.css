@@ -557,3 +557,21 @@ input {
     background: #555; /* Color of the scroll thumb on hover */
 }
 
+/*pointer*/
+/* Autocomplete Styles */
+.ui-autocomplete {
+    position: absolute;
+    z-index: 1001; /* Ensure it's above other elements */
+    /* Add other styles if needed */
+}
+
+.ui-autocomplete li {
+    cursor: pointer; /* Change cursor to pointer on hover */
+    /* Add other styles for individual items if needed */
+}
+
+.ui-autocomplete li.ui-menu-item:hover {
+    background-color: #edeef0dc; /* Color when hovered, adjust as needed */
+    color: #333; /* Text color when hovered */
+    /* Add other hover styles if needed */
+}

@@ -9,6 +9,7 @@
     min-height: 10vh;
     width: 100%;
     background: #001F3F;
+    /*background-image: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.2)), url(images/banner_narrow3.png);*/
     position: fixed;   /* This will fix the header at the top */
     top: 0;            /* This ensures it's at the very top */
     left: 0;           /* This ensures it's at the very left */
@@ -388,6 +389,133 @@ nav .fa{
         height: auto; /* Maintain aspect ratio */
     }
 }
+
+/* -------PREFERENCES----------- */
+/* Flex container styling */
+.container {
+    width: 100%; /* Set the width of the container to 87% of the screen */
+    margin: 0 auto; /* Center the container on the page */
+    /* Add other styles as needed */
+}
+
+/* Styles for the flex container and sections within it */
+.container .list-and-preferences {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.container .list-section {
+    flex: 2;
+    margin-right: 5px;
+}
+
+.container .preferences-section {
+    flex: 1;
+    margin-left: 5px;
+}
+
+/* Styles for the shopping list */
+.container .shopping-list {
+    /* Add specific styles for the shopping list here */
+}
+
+/* Styles for the preferences container */
+.container .preferences-container {
+    margin-top: 35px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Ensure the preferences container has enough room for the switch */
+    justify-content: center; /* Center the toggle switch */
+    align-items: center; /* Vertically center the toggle switch */
+    text-align: center; /* Center the contents */
+    border-radius: 25px;
+    font-size: 15px;
+}
+
+.container .preferences-container .toggle-switch {
+    position: relative;
+    width: 50px; /* Width of the switch */
+    height: 20px; /* Height of the switch */
+    /*background-color: #ddd; /* Switch background */
+    background-color: #f44336;
+    border-radius: 12.5px; /* Half of the height to make it rounded */
+    margin: 0 auto; /* Center the switch if the container is wider */
+    cursor: pointer; /* Indicate the switch is clickable */
+    margin-bottom: 20px;
+}
+
+/* Make sure the last toggle switch doesn't have a margin at the bottom if not needed */
+.container .preferences-container .toggle-switch:last-child {
+    margin-bottom: 0; /* Removes the bottom margin from the last toggle switch */
+}
+
+/* Style for the label which represents the switch */
+.container .preferences-container .toggle-switch label {
+    display: block;
+    position: relative;
+    width: 100%; /* Full width of the switch */
+    height: 100%; /* Full height of the switch */
+}
+
+/* Style for the text on the switch */
+.container .preferences-container .toggle-switch .toggle-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.container .preferences-container .toggle-switch .toggle-text.left {
+    left: -270%; /* Position to the left of the toggle */
+    width: 150px; /* Width of the text area */
+}
+
+.container .preferences-container .toggle-switch .toggle-text.right {
+    right: -290%; /* Position to the right of the toggle */
+    width: 150px; /* Width of the text area */
+}
+
+/* Style for the toggle handle */
+.container .preferences-container .toggle-switch .toggle-handle {
+    position: absolute;
+    top: 50%;
+    left: 1px; /* Start at the left edge */
+    width: 18px; /* Handle width */
+    height: 18px; /* Handle height */
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translateY(-50%); /* Center the handle vertically */
+    transition: 0.3s transform ease;
+}
+
+/* Move the toggle handle to the right when the checkbox is checked */
+.container .preferences-container .toggle-switch input[type="checkbox"]:checked + label .toggle-handle {
+    transform: translate(30px, -50%); /* Adjust to move handle to the right end */
+}
+
+/* Change background color to active when the checkbox is checked */
+.container .preferences-container .toggle-switch input[type="checkbox"]:checked + label {
+    /*background-color: #007bff; /* Active state color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container .list-and-preferences {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container .list-section, .container .preferences-section {
+        width: 100%; /* Take the full width of the container */
+        box-sizing: border-box; /* Include padding and borders in the element's total width */
+        margin: 10px 0; /* Adjust margins for mobile layout */
+    }
+    
+}
+
+
 
 /* -------Recipes----------- */
 .recipes{

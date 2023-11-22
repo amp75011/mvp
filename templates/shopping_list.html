@@ -38,21 +38,57 @@
     </section>
 
     <!-- Shopping list section -->
-    <section class="list">        
-        <h1>Create Your Shopping List!</h1>
-        <div class="container">
-            <div class="shopping-list">
-                <div class="row">
-                    <input type="text" id="input-box" placeholder="Enter your shopping list items, one by one">
-                    <button onclick="addTask()">Add</button>
+<!-- Shopping list section -->
+<section class="list">
+    <div class="container">
+        <!-- Flex container for the headings and sections -->
+        <div class="list-and-preferences">
+            <div class="list-section">
+                <h1>Create Your Shopping List!</h1>
+                <div class="shopping-list">
+                    <div class="row">
+                        <input type="text" id="input-box" placeholder="Enter your shopping list items, one by one">
+                        <button onclick="addTask()">Add</button>
+                    </div>
+                    <ul id="list-container">
+                        <!-- List items will be added here -->
+                    </ul>
+                    <button id="compare-button" class="compare-button" onclick="compareItems()" style="display: block;">Compare</button>
                 </div>
-                <ul id="list-container">
-                    <!-- List items will be added here -->
-                </ul>
-                <button id="compare-button" class="compare-button" onclick="compareItems()" style="display: block;">Compare</button>
+            </div>
+            <div class="preferences-section">
+                <h2>Preferences</h2>
+                <div class="preferences-container">
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="delivery-toggle" name="delivery-toggle" hidden>
+                        <label for="delivery-toggle" class="switch-label">
+                            <span class="toggle-text left">Click & Collect</span>
+                            <span class="toggle-text right">Delivery</span>
+                            <span class="toggle-handle"></span>
+                        </label>
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="price-toggle" name="price-toggle" hidden>
+                        <label for="price-toggle" class="switch-label">
+                            <span class="toggle-text left">Price per item</span>
+                            <span class="toggle-text right">Per unit (kg, litre)</span>
+                            <span class="toggle-handle"></span>
+                        </label>
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="vege-toggle" name="vege-toggle" hidden>
+                        <label for="vege-toggle" class="switch-label">
+                            <span class="toggle-text left">Plant-based</span>
+                            <span class="toggle-text right">All products</span>
+                            <span class="toggle-handle"></span>
+                        </label>
+                    </div>
+                </div>                
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section class="categories">
         <h2 class="centered-title">Browse Categories</h2>
@@ -194,6 +230,20 @@
     // Open the comparison results in a new window/tab
     window.open(compareURL, '_blank');
 }
+
+// PREFERENCES
+document.getElementById("click-collect").addEventListener("click", function() {
+    this.classList.add("active");
+    document.getElementById("delivery").classList.remove("active");
+    // Additional logic for Click & Collect can be added here
+});
+
+document.getElementById("delivery").addEventListener("click", function() {
+    this.classList.add("active");
+    document.getElementById("click-collect").classList.remove("active");
+    // Additional logic for Delivery can be added here
+});
+
     </script>
 </body>
 </html>
