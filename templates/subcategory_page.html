@@ -5,17 +5,18 @@ Comprix - {{ subcategory_name }}
 {% endblock %}
 
 {% block content %}
-<section class="subcategories2">
+<section class="subcategory2">
     <h2 class="centered-title">{{ subcategory_name }}</h2>
     <div class="subcategory2-container">
-        {% for subcategory2 in subcategories2 %}
+        {% for item in subcategory2_items %}
             <div class="subcategory2-item">
-                <img src="{{ url_for('static', filename='images/Products/Subcategories2/' + subcategory2.image) }}" alt="{{ subcategory2.name }}" class="subcategory2-image">
-                <p class="subcategory2-name">{{ subcategory2.name }}</p>
+                <!-- Display the item image or a placeholder if the image file does not exist -->
+                <img src="{{ url_for('static', filename='images/Products/Subcategory2/' + item.image) }}" onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/placeholder.png') }}'" alt="{{ item.name }}" class="subcategory2-image">
+                <p class="subcategory2-name">{{ item.name }}</p>
             </div>
         {% endfor %}
     </div>
 </section>
 {% endblock %}
 
-<!-- This one displays different types of e.g. Fruits (categories), such as Pommes (subcategory). It pulls from subcategories.xlxs  -->
+<!-- This one displays different types of e.g. Dried fruits (subcategories), such as raisins secs (subcategory2). It pulls from subcategories2.xlxs  -->

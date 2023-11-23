@@ -99,6 +99,47 @@ def category_page(category_name):
                            category_name=category_name)
 
 
+# SUBCATEGORIES2 PAGE (Different Dried fruits) (Subcategories2 of a given Subcategory, browsing through the subcategories2.xlxs)
+
+@app.route('/subcategory/<subcategory_name>')
+def subcategory_page(subcategory_name):
+    try:
+        # Read the Excel file
+        df = pd.read_excel('./subcategories2.xlsx')
+
+        # Normalize the subcategory_name for case-insensitive matching
+        normalized_subcategory_name = normalize_string(subcategory_name).lower()
+
+        # Check if the normalized subcategory name is in the DataFrame's columns
+        if normalized_subcategory_name not in [normalize_string(col).lower() for col in df.columns]:
+            raise ValueError(f"Subcategory {subcategory_name} not found")
+
+        # Get the index of the subcategory column after normalization
+        subcategory_col_index = [normalize_string(col).lower() for col in df.columns].index(normalized_subcategory_name)
+
+        # Select the column corresponding to the subcategory
+        subcategory_column = df.iloc[:, subcategory_col_index]
+
+        # Get the items and images for the specified subcategory, skipping the header row
+        subcategory2_items = []
+        for i in range(1, len(subcategory_column)):  # Skip the header
+            item_name = subcategory_column.iloc[i]
+            if pd.notna(item_name):  # Check if the item name is not NaN
+                image_filename = normalize_string(item_name).lower().replace(' ', '_') + '.png'
+                # Append a dictionary with the item name and image filename
+                subcategory2_items.append({
+                    'name': item_name,
+                    'image': image_filename
+                })
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        subcategory2_items = []
+
+    return render_template('subcategory_page.html',
+                           subcategory2_items=subcategory2_items,
+                           subcategory_name=subcategory_name)
+
 
 
 

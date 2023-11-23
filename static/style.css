@@ -452,6 +452,60 @@ nav .fa{
     }
 }
 
+/* -------SUBCATEGORY2 LEVEL--------- */
+.subcategory2 {
+    margin-top: 140px; /* Adjust this value as needed */
+}
+
+.subcategory2 h2 {
+    text-align: center;
+}
+
+.subcategory2-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 100px;
+}
+
+.subcategory2-item {
+    width: 15%; /* Adjust width to fit 5 items per line */
+    text-align: center;
+    margin-bottom: 20px;
+    color: inherit; /* This makes the text color the same as its parent element */
+    text-decoration: none; /* Removes the underline typically found in links */
+}
+
+.subcategory2-image {
+    width: 100%;
+    height: auto; /* Keep the aspect ratio */
+}
+
+.subcategory2-name {
+    margin-top: 10px;
+}
+
+/* Responsive styling adjustments for mobile devices */
+@media (max-width: 700px) {
+    .subcategory2-container {
+        margin: 0 auto; /* Center the container */
+        padding: 0 15px; /* Add padding to the left and right */
+    }
+
+    .subcategory2-item {
+        width: 50%; /* Set width to 50% for two items per line */
+        box-sizing: border-box; /* Include padding and border in the element's width */
+        padding: 13px; /* Optional padding for spacing between items */
+    }
+
+    .subcategory2-image {
+        width: 100%; /* Ensure the image takes the full width of its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+
+/* Add any additional styles that you have for your subcategory items */
 
 
 /* -------PREFERENCES----------- */
