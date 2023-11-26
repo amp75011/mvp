@@ -1099,3 +1099,36 @@ nav .fa{
 }
 
 
+/* !!! coming soon !!! */
+/* Coming Soon Page Styles */
+
+.subscribe-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.subscribe-form input[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.subscribe-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.thank-you-message {
+    display: none;
+    color: #4CAF50;
+    margin-top: 20px;
+}

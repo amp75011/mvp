@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+Comprix - Coming Soon
+{% endblock %}
+
+{% block content %}
+<div id="main-content" style="text-align:center; padding: 170px;">
+    <h2>Exciting Feature Coming Soon!</h2>
+    <br>
+    <p>Welcome to ComPrix. We're fine-tuning an innovative comparison results feature to enhance your experience. It's not ready just yet, but we're working hard to launch it soon!</p>
+    <br>
+    <p><strong>Stay Updated:</strong> To be the first to know when this feature is live, please leave your email. We'll keep you posted on the progress and other exciting updates.</p>
+    <br>
+
+    <!-- Subscription Form -->
+    <div class="subscribe-form">
+        <form onsubmit="event.preventDefault(); showThankYouMessage();">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="submit" value="Subscribe" style="padding: 10px 20px; border-radius: 4px; border: none; background-color: #4CAF50; color: white; cursor: pointer;">
+        </form>
+        <div class="thank-you-message" id="thankYouMessage" style="display: none; color: #4CAF50; margin-top: 20px;">
+            Thank you for subscribing!
+        </div>
+    </div>
+    <br>
+    <p>Your Feedback is Valuable: Feel free to share any thoughts or suggestions as we continue to improve our platform.</p>
+
+    <p>Thank you for your patience and support. Great things are on the way!</p>
+    <br>
+    <p>Best,<br>
+    The ComPrix Team</p>
+</div>
+
+<script>
+    function showThankYouMessage() {
+        document.getElementById('thankYouMessage').style.display = 'block';
+        // Here, you can also add code to handle the form submission, like an AJAX request
+    }
+</script>
+
+{% endblock %}

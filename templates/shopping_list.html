@@ -54,7 +54,9 @@
                     <ul id="list-container">
                         <!-- List items will be added here -->
                     </ul>
-                    <button id="compare-button" class="compare-button" onclick="compareItems()" style="display: block;">Compare</button>
+                    <!--COME BACK ASAP <button id="compare-button" class="compare-button" onclick="compareItems()" style="display: block;">Compare</button>-->
+                    <button id="compare-button" class="compare-button" onclick="redirectToComingSoon()" style="display: block;">Compare</button>
+
                 </div>
             </div>
             <div class="preferences-section">
@@ -246,6 +248,9 @@ document.getElementById("delivery").addEventListener("click", function() {
     // Additional logic for Delivery can be added here
 });
 
+function redirectToComingSoon() {
+        window.location.href = "{{ url_for('coming_soon') }}";
+    }
     </script>
 </body>
 </html>
