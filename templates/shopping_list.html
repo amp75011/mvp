@@ -21,7 +21,7 @@
 <body>
     <section class="header">
         <nav class="nav">
-            <a href="{{ url_for('landing') }}"><img src="{{ url_for('static', filename='images/logo_small.png') }}" class="logo-img"></a>
+            <a href="{{ url_for('landing') }}"><img src="{{ url_for('static', filename='images/logo_small_beta.png') }}" class="logo-img"></a>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
@@ -43,6 +43,7 @@
     <div class="container">
         <!-- Flex container for the headings and sections -->
         <div class="list-and-preferences">
+            <!--<img src="{{ url_for('static', filename='images/shopping_list_hero.png') }}" class="left-image" alt="Description">-->
             <div class="list-section">
                 <h1>Create Your Shopping List!</h1>
                 <div class="shopping-list">
@@ -95,7 +96,8 @@
         <div class="category-container">
             {% for category in categories %}
                 <a href="{{ url_for('category_page', category_name=category.name) }}" class="category-item">
-                    <img src="{{ url_for('static', filename='images/Products/Categories/' + category.image) }}" alt="{{ category.name }}" class="category-image">
+                    <!--Desactivate it for a moment!!!
+                    <img src="{{ url_for('static', filename='images/Products/Categories/' + category.image) }}" alt="{{ category.name }}" class="category-image">-->
                     <p class="category-name">{{ category.name }}</p>
                 </a>
             {% endfor %}

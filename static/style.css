@@ -8,7 +8,8 @@
 .header {
     min-height: 10vh;
     width: 100%;
-    background: #001F3F;
+    /*background: #001F3F;EARLIER BACKGROUND COLOUR*/
+    background: #093c57;
     /*background-image: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.2)), url(images/banner_narrow3.png);*/
     position: fixed;   /* This will fix the header at the top */
     top: 0;            /* This ensures it's at the very top */
@@ -18,7 +19,8 @@
 
 
 .header .logo-img {
-    width: 100px; /* Adjust this value to your preferred size */
+    width: 170px; /* Adjust this value to your preferred size */
+    /*width: 100px; /* For teh non-beta version */
 }
 
 
@@ -72,6 +74,9 @@
     padding-top: 170px;
 }
 
+body {
+    background-color: #eeeeee;
+}
 /* SEARCH BAR */
 /*delete the container*/
 /*.container{
@@ -505,15 +510,55 @@ nav .fa{
 }
 
 
-/* Add any additional styles that you have for your subcategory items */
+/* BREADCRUMBS 
+.breadcrumb {
+    margin-top: 105px;
+    padding: 10px 15px;
+    list-style: none;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+}
 
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    padding: 0 5px;
+    color: #6c757d;
+}
+
+.breadcrumb-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+*/
 
 /* -------PREFERENCES----------- */
-/* Flex container styling */
+/*setting up a photo*/
+.list-and-preferences {
+    position: relative;
+}
+
+.left-image {
+    position: absolute;
+    left: 0;
+    top: 50px; /* Adjust this value to align with the heading */
+    width: 200px; /* Adjust the width as needed */
+    height: auto;
+}
+
 .container {
     width: 100%; /* Set the width of the container to 87% of the screen */
-    margin: 0 auto; /* Center the container on the page */
-    /* Add other styles as needed */
+    /*margin: 0 auto; /* Center the container on the page */
+    /*padding-left: 210px; /* Slightly more than the image width */
+/* Add other styles as needed */
 }
 
 /* Styles for the flex container and sections within it */
@@ -549,6 +594,7 @@ nav .fa{
     text-align: center; /* Center the contents */
     border-radius: 25px;
     font-size: 15px;
+    background: #fff;
 }
 
 .container .preferences-container .toggle-switch {

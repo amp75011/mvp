@@ -10,7 +10,8 @@ Comprix - {{ category_name }}
     <div class="subcategory-container">
         {% for subcategory in subcategories %}
             <a href="{{ url_for('subcategory_page', subcategory_name=subcategory.name) }}" class="subcategory-item">
-                <img src="{{ url_for('static', filename='images/Products/Subcategories/' + subcategory.image) }}" alt="{{ subcategory.name }}" class="subcategory-image">
+                <!--Desactivate it for a moment!!!
+                <img src="{{ url_for('static', filename='images/Products/Subcategories/' + subcategory.image) }}" alt="{{ subcategory.name }}" class="subcategory-image">-->
                 <p class="subcategory-name">{{ subcategory.name }}</p>
             </a>
         {% endfor %}

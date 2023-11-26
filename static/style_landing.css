@@ -15,7 +15,8 @@
 }
 
 .header_landing .logo-img {
-    width: 130px; /* Adjust this value to your preferred size */
+    /*width: 130px; /* The non-beta version */
+    width: 200px;
 }
 
 
@@ -305,7 +306,8 @@ footer{
     width: 100%;
     position: relative;
     bottom: unset;
-    background: linear-gradient(to right, #001F3F, #001F3F);
+    /*background: linear-gradient(to right, #001F3F, #001F3F);*/
+    background: #093c57;
     color: #fff;
     padding: 30px 0 20px;
     font-size: 13px;

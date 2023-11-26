@@ -1,3 +1,7 @@
+# this is the path to activate env_fabio
+# source "/Volumes/GoogleDrive/.shortcut-targets-by-id/1F7hwOtPazLZPBGi8cYfeOL-xw2bX8V4M/ComPrix/Website/MVP/Code/env_fabio/bin/activate"
+
+
 from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import re
@@ -180,4 +184,3 @@ def blog():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
-
