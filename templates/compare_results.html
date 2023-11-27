@@ -29,7 +29,15 @@ Comprix - Comparison Results
                     <tr>
                         <td>{{ item }}</td>
                         {% for store in store_names %}
-                            <td>{{ prices[store] }}</td>
+                            <td>
+                                {% set price = prices[store] %}
+                                {% set url = pivot_urls_dict[item][store] %}
+                                {% if price != 'N/A' %}
+                                    <a href="{{ url }}" target="_blank">€{{ "%.2f"|format(price) }}</a>
+                                {% else %}
+                                    {{ price }}
+                                {% endif %}
+                            </td>
                         {% endfor %}
                     </tr>
                     {% endfor %}

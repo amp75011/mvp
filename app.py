@@ -270,13 +270,18 @@ def compare_prices():
         pivot_prices_dict = pivot_prices.fillna('N/A').to_dict(orient='index')
 
     store_names = list(pivot_prices.columns) if not pivot_prices.empty else []
+    
+    # Convert pivot_urls to a dictionary format for Jinja2
+    pivot_urls_dict = pivot_urls.to_dict(orient='index') if not pivot_urls.empty else {}
+
 
     return render_template('compare_results.html', 
                            pivot_prices_html=pivot_prices.to_html(classes='pivot-table', border=0) if not pivot_prices.empty else "",
                            pivot_urls_html=pivot_urls.to_html(classes='pivot-table', border=0) if not pivot_urls.empty else "",
                            pivot_prices_dict=pivot_prices_dict,
                            store_names=store_names,
-                           total_prices=total_prices)  # Pass total_prices to the template
+                           total_prices=total_prices,
+                           pivot_urls_dict=pivot_urls_dict)
 
 
 
