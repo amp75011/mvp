@@ -503,6 +503,7 @@ nav .fa{
     background: #fff;
 }
 
+
 .subcategory2-image {
     width: 100%;
     height: auto; /* Keep the aspect ratio */
@@ -524,6 +525,7 @@ nav .fa{
         box-sizing: border-box; /* Include padding and border in the element's width */
         padding: 13px; /* Optional padding for spacing between items */
         border-radius: 15px /*lower is more squary*/
+        margin-top: 35px;
     }
     
 
