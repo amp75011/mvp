@@ -494,7 +494,7 @@ nav .fa{
     width: 15%; /* Adjust width to fit 5 items per line */
     color: inherit; /* This makes the text color the same as its parent element */
     text-decoration: none; /* Removes the underline typically found in links */
-    /*margin-top: 15px;*/
+    margin-top: 15px;
     padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     
@@ -701,6 +701,10 @@ nav .fa{
         width: 100%; /* Take the full width of the container */
         box-sizing: border-box; /* Include padding and borders in the element's total width */
         margin: 10px 0; /* Adjust margins for mobile layout */
+    }
+
+    .container .preferences-container {
+        /*font-size: 13px;*/
     }
     
 }

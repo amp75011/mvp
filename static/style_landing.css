@@ -67,6 +67,11 @@
     width: 100%;
 }
 
+/*body {
+    background-color: #eeeeee;
+}*/
+
+
 /* The Get the Best Prices on Your Groceries, Instantly!
 Compare your grocery list across top supermarkets and shop smart. box */
 
@@ -286,7 +291,8 @@ p{
 .newsletter{
     margin: 100px auto;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4)), url(images/newsletter.png);
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)), url(images/newsletter.png);
+    /*background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4)), url(images/newsletter.png);*/
     background-position: center;
     background-size: cover;
     text-align: center;
