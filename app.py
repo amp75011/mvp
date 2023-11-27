@@ -1,30 +1,70 @@
-# this is the path to activate env_fabio
-# source "/Volumes/GoogleDrive/.shortcut-targets-by-id/1F7hwOtPazLZPBGi8cYfeOL-xw2bX8V4M/ComPrix/Website/MVP/Code/env_fabio/bin/activate"
-
-
 from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import re
 import os
 import unicodedata
 
-
 app = Flask(__name__)
 
-#normalising french characters
+# Normalising French characters
 def normalize_string(s):
-    return ''.join(
-        c for c in unicodedata.normalize('NFD', s)
-        if unicodedata.category(c) != 'Mn'
-    )
+    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
 
+
+# Function to check if all words in a keyword are in a text (case insensitive)
+def all_words_present(text, keyword):
+    if isinstance(text, str):
+        text_lower = text.lower()
+        return all(word.lower() in text_lower for word in keyword.split())
+    else:
+        return False
+
+# Function to check if all words in a keyword are fully present in a text (case insensitive)
+def all_words_fully_present(text, keyword):
+    if isinstance(text, str):
+        text_lower = text.lower().split()
+        return all(word.lower() in text_lower for word in keyword.split())
+    else:
+        return False
+
+# Function to find exact match in a DataFrame column
+def find_exact_match(df, column, keyword):
+    return df[df[column].apply(lambda x: all_words_present(x, keyword))]
+
+# Function to find partial match in a DataFrame column
+def find_partial_match(df, column, keyword):
+    return df[df[column].apply(lambda x: all_words_fully_present(x, keyword))]
+
+# Function to extract shop name from URL
+def extract_shop_from_url(url):
+    if 'auchan' in url:
+        return 'Auchan'
+    elif 'monoprix' in url:
+        return 'Monoprix'
+    elif 'franprix' in url:
+        return 'Franprix'
+    elif 'carrefour' in url:
+        return 'Carrefour'
+    else:
+        return 'Unknown'
+
+def load_data(file_path):
+    df = pd.read_csv(file_path)
+    # Remove special characters and diacritics from all string columns except the URL column
+    for col in df.columns:
+        if col != 'URL' and df[col].dtype == object:
+            df[col] = df[col].str.replace('[^\w\s]', '', regex=True)
+            #df[col] = df[col].apply(remove_diacritics)
+    df['Shop'] = df['URL'].apply(extract_shop_from_url)
+    df['DescBrand'] = df['Brand'].astype(str) + ' ' + df['Description'].astype(str)
+    return df
 
 # Read data from Excel file
-df = pd.read_excel('./unique_supermarket_prices.xlsx')
+# df = pd.read_excel('./unique_supermarket_prices.xlsx')
 
 # Convert the DataFrame to a dictionary
-products = df.to_dict(orient="index")
-products = {str(k).lower(): v for k, v in products.items()}
+# products = df.to_dict(orient="index")
+# products = {str(k).lower(): v for k, v in products.items()}
 # products = {k.lower(): v for k, v in products.items()}
 
 @app.route('/', methods=['GET'])
@@ -51,16 +91,19 @@ def landing():
 # shopping list with a sophisticated autocompletion
 @app.route('/shopping_list', methods=['GET', 'POST'])
 def shopping_list():
+    # Load data from price_comprix.csv
+    df = pd.read_csv('price_comprix.csv')  # Adjust the path if needed
+
     # Assuming df is your DataFrame
     print(df.columns)  # To check if 'Core Identity' is in the columns
     print(df.head())   # To see the first few rows of the DataFrame
 
     # Extracting the necessary columns
-    core_identity = df['Core Identity'].dropna().unique().tolist()
-    extended_core_identity = df['Extended Core Identity'].dropna().unique().tolist()
-    cleaned_description = df['Cleaned Description'].dropna().unique().tolist()
+    descriptions = df['Description'].dropna().unique().tolist()
+    brands = df['Brand'].dropna().unique().tolist()
+    category = df['category'].dropna().unique().tolist()
 
-    # Read categories from Excel
+    # Read categories from Excel (this is for the aisles)
     df_categories = pd.read_excel('categories.xlsx')
     # categories = [{'name': cat, 'image': cat.lower().replace(' ', '_') + '.jpg'} for cat in df_categories['category'].dropna().unique()]
     # categories = [{'name': cat, 'image': cat.lower().replace(' ', '_').replace('&', 'and').replace('è', 'e') + '.jpg'} for cat in df_categories['category'].dropna().unique()]
@@ -72,11 +115,11 @@ def shopping_list():
     for cat in df_categories['category'].dropna().unique()
 ]
     
-    # Sending the data to the frontend
+    # Sending the data to the frontend (noe the difference: categories are the aisles, category comes into the serach bar and price comparison)
     return render_template('shopping_list.html', 
-                           core_identity=core_identity, 
-                           extended_core_identity=extended_core_identity, 
-                           cleaned_description=cleaned_description,
+                           descriptions=descriptions, 
+                           brands=brands,
+                           category=category,
                             categories=categories)
 
 
@@ -159,32 +202,87 @@ def recipes():
 
 @app.route('/compare_prices', methods=['GET'])
 def compare_prices():
+    file_path = 'price_comprix.csv'  # Adjust the path if needed
+    df = load_data(file_path)
+
     shopping_list_text = request.args.get('shopping_list', '')
     shopping_list = re.split(',|\n', shopping_list_text.lower())
     shopping_list = [item.strip() for item in shopping_list if item.strip()]
-    
-    results = []
-    total_prices = {store: 0 for store in df.columns}
-    
-    for item in shopping_list:
-        prices = products.get(item, {store: None for store in df.columns})
-        results.append((item, prices))
-        for store, price in prices.items():
-            if price is not None:
-                total_prices[store] += price
 
-    min_total_price = min(total_prices.values())
+    category_column = 'category'
+    descbrand_column = 'DescBrand'
+    all_cheapest_items = pd.DataFrame()
 
-    return render_template('compare_results.html', results=results, total_prices=total_prices, min_total_price=min_total_price)
+    for keyword in shopping_list:
+        match_source = None
+        df_keyword = find_exact_match(df, category_column, keyword)
+        if not df_keyword.empty:
+            match_source = 'category'
+        if df_keyword.empty:
+            df_keyword = find_partial_match(df, descbrand_column, keyword)
+            if not df_keyword.empty:
+                match_source = 'descbrand'
+
+        if not df_keyword.empty:
+            df_keyword['Shop'] = df_keyword['URL'].apply(extract_shop_from_url)
+            cheapest_items = df_keyword.loc[df_keyword.groupby('Shop')['Price'].idxmin()]
+            label = keyword if match_source == 'descbrand' else df_keyword[category_column].iloc[0]
+            cheapest_items[category_column] = label
+            cheapest_items['Keyword'] = keyword
+            all_cheapest_items = pd.concat([all_cheapest_items, cheapest_items], ignore_index=True)
+
+    # Initialize pivot_prices and pivot_urls
+    pivot_prices = pd.DataFrame()
+    pivot_urls = pd.DataFrame()
+
+    if not all_cheapest_items.empty:
+        all_cheapest_items['Shop'] = all_cheapest_items['URL'].apply(extract_shop_from_url)
+        pivot_prices = all_cheapest_items.pivot(index='Keyword', columns='Shop', values='Price')
+        pivot_urls = all_cheapest_items.pivot(index='Keyword', columns='Shop', values='URL')
+
+        for index, row in pivot_prices.iterrows():
+            empty_shops = row[row.isna()].index.tolist()
+            if empty_shops:
+                cheapest_shop = row.idxmin()
+                cheapest_item_url = pivot_urls.at[index, cheapest_shop]
+                category_of_cheapest = df[df['URL'] == cheapest_item_url][category_column].iloc[0]
+
+                for shop in empty_shops:
+                    cheapest_in_category = df[(df['Shop'] == shop) & (df[category_column] == category_of_cheapest)].nsmallest(1, 'Price')
+                    if not cheapest_in_category.empty:
+                        pivot_prices.at[index, shop] = cheapest_in_category.iloc[0]['Price']
+                        pivot_urls.at[index, shop] = cheapest_in_category.iloc[0]['URL']
+         
+        
+        # Check if pivot_prices is not empty before calculating totals
+        if not pivot_prices.empty:
+            total_prices = pivot_prices.sum().to_dict()
+        else:
+            total_prices = {}
+
+    # Export the results to a CSV file
+    output_csv_file = 'comparison_results.csv'  # You can change this file name and path as needed
+    all_cheapest_items.to_csv(output_csv_file, index=False)
+
+    # Convert pivot_prices to a dictionary format for Jinja2
+    pivot_prices_dict = {}
+    if not pivot_prices.empty:
+        pivot_prices_dict = pivot_prices.fillna('N/A').to_dict(orient='index')
+
+    store_names = list(pivot_prices.columns) if not pivot_prices.empty else []
+
+    return render_template('compare_results.html', 
+                           pivot_prices_html=pivot_prices.to_html(classes='pivot-table', border=0) if not pivot_prices.empty else "",
+                           pivot_urls_html=pivot_urls.to_html(classes='pivot-table', border=0) if not pivot_urls.empty else "",
+                           pivot_prices_dict=pivot_prices_dict,
+                           store_names=store_names,
+                           total_prices=total_prices)  # Pass total_prices to the template
+
+
 
 @app.route('/blog')
 def blog():
     return render_template('blog.html')
-
-@app.route('/coming_soon')
-def coming_soon():
-    return render_template('coming_soon.html')
-
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

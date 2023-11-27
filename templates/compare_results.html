@@ -6,76 +6,74 @@ Comprix - Comparison Results
 
 {% block content %}
 <div class="compare-results-page">
-<section class="hero">
-    <div class="hero-text">
-        <h1>Comparison Results</h1>
-        <p>Check the comparison of your shopping list items below.</p>
-    </div>
-</section>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Comparison Results</h1>
+            <p>Check the comparison of your shopping list items below.</p>
+        </div>
+    </section>
 
-<section class="content-section">
-    {% if results %}
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Item</th>
-                {% for store in results[0][1].keys() %}
-                    <th>{{ store }}</th>
-                {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for item, prices in results %}
-            <tr>
-                <td>{{ item }}</td>
-                {% for store, price in prices.items() %}
-                <td>
-                    {% if price is not none %}
-                    €{{ "%.2f"|format(price) }}
-                    {% else %}
-                    N/A
-                    {% endif %}
-                </td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
+    <section class="content-section">
+        {% if pivot_prices_dict %}
+            <h2>Itemized Comparison</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        {% for store in store_names %}
+                            <th>{{ store }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item, prices in pivot_prices_dict.items() %}
+                    <tr>
+                        <td>{{ item }}</td>
+                        {% for store in store_names %}
+                            <td>{{ prices[store] }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total</th>
+                        {% for store in store_names %}
+                            <td>€{{ "%.2f"|format(total_prices[store]) }}</td>
+                        {% endfor %}
+                    </tr>
+                    <!-- Row for the "Go to shop" buttons -->
+                    <tr class="shop-button-row">
+                        <td></td> <!-- Empty cell for the "Item" column -->
+                        {% for store in store_names %}
+                            <td>
+                                <button class="shop-button">Go to {{ store }}</button>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                </tfoot>
+            </table>
 
-            <tr>
-                <td>Total</td>
-                {% for store, total_price in total_prices.items() %}
-                    <td class="{{ 'cheapest' if total_price == min_total_price else '' }}">
-                        €{{ "%.2f"|format(total_price) }}
-                    </td>
-                {% endfor %}
-            </tr>
+            <!-- Render Pivot Tables as HTML
+            <h2>Price Comparison Pivot Table</h2>
+            {{ pivot_prices_html|safe }}
 
-            <!-- Row for the "Go to shop" buttons -->
-            <tr class="shop-button-row">
-                <td></td> <!-- Empty cell for the "Goods" column -->
-                {% for store in results[0][1].keys() %}
-                    <td>
-                        {% if store != "Goods" %}
-                            <button class="shop-button">Go to {{ store }}</button>
-                        {% endif %}
-                    </td>
-                {% endfor %}
-            </tr>
-        </tbody>
-    </table>
-    {% else %}
-    <p>No items were found for comparison. Please go back and enter your shopping list items.</p>
-    {% endif %}
-</section>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+            <h2>Shop URLs Pivot Table</h2>
+            {{ pivot_urls_html|safe }} -->
 
-<script>
-    $(document).ready(function() {
-        $('.table').DataTable({
-            responsive: true
+        {% else %}
+            <p>No items were found for comparison. Please go back and enter your shopping list items.</p>
+        {% endif %}
+    </section>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.table').DataTable({
+                responsive: true
+            });
         });
-    });
-</script>
-
-{% endblock %}
+    </script>
+</section>
 </div>
-
+{% endblock %}
