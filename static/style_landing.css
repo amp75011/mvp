@@ -43,10 +43,14 @@
     position: relative;
 }
 
-.nav-links ul li a{
+.nav-links ul li a, .nav-links span.nav-link{
     color: #fff;
     text-decoration: none;
     font-size: 13px;
+}
+
+.nav-links .nav-link {
+    cursor: pointer;
 }
 
 .nav-links ul li::after{
