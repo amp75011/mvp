@@ -524,7 +524,7 @@ nav .fa{
         width: 48%; /* Set width to 50% for two items per line */
         box-sizing: border-box; /* Include padding and border in the element's width */
         padding: 13px; /* Optional padding for spacing between items */
-        border-radius: 15px /*lower is more squary*/
+        border-radius: 15px; /*lower is more squary*/
         margin-top: 35px;
     }
     
