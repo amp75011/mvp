@@ -456,9 +456,10 @@ nav .fa{
     }
 
     .subcategory-item {
-        width: 50%; /* Set width to 50% for two items per line */
+        width: 48%; /* Set width to 50% for two items per line */
         box-sizing: border-box; /* Include padding and border in the element's width */
         padding: 13px; /* Optional padding for spacing between items */
+        border-radius: 15px /*lower is more squary*/
     }
 
     /* Adjust image size within category items if necessary */
@@ -516,9 +517,10 @@ nav .fa{
     }
 
     .subcategory2-item {
-        width: 50%; /* Set width to 50% for two items per line */
+        width: 48%; /* Set width to 50% for two items per line */
         box-sizing: border-box; /* Include padding and border in the element's width */
         padding: 13px; /* Optional padding for spacing between items */
+        border-radius: 15px /*lower is more squary*/
     }
 
     .subcategory2-image {
