@@ -1101,7 +1101,10 @@ nav .fa{
 
 /* !!! coming soon !!! */
 /* Coming Soon Page Styles */
-
+.coming-soon {
+    text-align:center; 
+    padding: 170px;
+}
 .subscribe-form {
     text-align: center;
     margin-top: 20px;
@@ -1131,4 +1134,13 @@ nav .fa{
     display: none;
     color: #4CAF50;
     margin-top: 20px;
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 700px) {
+    .coming-soon {
+        margin-top: 150px;
+        padding: 30px; /* Smaller padding for small screens */
+        font-size: 14px;
+    }
 }
