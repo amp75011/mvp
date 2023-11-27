@@ -309,36 +309,41 @@ nav .fa{
 /* displaying the AISLES */
 .centered-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .category-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 70px;
+    margin: 20px 70px;
 }
 
 .category-item {
+    display: flex; /* Sets the display to flex */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    text-align: center; /* Center the contents */
+
     width: 15%; /* Adjust width to fit 5 items per line */
-    text-align: center;
-    margin-bottom: 20px;
     color: inherit; /* This makes the text color the same as its parent element */
     text-decoration: none; /* Removes the underline typically found in links */
-}
+    margin-top: 35px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    
+    border-radius: 25px;
+    font-size: 15px;
+    background: #fff;
+    }
+
+
 
 .category-image {
     width: 100%;
     height: auto; /* Keep the aspect ratio */
 }
 
-.category-name {
-    margin-top: 10px;
-}
-
-/*.container, .category-container, .shopping-list, .nav-links ul {
-    width: 87%; /* Full width on smaller screens */
-/*}
 
 /*correcting for mobile devices (below 700px)*/
 @media(max-width: 700px){
@@ -400,7 +405,7 @@ nav .fa{
 
 /* -------SUBCATEGORIES--for the category_page.html--------- */
 .subcategories {
-    margin-top: 140px; /* Adjust this value as needed */
+    margin-top: 170px; /* Adjust this value as needed */
 }
 .subcategories h2 {
     text-align: center;
@@ -410,15 +415,25 @@ nav .fa{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 100px;
+    margin: 40px;
 }
 
 .subcategory-item {
+    display: flex; /* Sets the display to flex */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    text-align: center; /* Center the contents */
+
     width: 15%; /* Adjust width to fit 5 items per line */
-    text-align: center;
-    margin-bottom: 20px;
     color: inherit; /* This makes the text color the same as its parent element */
     text-decoration: none; /* Removes the underline typically found in links */
+    margin-top: 35px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    
+    border-radius: 25px;
+    font-size: 15px;
+    background: #fff;
 }
 
 
@@ -426,11 +441,6 @@ nav .fa{
     width: 100%;
     height: auto; /* Keep the aspect ratio */
 }
-
-.subcategory-name {
-    margin-top: 10px;
-}
-
 
 
 /*correcting for mobile devices (below 700px)*/
@@ -459,7 +469,7 @@ nav .fa{
 
 /* -------SUBCATEGORY2 LEVEL--------- */
 .subcategory2 {
-    margin-top: 140px; /* Adjust this value as needed */
+    margin-top: 170px; /* Adjust this value as needed */
 }
 
 .subcategory2 h2 {
@@ -474,11 +484,21 @@ nav .fa{
 }
 
 .subcategory2-item {
+    display: flex; /* Sets the display to flex */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    text-align: center; /* Center the contents */
+
     width: 15%; /* Adjust width to fit 5 items per line */
-    text-align: center;
-    margin-bottom: 20px;
     color: inherit; /* This makes the text color the same as its parent element */
     text-decoration: none; /* Removes the underline typically found in links */
+    /*margin-top: 15px;*/
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    
+    border-radius: 25px;
+    font-size: 15px;
+    background: #fff;
 }
 
 .subcategory2-image {
@@ -486,9 +506,6 @@ nav .fa{
     height: auto; /* Keep the aspect ratio */
 }
 
-.subcategory2-name {
-    margin-top: 10px;
-}
 
 /* Responsive styling adjustments for mobile devices */
 @media (max-width: 700px) {

@@ -190,15 +190,7 @@ def subcategory_page(subcategory_name):
 
 
 
-#RECIPES
-
-@app.route('/recipes')
-
-def recipes():
-    product_names = [str(name).lower() for name in df.index.tolist()]
-    return render_template('recipes.html', product_names=product_names)
-
-
+#PRICE COMPARISON
 
 @app.route('/compare_prices', methods=['GET'])
 def compare_prices():
@@ -284,7 +276,12 @@ def compare_prices():
                            pivot_urls_dict=pivot_urls_dict)
 
 
+#RECIPES
+@app.route('/recipes')
+def recipes():
+    return render_template('recipes.html')
 
+#BLOG
 @app.route('/blog')
 def blog():
     return render_template('blog.html')
