@@ -18,32 +18,183 @@ Comprix - Recipes
     <div class="container">
         <!----------<h1 class="sub-title">My Work</h1>---------->
         <div class="work-list">
+            <!-- Recipe 1 -->
             <div class="work">
                 <img src="{{ url_for('static', filename='images/recipe1.png') }}">
                 <div class="layer">
                     <h3>Thai Curry with Chickpeas, Pumpkin and Spinach</h3>
-                    <!----------<p>The app connects you yo the talented people around the world. Download it from play store.</p>---------->
-                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="javascript:void(0)" onclick="openModal('recipeModal1')"><i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
+            <!-- Recipe 1 Modal -->
+            <div id="recipeModal1" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Thai Curry with Chickpeas, Pumpkin and Spinach</h2>
+                    
+                    <div style="display: flex; margin-bottom: 20px;">
+                        <!-- Ingredients Section -->
+                        <div style="flex: 1; padding-left: 20px;">
+                            <h5>Ingredients for 2 Servings</h5>
+                            <p>• 1 cup cooked chickpeas (or canned)</p>
+                            <p>• 300 g pumpkin (weighed before peeling)</p>
+                            <p>• 1 small onion</p>
+                            <p>• 1 teaspoon of red curry paste (or 1 teaspoon of grated garlic and ginger and 1/2 teaspoon of ground hot pepper)</p>
+                            <p>• 1/2 teaspoon ground turmeric</p>
+                            <p>• 150 ml coconut milk</p>
+                            <p>• Approx. 1/2 cup of broth</p>
+                            <p>• A large handful of spinach</p>
+                            <p>• Coriander (for garnish)</p>
+                            <p>• Fresh chili (for garnish)</p>
+                            <p>• 1 lime wedge (for serving)</p>
+                            <p>• Salt (to taste)</p>
+                            <p>• 2 tablespoons of coconut oil (for frying)</p>
+                            <p>• Rice (for serving)</p>
+                        </div>
+                        <!--<div style="flex: 1; padding-right: 20px;">
+                            <h5>Ingredients for 2 Servings</h5>
+                            <ul style="list-style-type: none; padding-left: 0;">
+                                <li>1 cup cooked chickpeas (or canned)</li>
+                                <li>300 g pumpkin (weighed before peeling)</li>
+                                <li>1 small onion</li>
+                                <li>1 teaspoon of red curry paste (or 1 teaspoon of grated garlic and ginger and 1/2 teaspoon of ground hot pepper)</li>
+                                <li>1/2 teaspoon ground turmeric</li>
+                                <li>150 ml coconut milk</li>
+                                <li>Approx. 1/2 cup of broth</li>
+                                <li>A large handful of spinach</li>
+                                <li>Coriander (for garnish)</li>
+                                <li>Fresh chili (for garnish)</li>
+                                <li>1 lime wedge (for serving)</li>
+                                <li>Salt (to taste)</li>
+                                <li>2 tablespoons of coconut oil (for frying)</li>
+                                <li>Rice (for serving)</li>
+                            </ul>
+                        </div> -->
+                        <!-- Preparation Section -->
+                        <div style="flex: 1; padding-left: 20px;">
+                            <h5>Preparation</h5>
+                            <p>• Peel the pumpkin and cut into cubes. Cut the onion into slices.</p>
+                            <p>• In a pan, fry the curry paste in 2 tablespoons of coconut milk. Add pumpkin, onion, season with salt and fry, stirring occasionally, for about 2 minutes.</p>
+                            <p>• Add ground turmeric and cooked or canned chickpeas (if possible, add a few tablespoons of the chickpeas water). Add another 2 tablespoons of milk and fry for 1 minute.</p>
+                            <p>• Pour in the rest of the coconut milk and bring to a boil. Cook for about 15 minutes, stirring occasionally. Pour the broth gradually and cook for approx. 5 - 10 minutes until the pumpkin is soft. In the meantime, stir every now and then. Finally, add the spinach, mix and set aside from the heat.</p>
+                            <p>• Sprinkle with coriander and fresh chili, serve with rice and a lime wedge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe 2 -->
             <div class="work">
                 <img src="{{ url_for('static', filename='images/recipe2.png') }}">
                 <div class="layer">
                     <h3>Salmon Baked in Red Pesto</h3>
-                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="javascript:void(0)" onclick="openModal('recipeModal2')"><i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
+
+            <!-- Recipe 2 Modal -->
+            <div id="recipeModal2" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Salmon Baked in Red Pesto</h2>
+                    
+                    <div style="display: flex; margin-bottom: 20px;">
+                        <!-- Ingredients Section -->
+                        <div style="flex: 1; padding-right: 20px;">
+                            <h5>Ingredients for 2 Servings</h5>
+                            <p>• 600 g salmon</p> 
+                            <p>• Salt and pepper (to taste)</p>
+                            <p>• 2 tablespoons of red pesto (made from dried tomatoes)</p>
+                            <p>• 1/2 can of chopped, peeled tomatoes (or 1 fresh tomato)</p>
+                            <p>• 2 teaspoons of dried oregano</p>
+                            <p>• 2 tablespoons of extra olive oil</p>
+                            <p>• Fresh basil (for garnish)</p>
+                            <p>• 1/2 cup grated Parmesan cheese</p>
+                        </div>
+                        <!-- Preparation Section -->
+                        <div style="flex: 1; padding-left: 20px;">
+                            <h5>Preparation</h5>
+                            <p>• Cut off the skin from the fillets, rinse the salmon, dry it and cut into portions. Season with salt and pepper and spread with red pesto. Place in an ovenproof dish.</p>
+                            <p>• Place 2 tablespoons of chopped tomatoes on each portion and season with dried oregano, salt, and pepper. Drizzle with olive oil, sprinkle with basil and Parmesan. Preheat the oven to 200 degrees C and bake for about 15 - 17 minutes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe 3 -->
             <div class="work">
                 <img src="{{ url_for('static', filename='images/recipe3.png') }}">
                 <div class="layer">
                     <h3>Pasta with Shrimp and Zucchini</h3>
-                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="javascript:void(0)" onclick="openModal('recipeModal3')"><i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
+
+            <!-- Recipe 3 Modal -->
+            <div id="recipeModal3" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Pasta with Shrimp and Zucchini</h2>
+                    
+                    <div style="display: flex; margin-bottom: 20px;">
+                        <!-- Ingredients Section -->
+                        <div style="flex: 1; padding-right: 20px;">
+                            <h5>Ingredients for 2 Servings</h5>
+                            <p>• 12-16 shrimps</p> 
+                            <p>• 1 small zucchini (approx. 250 g)</p>
+                            <p>• 150 g tagliatelle pasta</p>
+                            <p>• 4 tablespoons of chopped parsley</p>
+                            <p>• 6 tablespoons of whipping cream 30%</p>
+                            <p>• 2 cloves of garlic</p>
+                            <p>• 6 tablespoons of white wine</p>
+                            <p>• 1 and 1/2 tablespoons of olive oil</p>
+                            <p>• 2 tablespoons of butter</p>
+                            <p>• A pinch of saffron (optional)</p>
+                            <p>• 2 lemon pieces (for serving)</p>
+                        </div>
+                        <!-- Preparation Section -->
+                        <div style="flex: 1; padding-left: 20px;">
+                            <h5>Preparation</h5>
+                            <p>• Clean, wash, and dry the shrimp. Cut the zucchini into slices and halves. Chop the parsley and grate the garlic. Cook the pasta al dente, drain, reserving some pasta water.</p>
+                            <p>• In a pan with olive oil and grated garlic, fry lightly, add zucchini, and stir-fry for about 5 minutes. Add butter, salt, optionally saffron, and fry for another 2-3 minutes.</p>
+                            <p>• Move zucchini to the edge of the pan, add butter and shrimps in the free space, season them with salt, and fry for half a minute on each side over higher heat.</p>
+                            <p>• Add parsley, mix all ingredients in the pan, and fry for a while. Pour in the wine and let it evaporate over high heat.</p>
+                            <p>• Add the heavy cream, pasta, and a few tablespoons of pasta water. Mix and bring to a boil. Remove from heat when the sauce becomes thick. Serve with a lemon wedge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <!----------<a href="#" class="btn">See more</a>---------->
     </div>
 </div>
-
+<script>
+    // Function to open a modal
+    function openModal(modalId) {
+      var modal = document.getElementById(modalId);
+      modal.style.display = "block";
+    
+      // Get the <span> element that closes the modal
+      var span = modal.getElementsByClassName("close")[0];
+    
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+    }
+    
+    // Close the modal when the user clicks anywhere outside of it
+    window.onclick = function(event) {
+      var modals = document.getElementsByClassName("modal");
+      for (var i = 0; i < modals.length; i++) {
+        var modal = modals[i];
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    }
+    </script>
+    
 {% endblock %}
 </div>

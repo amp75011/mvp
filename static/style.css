@@ -796,10 +796,94 @@ nav .fa{
     background: #ff004f;
 }
 
+/*******************************/
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling for h5 and p for both sections */
+.modal-content h5,
+.modal-content p {
+    text-align: left;
+    margin-left: 0;
+    line-height: 1.6; /* Example line height, adjust as needed */
+}
+
+/* Specific styling for h5 headings */
+.modal-content h5 {
+    font-size: 1.25em; /* Larger font size for h5 */
+    margin-top: 30px; /* More space above h5 */
+    margin-bottom: 20px; /* More space below h5 */
+}
+
+  /* The Close Button */
+  .close {
+    position: absolute; /* Position the close button absolutely within the .modal-content */
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;    
+    top: 125px; /* Adjust as needed */
+    right: 140px; /* Adjust as needed */
+    
+    cursor: pointer;
+    
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+/*****************/
+
 @media (max-width:700px){
     .recipes{
         padding-top: 20vh;
     }
+    html {
+        font-size: 75%; /* Decrease the base font size by 25% */
+    }
+    .modal {
+        padding-top: 15vh; /* Reduced from 60px to ensure it doesn't go off-screen */
+        /* If padding-top doesn't fix the issue, try using top with max-height */
+        /* top: 10vh; */
+        /* max-height: 80vh; */
+        /* overflow-y: auto; */ /* Enables scrolling if the content is too long */
+    }
+
+    .modal-content {
+        margin-top: 5vh; /* Adjust this as needed to center the modal vertically */
+        /* Remove margin-top if using top in .modal */
+    }
+    .close {
+        right: 40px; /* Adjust as needed */  
+  }
 } 
 
 /* FOOTER PAGES */
