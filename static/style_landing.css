@@ -265,7 +265,7 @@ p{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+    background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.2));
     pointer-events: none;  /* So it doesn't interfere with clicks */
     z-index: 1;            /* Higher z-index to make sure it's on top of the image */
 }
@@ -283,6 +283,21 @@ p{
 .feature h3{
    margin-top: 16px;
    margin-bottom: 15px;
+}
+
+/* coming soon logo*/
+.text-with-icon {
+    display: flex;
+    align-items: center; /* Aligns items vertically center */
+}
+
+.text-with-icon h3 {
+    margin-right: 5px; /* Adds some space between the text and the icon */
+}
+
+.coming-soon-icon {
+    width: 110px; /* Adjust the width as needed */
+    height: auto; /* Keeps the aspect ratio of the image */
 }
 
 
