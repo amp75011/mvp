@@ -882,7 +882,8 @@ nav .fa{
         /* Remove margin-top if using top in .modal */
     }
     .close {
-        right: 40px; /* Adjust as needed */  
+        right: 40px; /* Adjust as needed */
+        top: 130px; /* Adjust as needed */  
   }
 } 
 
