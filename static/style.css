@@ -1167,11 +1167,18 @@ nav .fa{
 
 
 @media (max-width:700px){
+
+    .blog-post {
+        padding: 20px;
+    }
+
     .sub-header h1{
         font-size: 24px;
     }
+   
     .blog-left h2 {
         font-size: 18px;
+        margin: 15px 0;
     }
     .blog-right {
         display: none;
