@@ -1125,7 +1125,7 @@ nav .fa{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+    background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
     pointer-events: none;  /* So it doesn't interfere with clicks */
     z-index: 1;            /* Higher z-index to make sure it's on top of the image */
 }
