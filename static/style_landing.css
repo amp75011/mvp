@@ -320,6 +320,75 @@ p{
     padding: 0;
 }
 
+.subscribe-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.subscribe-popup .popup-content {
+    text-align: center;
+}
+
+.subscribe-popup .close-btn {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.subscribe-popup h2 {
+    margin: 0;
+    color: #333;
+}
+
+.subscribe-popup form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.subscribe-popup input[type=email] {
+    width: calc(100% - 20px); /* Adjust width to fit container */
+    margin: 10px 0;
+    margin-bottom: 20px; /* Space before the button */
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    display: block; /* Ensure it takes its own line */
+    margin: 0 auto; /* Center the input field */
+}
+
+.subscribe-popup .hero-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    /*background-color: #007bff;*/
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: block;
+}
+
+
+.subscribe-popup p {
+    margin-top: 20px;
+    color: green;
+}
+
 @media(max-width: 700px){
     .newsletter h1{
         font-size: 22px;

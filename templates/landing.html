@@ -116,21 +116,36 @@
         <!-----SEE MINUTE 49 !!! --->
 
         <!----- Newsletter --->
+
         <section class="newsletter">
             <h1>Subscribe to Newsletter</h1>
-            <a href="" class="hero-btn">SUBSCRIBE</a>
+            <button class="hero-btn" onclick="openSubscribePopup()">SUBSCRIBE</button>
         </section>
 
+        <div id="subscribePopup" class="subscribe-popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closeSubscribePopup()">&times;</span>
+                <h2>Subscribe to Our Newsletter</h2>
+                
+                <form id="subscribeForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="hero-btn">Subscribe</button>
+                </form>
+                <p id="thankYouMessage" style="display:none;">Thank you for subscribing!</p>
+            </div>
+        </div>
+        
+        
         <!----- FOOTER --->
         <footer>
             <div class="row">
                  <div class="col">
                     <h3>Links</h3>
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Recipes & Substitutes</a></li>
+                        <li><a href="{{ url_for('landing') }}">Home</a></li>
+                        <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
                         <li><a href="">Sustainability & Health Badges</a></li>
-                        <li><a href="">Blog</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
                     </ul>
                 </div>
                 
@@ -192,7 +207,27 @@
                 popup.classList.remove("open-popup"); 
             }
 
+            // NEWSLETTER
+            function openSubscribePopup() {
+    document.getElementById("subscribePopup").style.display = "block";
+}
+
+function closeSubscribePopup() {
+    document.getElementById("subscribePopup").style.display = "none";
+}
+
+document.getElementById("subscribeForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    document.getElementById("thankYouMessage").style.display = "block";
+    // Add additional code here for actual subscription functionality, e.g., AJAX request
+});
+
+
+    
         </script>
+
+
+
         <script type="text/javascript">
             $(document).ready(function() {
                 var arrondissements = {{ arrondissements | tojson | safe }};
