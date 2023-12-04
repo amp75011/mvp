@@ -447,7 +447,7 @@ form{
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 form .far{
     font-size: 18px;
@@ -470,6 +470,14 @@ form button .fas{
     font-size: 16px;
     color: #ccc;
 }
+
+#footerThankYouMessage {
+    color: #ccc;
+    margin: 0; /* Reduces the top margin to bring the message higher */
+    font-size: 14px; /* Adjust font size as needed */
+    margin-bottom: 40px;
+}
+
 .social-icons .fab{
     width: 40px;
     height: 40px;
@@ -491,7 +499,6 @@ hr{
 .copyright{
     text-align: center;
 }
-
 
 /* Add the initial state for the h3 in the footer */
 footer h3::after {

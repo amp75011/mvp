@@ -167,7 +167,7 @@
                     </ul>
                 </div>                
                
-                <div class="col">
+                <!-----<div class="col">
                     <h3>Newsletter</h3>
                     <form>
                          <i class="far fa-envelope"></i>
@@ -179,7 +179,22 @@
                         <i class="fab fa-instagram"></i>
                         <i class="fab fa-linkedin-in"></i>        
                     </div>
+                </div>--->
+                <div class="col">
+                    <h3>Newsletter</h3>
+                    <form id="footerNewsletterForm">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                    <p id="footerThankYouMessage" style="display:none;">Thank you for subscribing!</p>
+                    <div class="social-icons">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-linkedin-in"></i>        
+                    </div>
                 </div>
+                
             </div>
             <hr>
             <p class="copyright">© 2023 ComPrix</p>
@@ -223,7 +238,14 @@ document.getElementById("subscribeForm").addEventListener("submit", function(eve
 });
 
 
-    
+    // FOOTER
+
+    document.getElementById("footerNewsletterForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    document.getElementById("footerThankYouMessage").style.display = "block";
+    // Add additional code here for actual subscription functionality, e.g., AJAX request
+});
+
         </script>
 
 
