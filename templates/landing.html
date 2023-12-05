@@ -20,10 +20,10 @@
                     <ul>
                         <li><span class="nav-link" onclick="openPopup()">Price Comparison Tool</span></li>
                         <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
-                        <li><a href="">Sustainability & Health Badges</a></li>
+                        <li><a href="{{ url_for('badges') }}">Sustainability & Health Badges</a></li>
                         <li><a href="{{ url_for('blog') }}">Blog</a></li>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">FAQs & Support</a></li>
+                        <!--<li><a href="">About Us</a></li>-->
+                        <!--<li><a href="">FAQs & Support</a></li>-->
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -144,7 +144,7 @@
                     <ul>
                         <li><a href="{{ url_for('landing') }}">Home</a></li>
                         <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
-                        <li><a href="">Sustainability & Health Badges</a></li>
+                        <li><a href="{{ url_for('badges') }}">Sustainability & Health Badges</a></li>
                         <li><a href="{{ url_for('blog') }}">Blog</a></li>
                     </ul>
                 </div>

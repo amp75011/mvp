@@ -1267,3 +1267,89 @@ nav .fa{
         font-size: 14px;
     }
 }
+
+/* !!! BADGES !!! */
+
+/* Badges Section */
+.badges-section {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 170px;
+}
+
+/* Row containing the badge features */
+.badges-section .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;    
+}
+
+/* Styling for each badge feature */
+.badge-feature {
+    flex-basis: 32%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Optional: Adds shadow for depth */
+    background-color: #fff; /* Optional: for better readability */   
+}
+
+/* Styling for the texts inside each badge feature */
+.badge-feature h3 {
+    margin-top: 16px;
+    margin-bottom: 15px;
+}
+
+.badge-feature p {
+    padding: 0;
+}
+
+.responsive-break {
+    text-align: center;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hide the span content by default */
+.responsive-break .mobile-break {
+    display: none;
+}
+
+/* Responsive design for smaller screens */
+@media(max-width: 700px){
+    .badges-section .row {
+        width: auto; /* Allows the row to size according to its content */
+        flex-direction: column;
+        justify-content: center; /* Centers the children horizontally */
+        align-items: center; /* Centers the children vertically */
+        padding: 0 5%; /* Adds padding on the sides to prevent content touching the screen edges */
+    }
+
+    .badges-section h1 {
+        margin-bottom: 50px;    
+    
+    }
+    
+    .badge-feature {
+        flex-basis: auto; /* Auto size based on the content */
+        width: 100%; /* Sets the width to 100% of the parent */
+        margin: 0 auto 30px; /* Centers the feature and adds margin at the bottom */
+    }
+
+    .responsive-break .mobile-break {
+        display: inline; /* Make span inline to fit within the text flow */
+        content: "\A"; /* Inserts a newline character */
+        white-space: pre; /* Preserves white space and line breaks */
+        line-height: 0.2;
+    }
+    
+    .responsive-break .mobile-break::before {
+            content: "\A"; /* This is the escaped newline character */
+            white-space: pre; /* This makes the browser respect the newline character */
+            display: block; /* Convert the span (inline) into a block to force the line break */
+        }
+}
+

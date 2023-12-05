@@ -286,6 +286,12 @@ def recipes():
 def blog():
     return render_template('blog.html')
 
+#BADGES
+@app.route('/badges')
+def badges():
+    return render_template('sustainability_health_badges.html')
+
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
