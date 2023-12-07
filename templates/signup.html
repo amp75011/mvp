@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - ComPrix</title>
+    <style>
+        *{
+     margin: 0;
+     padding: 0;
+     font-family: 'Poppins', sans-serif;
+     box-sizing: border-box;
+ }
+  
+  body{
+     background: #262a2f;
+  }
+  .login-box {
+    background: #fff;
+    width: 550px; /* You might want to change this to a percentage or smaller fixed width */
+    padding: 30px 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9); /* Combine scaling and translating */
+    text-align: center;
+    border-radius: 10px;
+    /*margin-top: 80px;*/
+}
+
+  .logo{
+     width: 140px;
+     margin-bottom: 20px;
+  }
+  .login-box h2{
+     margin-bottom: 20px;
+  }
+  .login-box button img{
+     width: 18px;
+     margin-right: 10px;
+  }
+  .login-box button{
+     width: 100%;
+     padding: 10px 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 20px 0;
+     border-radius: 30px;
+     background: transparent;
+     border: 1px solid #999;
+     font-weight: 500;
+     cursor: pointer;
+  }
+  .login-box hr{
+     border: 0;
+     height: 1px;
+     background: #c2c2c2;
+     margin: 5px;
+  }
+  /*.login-box span{
+     display: block;
+     width: 40px;
+     margin: auto;
+     background: #fff;
+     font-size: 14px;
+     margin-top: -16px;
+  }*/
+  .login-box input{
+     width: 100%;
+     background: transparent;
+     border: 1px solid #999;
+     outline: 0;
+     padding: 15px 10px;
+     border-radius: 4px;
+     margin: 10px 0;
+  }
+  ::placeholder{
+     font-weight: 500;
+     color: #333;
+  }
+  .login-box form button{
+     background: #000;
+     color: #fff;
+     border: 0;
+     margin-bottom: 15px;
+  }
+  .login-box p{
+     text-align: left;
+     font-size: 14px;
+     color: #555;
+     margin: 40px 0 50px;
+     margin-bottom: 30px;
+  }
+  .login-box p a{
+     text-decoration: none;
+     color: #359cf0;
+  }
+ 
+  .watch-link{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+}
+     </style>
+</head>
+<body>
+    <div class="login-box">
+        <span class="close-btn" onclick="goBack()">&times;</span>
+        <img src="{{ url_for('static', filename='images/logo_black.png') }}" class="logo">
+        <h2>Sign up for ComPrix</h2>
+        <form action="/signup" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login_page') }}">Login</a></p>
+    </div>
+    <script>
+        function goBack() {
+    // Check if the previous page is 'login.html'
+    if (document.referrer.indexOf('login') !== -1) {
+        // Go back two pages
+        window.history.go(-2);
+    } else {
+        // Go back one page
+        window.history.back();
+    }
+}
+
+    </script>
+</body>
+</html>

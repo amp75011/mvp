@@ -1,34 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import re
 import os
 import unicodedata
-from flask_bcrypt import Bcrypt
-# Import MySQL connector
-import mysql.connector
-from mysql.connector import Error as mysqlError
-
 
 app = Flask(__name__)
 
-bcrypt = Bcrypt(app)
-
-# Database connection parameters (the authentification database)
-
-db_params = {
-    'database': 'comprix$user_auth_db',  # Use 'database' instead of 'dbname'
-    'user': 'comprix',
-    'password': os.environ.get('DATABASE_PASSWORD'),
-    'host': 'comprix.mysql.eu.pythonanywhere-services.com'
-}
-
-# Establish a database connection using MySQL connector
-try:
-    conn = mysql.connector.connect(**db_params)
-    cur = conn.cursor(dictionary=True)  # Use dictionary=True to get dict cursor
-except mysql.connector.Error as error:
-    print("Error: ", error)
-    
 # Normalising French characters
 def normalize_string(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
@@ -314,110 +291,15 @@ def blog():
 def badges():
     return render_template('sustainability_health_badges.html')
 
-# Render the login page
-@app.route('/login', methods=['GET'])
-def login_page():
+#LOGIN
+@app.route('/login')
+def login():
     return render_template('login.html')
 
-# Handle the login form submission
-@app.route('/login', methods=['POST'])
-def login_action():
-    username = request.form.get('username')
-    password = request.form.get('password')
-
-    try:
-        # Establish a database connection using MySQL
-        conn = mysql.connector.connect(**db_params)
-        cur = conn.cursor(dictionary=True)
-        
-        # Check user credentials
-        cur.execute('SELECT * FROM users WHERE username = %s', (username,))
-        user = cur.fetchone()
-
-        if user and bcrypt.check_password_hash(user['password'], password):
-            # Successful login
-            session['username'] = username  # Start a session for the logged-in user
-            return redirect(url_for('dashboard'))  # Redirect to the dashboard view function
-        else:
-            # Invalid credentials
-            return 'Invalid username or password', 401
-
-    except mysql.connector.Error as error:
-        print(f"An error occurred: {error}")
-        return 'Database connection error', 500
-    finally:
-        if conn.is_connected():
-            cur.close()
-            conn.close()
-
-
-# Render the signup page
-@app.route('/signup', methods=['GET'])
-def signup_page():
+#SIGNUP
+@app.route('/signup')
+def signup():
     return render_template('signup.html')
-
-# Handle the signup form submission
-@app.route('/signup', methods=['POST'])
-def signup_action():
-    username = request.form.get('username')
-    password = request.form.get('password')
-    email = request.form.get('email')
-
-    # Hash the password
-    pw_hash = bcrypt.generate_password_hash(password).decode('utf-8')
-
-    try:
-        # Establish a database connection using MySQL
-        conn = mysql.connector.connect(**db_params)
-        cur = conn.cursor()
-
-        # Insert new user into the database
-        cur.execute('INSERT INTO users (username, password, email) VALUES (%s, %s, %s)',
-                    (username, pw_hash, email))
-        conn.commit()
-
-        # After successful signup
-        session['username'] = username  # Start a session for the logged-in user
-        return redirect(url_for('dashboard'))  # Redirect to the dashboard view function
-
-    except mysql.connector.Error as error:
-        print(f"An error occurred: {error}")
-        conn.rollback()
-        if error.errno == mysql.connector.errorcode.ER_DUP_ENTRY:
-            # Handle username or email already exists error
-            return 'Username or email already exists', 409
-        else:
-            return 'Database error during signup', 500
-
-    finally:
-        if conn.is_connected():
-            cur.close()
-            conn.close()
-
-
-    # Redirect user to login page or dashboard after successful signup
-    # For now, just returning a success message
-    # return 'Sign-up successful', 200
-# After successful signup
-    session['username'] = username  # Start a session for the logged-in user
-    return redirect(url_for('dashboard'))  # Redirect to the dashboard view function
-
-@app.route('/dashboard')
-def dashboard():
-    if 'username' in session:
-        # Fetch additional data as needed to display on the dashboard
-        return render_template('dashboard.html')  # Render a dashboard template
-    else:
-        return redirect(url_for('login_page'))  # If not logged in, redirect to login
-    
-
-@app.route('/faq')
-def faq():
-    return render_template('faq.html')
-    
-
-# Make sure to add a secret key for sessions to work
-app.secret_key = os.environ.get('SECRET_KEY')  # Replace with a real secret key
 
 
 if __name__ == '__main__':

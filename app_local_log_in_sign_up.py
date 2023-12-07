@@ -4,9 +4,8 @@ import re
 import os
 import unicodedata
 from flask_bcrypt import Bcrypt
-# Import MySQL connector
-import mysql.connector
-from mysql.connector import Error as mysqlError
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 
 app = Flask(__name__)
@@ -16,19 +15,12 @@ bcrypt = Bcrypt(app)
 # Database connection parameters (the authentification database)
 
 db_params = {
-    'database': 'comprix$user_auth_db',  # Use 'database' instead of 'dbname'
-    'user': 'comprix',
-    'password': os.environ.get('DATABASE_PASSWORD'),
-    'host': 'comprix.mysql.eu.pythonanywhere-services.com'
+    'dbname': 'user_auth_db',
+    'user': 'postgres',
+    'password': 'ComPrix1989',
+    'host': 'localhost'
 }
 
-# Establish a database connection using MySQL connector
-try:
-    conn = mysql.connector.connect(**db_params)
-    cur = conn.cursor(dictionary=True)  # Use dictionary=True to get dict cursor
-except mysql.connector.Error as error:
-    print("Error: ", error)
-    
 # Normalising French characters
 def normalize_string(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
@@ -76,7 +68,8 @@ def load_data(file_path):
     # Remove special characters and diacritics from all string columns except the URL column
     for col in df.columns:
         if col != 'URL' and df[col].dtype == object:
-            df[col] = df[col].str.replace('[^\w\s]', '', regex=True)
+            df[col] = df[col].str.replace(r'[^\w\s]', '', regex=True)
+            #df[col] = df[col].str.replace('[^\w\s]', '', regex=True)
             #df[col] = df[col].apply(remove_diacritics)
     df['Shop'] = df['URL'].apply(extract_shop_from_url)
     df['DescBrand'] = df['Brand'].astype(str) + ' ' + df['Description'].astype(str)
@@ -325,31 +318,30 @@ def login_action():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    try:
-        # Establish a database connection using MySQL
-        conn = mysql.connector.connect(**db_params)
-        cur = conn.cursor(dictionary=True)
-        
-        # Check user credentials
-        cur.execute('SELECT * FROM users WHERE username = %s', (username,))
-        user = cur.fetchone()
+    # Establish a database connection
+    conn = psycopg2.connect(**db_params)
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+    
+    # Check user credentials
+    cur.execute('SELECT * FROM users WHERE username = %s', (username,))
+    user = cur.fetchone()
 
-        if user and bcrypt.check_password_hash(user['password'], password):
-            # Successful login
-            session['username'] = username  # Start a session for the logged-in user
-            return redirect(url_for('dashboard'))  # Redirect to the dashboard view function
-        else:
-            # Invalid credentials
-            return 'Invalid username or password', 401
+    if user and bcrypt.check_password_hash(user['password'], password):
+        # Successful login
+        # (You should implement session or token logic here)
+        # cur.close()
+        # conn.close()
+        # return 'Login successful', 200
+    
+        # After successful login
+        session['username'] = username  # Start a session for the logged-in user
+        return redirect(url_for('dashboard'))  # Redirect to the dashboard view function
 
-    except mysql.connector.Error as error:
-        print(f"An error occurred: {error}")
-        return 'Database connection error', 500
-    finally:
-        if conn.is_connected():
-            cur.close()
-            conn.close()
-
+    else:
+        # Invalid credentials
+        cur.close()
+        conn.close()
+        return 'Invalid username or password', 401
 
 # Render the signup page
 @app.route('/signup', methods=['GET'])
@@ -366,34 +358,22 @@ def signup_action():
     # Hash the password
     pw_hash = bcrypt.generate_password_hash(password).decode('utf-8')
 
+    # Establish a database connection
+    conn = psycopg2.connect(**db_params)
+    cur = conn.cursor()
+    
+    # Insert new user into the database
     try:
-        # Establish a database connection using MySQL
-        conn = mysql.connector.connect(**db_params)
-        cur = conn.cursor()
-
-        # Insert new user into the database
         cur.execute('INSERT INTO users (username, password, email) VALUES (%s, %s, %s)',
                     (username, pw_hash, email))
         conn.commit()
-
-        # After successful signup
-        session['username'] = username  # Start a session for the logged-in user
-        return redirect(url_for('dashboard'))  # Redirect to the dashboard view function
-
-    except mysql.connector.Error as error:
-        print(f"An error occurred: {error}")
+    except psycopg2.IntegrityError:
+        # Handle username or email already exists error
         conn.rollback()
-        if error.errno == mysql.connector.errorcode.ER_DUP_ENTRY:
-            # Handle username or email already exists error
-            return 'Username or email already exists', 409
-        else:
-            return 'Database error during signup', 500
-
+        return 'Username or email already exists', 409
     finally:
-        if conn.is_connected():
-            cur.close()
-            conn.close()
-
+        cur.close()
+        conn.close()
 
     # Redirect user to login page or dashboard after successful signup
     # For now, just returning a success message
@@ -417,7 +397,7 @@ def faq():
     
 
 # Make sure to add a secret key for sessions to work
-app.secret_key = os.environ.get('SECRET_KEY')  # Replace with a real secret key
+app.secret_key = 'ComPrix1989'  # Replace with a real secret key
 
 
 if __name__ == '__main__':
