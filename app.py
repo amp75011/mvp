@@ -16,9 +16,10 @@ bcrypt = Bcrypt(app)
 # Database connection parameters (the authentification database)
 
 db_params = {
-    'database': 'comprix$user_auth_db',  # Use 'database' instead of 'dbname'
+    'database': 'comprix$user_auth_db',
     'user': 'comprix',
-    'password': os.environ.get('DATABASE_PASSWORD'),
+    #'password': os.environ.get('DATABASE_PASSWORD'),
+    'password': 'testingout',
     'host': 'comprix.mysql.eu.pythonanywhere-services.com'
 }
 
@@ -76,7 +77,8 @@ def load_data(file_path):
     # Remove special characters and diacritics from all string columns except the URL column
     for col in df.columns:
         if col != 'URL' and df[col].dtype == object:
-            df[col] = df[col].str.replace('[^\w\s]', '', regex=True)
+            df[col] = df[col].str.replace(r'[^\w\s]', '', regex=True)
+            #df[col] = df[col].str.replace('[^\w\s]', '', regex=True)
             #df[col] = df[col].apply(remove_diacritics)
     df['Shop'] = df['URL'].apply(extract_shop_from_url)
     df['DescBrand'] = df['Brand'].astype(str) + ' ' + df['Description'].astype(str)
@@ -414,11 +416,37 @@ def dashboard():
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
+
+
+## NEWSLETTER 
+@app.route('/subscribe_newsletter', methods=['POST'])
+def subscribe_newsletter():
+    email = request.form.get('email')
+    if not email:
+        return 'No email provided', 400
+
+    try:
+        conn = mysql.connector.connect(**db_params)
+        cur = conn.cursor()
+
+        # Insert the email into the newsletter_subscribers table
+        cur.execute('INSERT INTO newsletter_subscribers (email) VALUES (%s)', (email,))
+        conn.commit()
+        return 'Subscription successful', 200
+    except mysql.connector.Error as error:
+        print(f"An error occurred: {error}")
+        conn.rollback()
+        return 'Database error', 500
+    finally:
+        if conn.is_connected():
+            cur.close()
+            conn.close()
+
     
 
 # Make sure to add a secret key for sessions to work
-app.secret_key = os.environ.get('SECRET_KEY')  # Replace with a real secret key
-
+# app.secret_key = os.environ.get('SECRET_KEY')  # Replace with a real secret key
+app.secret_key = 'testingout'
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

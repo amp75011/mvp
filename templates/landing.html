@@ -129,10 +129,14 @@
                 <span class="close-btn" onclick="closeSubscribePopup()">&times;</span>
                 <h2>Subscribe to Our Newsletter</h2>
                 
-                <form id="subscribeForm">
-                    <input type="email" placeholder="Enter your email" required>
+                <form id="subscribeForm" action="{{ url_for('subscribe_newsletter') }}" method="post">
+                    <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit" class="hero-btn">Subscribe</button>
                 </form>
+                <!----- <form id="subscribeForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="hero-btn">Subscribe</button>
+                </form> --->
                 <p id="thankYouMessage" style="display:none;">Thank you for subscribing!</p>
             </div>
         </div>
@@ -184,11 +188,16 @@
                 </div>--->
                 <div class="col">
                     <h3>Newsletter</h3>
-                    <form id="footerNewsletterForm">
+                    <form id="footerNewsletterForm" action="{{ url_for('subscribe_newsletter') }}" method="post">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                    <!-----<form id="footerNewsletterForm">
                         <i class="far fa-envelope"></i>
                         <input type="email" placeholder="Enter your email" required>
                         <button type="submit"><i class="fas fa-arrow-right"></i></button>
-                    </form>
+                    </form>--->
                     <p id="footerThankYouMessage" style="display:none;">Thank you for subscribing!</p>
                     <div class="social-icons">
                         <i class="fab fa-facebook-f"></i>
@@ -233,10 +242,27 @@ function closeSubscribePopup() {
     document.getElementById("subscribePopup").style.display = "none";
 }
 
+// Updated form submission handling with AJAX request
 document.getElementById("subscribeForm").addEventListener("submit", function(event){
     event.preventDefault();
-    document.getElementById("thankYouMessage").style.display = "block";
-    // Add additional code here for actual subscription functionality, e.g., AJAX request
+    const form = this;
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => {
+        if(response.ok) {
+            document.getElementById("thankYouMessage").style.display = "block";
+            form.reset(); // Reset the form after successful submission
+            // Optionally, you can close the popup after a delay
+            setTimeout(() => {
+                closeSubscribePopup();
+            }, 3000); // Close popup after 3 seconds
+        } else {
+            alert("Subscription failed. Please try again.");
+        }
+    })
+    .catch(error => console.error('Error:', error));
 });
 
 
@@ -244,8 +270,20 @@ document.getElementById("subscribeForm").addEventListener("submit", function(eve
 
     document.getElementById("footerNewsletterForm").addEventListener("submit", function(event){
     event.preventDefault();
-    document.getElementById("footerThankYouMessage").style.display = "block";
-    // Add additional code here for actual subscription functionality, e.g., AJAX request
+    const form = this;
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => {
+        if(response.ok) {
+            document.getElementById("footerThankYouMessage").style.display = "block";
+            form.reset(); // Reset the form after successful submission
+        } else {
+            alert("Subscription failed. Please try again.");
+        }
+    })
+    .catch(error => console.error('Error:', error));
 });
 
         </script>
