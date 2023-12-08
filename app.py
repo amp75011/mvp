@@ -4,7 +4,6 @@ import re
 import os
 import unicodedata
 from flask_bcrypt import Bcrypt
-# Import MySQL connector
 import mysql.connector
 from mysql.connector import Error as mysqlError
 
