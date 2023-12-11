@@ -5,27 +5,24 @@ Comprix - {{ subcategory_name }}
 {% endblock %}
 
 {% block content %}
- <!--<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{{ url_for('shopping_list') }}#categories">All Categories</a></li>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ url_for('shopping_list') }}">All Categories</a></li>
       <li class="breadcrumb-item"><a href="{{ url_for('category_page', category_name=category_name) }}">{{ category_name }}</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{ parent_subcategory_name }}</li>
-    </ol>
-  </nav>-->
+      <li class="breadcrumb-item active" aria-current="page">{{ subcategory_name }}</li>
+  </ol>
+</nav>
+
   
 <section class="subcategory2">
     <h2 class="centered-title">{{ subcategory_name }}</h2>
     <div class="subcategory2-container">
         {% for item in subcategory2_items %}
             <div class="subcategory2-item">
-                <!-- Display the item image or a placeholder if the image file does not exist -->
-                <!--Desactivate it for a moment!!!
-                <img src="{{ url_for('static', filename='images/Products/Subcategory2/' + item.image) }}" onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/placeholder.png') }}'" alt="{{ item.name }}" class="subcategory2-image">-->
+                <!-- Include item images and placeholders as needed -->
                 <p class="subcategory2-name">{{ item.name }}</p>
             </div>
         {% endfor %}
     </div>
 </section>
 {% endblock %}
-
-<!-- This one displays different types of e.g. Dried fruits (subcategories), such as raisins secs (subcategory2). It pulls from subcategories2.xlxs  -->

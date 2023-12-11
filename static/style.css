@@ -536,9 +536,9 @@ nav .fa{
 }
 
 
-/* BREADCRUMBS 
+/* BREADCRUMBS */
 .breadcrumb {
-    margin-top: 105px;
+    margin-top: 155px;
     padding: 10px 15px;
     list-style: none;
     background-color: #f8f9fa;
@@ -564,7 +564,7 @@ nav .fa{
 .breadcrumb-item.active {
     color: #6c757d;
 }
-*/
+
 
 /* -------PREFERENCES----------- */
 /*setting up a photo*/
@@ -906,6 +906,10 @@ nav .fa{
     cursor: pointer;
     padding: 18px 0;
 
+}
+
+.instagram-icon {
+    text-decoration: none; /* Removes any text decoration */
 }
 
 /* COMPARE RESULTS */
@@ -1507,11 +1511,6 @@ nav .fa{
     text-align: justify; 
 }
 
-/* Base styles for FAQ Page */
-/* ... (Include your existing styles here) ... */
-
-
-
 /* Additional styles for smaller mobile screens */
 @media screen and (max-width: 768px) {
     .faq-image-container {
@@ -1521,19 +1520,31 @@ nav .fa{
     body {
        
     }
+    .faq-container{
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 10px;
+        /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+        margin-bottom: 30px;
+        max-width: 90%;
+        margin-left: 20px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Optional: Adds shadow for depth */
+        background-color: #fff; /* Optional: for better readability */   
+    }
 
-    .faq-main-container {
+    /*.faq-main-container {
         padding: 20px;
         background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('images/faq.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed; /* Make background image fixed */
-    }
+    /*}*/
 
     .faq-title {
         font-size: 22px; /* Smaller font size for the title */
-        margin-bottom: 20px;
+        margin-top: 30px;
+        margin-bottom: 50px;
     }
 
     .faq-question {
@@ -1549,9 +1560,9 @@ nav .fa{
     flex-basis: 100%;
     max-width: 100%;
 }
-.faq-title, .faq-question, .faq-answer {
+/*.faq-title, .faq-question, .faq-answer {
     color: #000000; 
-}
+}*/
 .faq-item {
     border-bottom: 1px solid #333;
     padding: 15px 10px;

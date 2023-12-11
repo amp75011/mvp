@@ -126,8 +126,8 @@ nav .fa{
     .header_landing {
         background-image: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.4)), url(images/banner_canva_mobile.png);
     }
-    .text-box h1{
-        font-size: 18px;
+    .text-box-landing h1{
+        font-size: 38px;
     }
     .text-box p{
         font-size: 12px;
@@ -196,7 +196,9 @@ p{
 /*orangy boxes*/
 .steps{
     flex-basis: 22%;
-    background: #fff3f3;
+    /*background: #fff3f3;*/
+    /*background: #C4D7E1;*/
+    background: #E3EBEF;
     border-radius: 10px;
     margin-bottom: 5%;
     padding: 20px 12px;
@@ -307,7 +309,7 @@ p{
 .newsletter{
     margin: 100px auto;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)), url(images/newsletter.png);
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)), url(images/newsletter_canva2.png);
     /*background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4)), url(images/newsletter.png);*/
     background-position: center;
     background-size: cover;
@@ -526,7 +528,7 @@ footer h3:hover::after {
     }
     .col{
         flex-basis: 100%;
-        
+
     }
     .col:nth-child(2), .col:nth-child(3){
         flex-basis: 100%;
@@ -596,13 +598,13 @@ footer h3:hover::after {
 .popup h2{
     font-size: 20px;
     font-weight: 400;
-    margin: 20px 0 10px; 
+    margin: 20px 0 10px;
 }
 .popup p{
     font-size: 14px;
     color: #000;
     font-weight: 300;
-    margin: 20px 0 10px; 
+    margin: 20px 0 10px;
 }
 .popup button{
     width: 70%;
@@ -627,7 +629,7 @@ footer h3:hover::after {
     justify-content: space-between;
     background: #edeef0;
     border-radius: 70px;
-    padding-left: 20px;    
+    padding-left: 20px;
     margin-bottom: 25px;
   }
 

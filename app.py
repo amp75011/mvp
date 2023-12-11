@@ -213,7 +213,6 @@ def subcategory_page(subcategory_name):
 
 
 
-
 #PRICE COMPARISON
 
 @app.route('/compare_prices', methods=['GET'])
