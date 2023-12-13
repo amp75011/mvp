@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ _('Comprix - Compare, Save, Shop Smart!') }}</title>
+        <title>Comprix - Comparez, Économisez, Achetez Malin !</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style_landing.css') }}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
@@ -12,157 +12,139 @@
     <body>
         <section class="header_landing">
             <nav class="nav">
-                <a href="{{ url_for('landing') }}">
-                    <img src="{{ url_for('static', filename='images/logo_small_beta.png') }}" class="logo-img">
-                </a>
+                <a href="{{ url_for('landing') }}"><img src="{{ url_for('static', filename='images/logo_small_beta.png') }}" class="logo-img"></a>
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hideMenu()"></i> 
                     <ul>
-                        <li><span class="nav-link" onclick="openPopup()">{{ _('Price Comparison Tool') }}</span></li>
-                        <li><a href="{{ url_for('recipes') }}">{{ _('Recipes & Substitutes') }}</a></li>
-                        <li><a href="{{ url_for('badges') }}">{{ _('Sustainability & Health Badges') }}</a></li>
-                        <li><a href="{{ url_for('blog') }}">{{ _('Blog') }}</a></li>
-                        <li><a href="{{ url_for('login_page') }}">{{ _('Login') }}</a></li>
-                        <li><a href="{{ url_for('signup_page') }}">{{ _('Signup') }}</a></li>
-                        <!-- Language Switcher -->
-                        <li class="language-switcher">
-                            <a href="{{ url_for('set_language', lang_code='en') }}">
-                                <img src="{{ url_for('static', filename='images/english-flag.png') }}" alt="{{ _('English') }}" style="width: 25px; height: auto;">
-                            </a>
-                            <a href="{{ url_for('set_language', lang_code='fr') }}">
-                                <img src="{{ url_for('static', filename='images/french-flag.png') }}" alt="{{ _('Français') }}" style="width: 25px; height: auto;">
-                            </a>
-                        </li>
+                        <li><span class="nav-link" onclick="openPopup()">Comparateur de Prix</span></li>
+                        <li><a href="{{ url_for('recipes') }}">Recettes et Alternatives</a></li>
+                        <li><a href="{{ url_for('badges') }}">Éco-Labels et Labels Santé</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('login_page') }}">Se Connecter</a></li>
+                        <li><a href="{{ url_for('signup_page') }}">S'inscrire</a></li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
-            
 
             <div class="text-box-landing">
-                <h1>{{ _('Get the Best Prices on Your Groceries, Instantly!') }}</h1>
-                <p>{{ _('Compare your grocery list across top supermarkets and shop smart.') }}</p>
-                <button type="submit" class="hero-btn" onclick="openPopup()">{{ _('GET STARTED') }}</button>
+                <h1>Trouvez les meilleurs prix pour vos courses, en un clin d'œil !</h1>
+                <p>Comparez vos courses dans les grands supermarchés et achetez futé.</p>
+                <button type="submit" class="hero-btn" onclick="openPopup()">C'EST PARTI</button>
                 <div class="popup" id="popup">
                     <span class="close-btn" onclick="closePopup()">&times;</span>
                     <img src="{{ url_for('static', filename='images/location_avocado.png') }}">
-                    <h2>{{ _('Where do you want to shop?') }}</h2>
-                    <div class="row">
-                        <input type="text" id="arrondissement-search-input" placeholder="{{ _('Please enter your ZIP code') }}">
-                    </div>
-                    <button type="submit" class="hero-btn" onclick="window.location.href='{{ url_for('shopping_list') }}'">{{ _('Create the shopping list') }}</button>
+                    <h2>Où voulez-vous faire vos courses ?</h2>
+                    <input type="text" id="arrondissement-search-input" placeholder="Entrez votre code postal, svp">
+                    <button type="submit" class="hero-btn" onclick="window.location.href='{{ url_for('shopping_list') }}'">Faites votre liste de courses</button>
                 </div>
             </div>
         </section>
 
-        <!-- How It Works Section -->
+        <!-- How It Works -->
         <section class="how-it-works">
-            <h1>{{ _('How It Works') }}</h1>
+            <h1>Comment ça fonctionne</h1>
             <div class="row">
                 <div class="steps">
-                    <h3>{{ _('Create Your List') }}</h3>
-                    <p>{{ _('Add as much detail as you like, from brand preferences to package sizes. Choose how you\'d like to receive your groceries and fine-tune your search with custom filters.') }}</p>
+                    <h3>Faites votre liste</h3>
+                    <p>Ajoutez tous les détails que vous voulez, des marques aux tailles des produits. Choisissez comment recevoir vos achats et ajustez votre recherche avec des filtres.</p>
                 </div>
                 <div class="steps">
-                    <h3>{{ _('Personalise the Cart') }}</h3>
-                    <p>{{ _('We scan four top supermarket chains to find the most cost-effective choices for you. Feel free to tweak your choices for a more personalised shopping experience.') }}</p>
+                    <h3>Personnalisez votre panier</h3>
+                    <p>Nous comparons quatre grandes chaînes pour trouver les options les plus économiques pour vous. Modifiez à votre guise pour une expérience sur mesure.</p>
                 </div>
                 <div class="steps">
-                    <h3>{{ _('Choose & Shop') }}</h3>
-                    <p>{{ _('View the total cost for your entire basket, including your preferred delivery method. Pick your favourite supermarket and seamlessly place your order directly with the retailer.') }}</p>
+                    <h3>Choisissez et achetez</h3>
+                    <p>Voyez le coût total de votre panier, livraison incluse. Choisissez votre supermarché favori et commandez directement.</p>
                 </div>
                 <div class="steps">
-                    <h3>{{ _('Enjoy the Savings') }}</h3>
-                    <p>{{ _('Discover the joy of smart shopping. ComPrix helps you cut your grocery bills by up to 20%%, and offers insights into the nutritional and environmental impact of your choices.') }}</p>
+                    <h3>Profitez des économies</h3>
+                    <p>Découvrez le plaisir des achats intelligents. ComPrix vous aide à réduire vos factures de courses jusqu'à 20%, tout en vous informant de l'impact nutritionnel et environnemental de vos choix.</p>
                 </div>
             </div>
         </section>
 
         <!-- Features Section -->
         <section class="features">
-            <h1>{{ _('Our Main Features') }}</h1>
+            <h1>Nos fonctionnalités clés</h1>
             <div class="row">
                 <div class="feature">
                     <div class="image-container">
                         <img src="{{ url_for('static', filename='images/feature1_canva_.png') }}">
                     </div>
-                    <h3>{{ _('Real-Time Price Comparison') }}</h3>
-                    <p>{{ _('Instantly compare prices of your grocery list across multiple supermarkets.') }}</p>
+                    <h3>Comparaison de prix en direct</h3>
+                    <p>Comparez en direct les prix de votre liste de courses dans plusieurs supermarchés.</p>
                 </div>
                 <div class="feature">
                     <div class="image-container">
                         <img src="{{ url_for('static', filename='images/feature2_canva.png') }}">
                     </div>
-                    <h3>{{ _('Healthy Recipes & Substitutes') }}</h3>
-                    <p>{{ _('Discover healthy recipes and find substitutes for better choices.') }}</p>
+                    <h3>Recettes saines et alternatives</h3>
+                    <p>Découvrez des recettes saines et des alternatives judicieuses.</p>
                 </div>
                 <div class="feature">
                     <div class="image-container">
                         <img src="{{ url_for('static', filename='images/feature3_canva_comingsoon.png') }}">
                     </div>
-                    <h3>{{ _('Sustainability Badges') }}</h3>
-                    <p>{{ _('Identify eco-friendly and sustainable products with our badges.') }}</p>
-                </div>
+                    <h3>Labels de durabilité</h3>
+                    <p>Repérez les produits éco-responsables avec nos labels.</p>
+                </div>            
             </div>
         </section>
 
-        <!-- Newsletter Section -->
+        <!-- Newsletter -->
         <section class="newsletter">
-            <h1>{{ _('Subscribe to Newsletter') }}</h1>
-            <button class="hero-btn" onclick="openSubscribePopup()">{{ _('SUBSCRIBE') }}</button>
+            <h1>Inscrivez-vous à la newsletter</h1>
+            <button class="hero-btn" onclick="openSubscribePopup()">JE M'INSCRIS</button>
         </section>
 
         <div id="subscribePopup" class="subscribe-popup">
             <div class="popup-content">
                 <span class="close-btn" onclick="closeSubscribePopup()">&times;</span>
-                <h2>{{ _('Subscribe to Our Newsletter') }}</h2>
-                
+                <h2>Abonnez-vous à notre newsletter</h2>
                 <form id="subscribeForm" action="{{ url_for('subscribe_newsletter') }}" method="post">
-                    <input type="email" name="email" placeholder="{{ _('Enter your email') }}" required>
-                    <button type="submit" class="hero-btn">{{ _('Subscribe') }}</button>
+                    <input type="email" name="email" placeholder="Entrez votre email" required>
+                    <button type="submit" class="hero-btn">S'abonner</button>
                 </form>
-                <p id="thankYouMessage" style="display:none;">{{ _('Thank you for subscribing!') }}</p>
+                <p id="thankYouMessage" style="display:none;">Merci de vous être inscrit !</p>
             </div>
         </div>
 
-        <!-- Footer Section -->
+        <!-- FOOTER -->
         <footer>
             <div class="row">
-                 <div class="col">
-                    <h3>{{ _('Links') }}</h3>
+                <div class="col">
+                    <h3>Liens utiles</h3>
                     <ul>
-                        <li><a href="{{ url_for('landing') }}">{{ _('Home') }}</a></li>
-                        <li><a href="{{ url_for('recipes') }}">{{ _('Recipes & Substitutes') }}</a></li>
-                        <li><a href="{{ url_for('badges') }}">{{ _('Sustainability & Health Badges') }}</a></li>
-                        <li><a href="{{ url_for('blog') }}">{{ _('Blog') }}</a></li>
+                        <li><a href="{{ url_for('landing') }}">Accueil</a></li>
+                        <li><a href="{{ url_for('recipes') }}">Recettes et Alternatives</a></li>
+                        <li><a href="{{ url_for('badges') }}">Éco-Labels et Labels Santé</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
                     </ul>
                 </div>
-                
                 <div class="col">
-                    <h3>{{ _('Help') }}</h3>
+                    <h3>Aide</h3>
                     <ul>
-                        <li><a href="#">{{ _('Contact') }}</a></li>
-                        <li><a href="{{ url_for('faq') }}">{{ _('FAQs') }}</a></li>
+                        <li><a href="#">Contactez-nous</a></li>
+                        <li><a href="{{ url_for('faq') }}">Questions Fréquentes</a></li>
                     </ul>
                 </div>
-                
                 <div class="col">
-                    <h3>{{ _('Legal') }}</h3>
+                    <h3>Informations légales</h3>
                     <ul>
-                        <li><a href="#">{{ _('Terms and conditions') }}</a></li>
-                        <li><a href="#">{{ _('Privacy') }}</a></li>
-                        <li><a href="#">{{ _('Cookies') }}</a></li>
+                        <li><a href="#">Conditions générales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Cookies</a></li>
                     </ul>
-                </div>                
-               
+                </div>
                 <div class="col">
-                    <h3>{{ _('Newsletter') }}</h3>
+                    <h3>Newsletter</h3>
                     <form id="footerNewsletterForm" action="{{ url_for('subscribe_newsletter') }}" method="post">
                         <i class="far fa-envelope"></i>
-                        <input type="email" name="email" placeholder="{{ _('Enter your email') }}" required>
+                        <input type="email" name="email" placeholder="Saisissez votre email" required>
                         <button type="submit"><i class="fas fa-arrow-right"></i></button>
                     </form>
-                    <p id="footerThankYouMessage" style="display:none;">{{ _('Thank you for subscribing!') }}</p>
+                    <p id="footerThankYouMessage" style="display:none;">Merci de vous être inscrit !</p>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/comprix.shop" target="_blank">
                             <i class="fab fa-facebook-f"></i>
@@ -173,14 +155,12 @@
                         <i class="fab fa-linkedin-in"></i>        
                     </div>
                 </div>
-                
             </div>
             <hr>
-            <p class="copyright">{{ _('© 2023 ComPrix') }}</p>
+            <p class="copyright">© 2023 ComPrix</p>
         </footer>
 
-        <!-- Script Sections -->
-        <!-----Java Script for toggle menu--->
+       <!-----Java Script for toggle menu--->
         <script>
             var navLinks = document.getElementById("navLinks");
             function showMenu(){

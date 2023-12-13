@@ -1,0 +1,1103 @@
+# French translations for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-12-13 22:20+0100\n"
+"PO-Revision-Date: 2023-12-12 18:24+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: templates/base.html:5
+#, fuzzy
+msgid "Comprix - Default Title"
+msgstr "Comprix - Recettes"
+
+#: templates/base.html:35 templates/landing.html:21
+#: templates/shopping_list.html:28
+msgid "Price Comparison Tool"
+msgstr "Comparateur de Prix"
+
+#: templates/base.html:36 templates/landing.html:22 templates/landing.html:135
+#: templates/shopping_list.html:29
+msgid "Recipes & Substitutes"
+msgstr "Recettes & Substituts"
+
+#: templates/base.html:37 templates/landing.html:23 templates/landing.html:136
+#: templates/shopping_list.html:30
+msgid "Sustainability & Health Badges"
+msgstr "Badges de Durabilité & Santé"
+
+#: templates/base.html:38 templates/blog.html:12 templates/landing.html:24
+#: templates/landing.html:137 templates/shopping_list.html:31
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/base.html:39 templates/landing.html:25 templates/login.html:138
+#: templates/shopping_list.html:32 templates/signup.html:135
+msgid "Login"
+msgstr "Se Connecter"
+
+#: templates/base.html:40 templates/landing.html:26
+#: templates/shopping_list.html:33
+msgid "Signup"
+msgstr "S'inscrire"
+
+#: templates/base.html:45 templates/landing.html:30
+#: templates/shopping_list.html:37
+msgid "English"
+msgstr "Anglais"
+
+#: templates/base.html:48 templates/landing.html:33
+#: templates/shopping_list.html:40
+msgid "Français"
+msgstr "Français"
+
+#: templates/base.html:62 templates/shopping_list.html:118
+msgid "Contact Us"
+msgstr "Contactez-nous"
+
+#: templates/blog.html:4
+msgid "ComPrix - Blog"
+msgstr "ComPrix - Blog"
+
+#: templates/blog.html:27
+msgid ""
+"The Future of Grocery Shopping: <br>Savings, Sustainability, and "
+"Convenience All in One!"
+msgstr ""
+"L'avenir des courses alimentaires : <br>Économies, durabilité et "
+"commodité, tout en un !"
+
+#: templates/blog.html:28
+msgid ""
+"Grocery shopping has evolved, and in the digital age, it's not just about"
+" buying food anymore. It's about making informed choices, finding the "
+"best deals, and ensuring that our purchases have the least negative "
+"impact on the planet. Enter ComPrix, a revolutionary platform that's "
+"changing the way we think about online grocery shopping."
+msgstr ""
+"Les courses alimentaires ont évolué, et à l'ère numérique, il ne s'agit "
+"plus seulement d'acheter de la nourriture. Il s'agit de faire des choix "
+"éclairés, de trouver les meilleures offres et de garantir que nos achats "
+"aient le moins d'impact négatif possible sur la planète. Découvrez "
+"ComPrix, une plateforme révolutionnaire qui change notre façon de penser "
+"les courses en ligne."
+
+#: templates/blog.html:29 templates/blog.html:51 templates/blog.html:75
+msgid "Read More"
+msgstr "Lire la suite"
+
+#: templates/blog.html:31
+msgid "Why Smart Price Comparison is Essential"
+msgstr "Pourquoi la comparaison intelligente des prix est essentielle"
+
+#: templates/blog.html:32
+msgid ""
+"Every day, hundreds of products go on sale, and promotions change "
+"constantly. The challenge? Keeping track of these fluctuations across "
+"different online supermarkets. ComPrix's smart comparison engine does the"
+" heavy lifting for you, ensuring that you're always getting the best "
+"value for your money, down to the delivery costs."
+msgstr ""
+"Chaque jour, des centaines de produits sont en promotion, et les offres "
+"changent constamment. Le défi ? Suivre ces fluctuations à travers "
+"différents supermarchés en ligne. Le moteur de comparaison intelligent de"
+" ComPrix fait le gros du travail pour vous, garantissant que vous obtenez"
+" toujours le meilleur rapport qualité-prix, jusqu'aux frais de livraison."
+
+#: templates/blog.html:33
+msgid "Sustainability is No Longer Optional"
+msgstr "La durabilité n'est plus une option"
+
+#: templates/blog.html:34
+msgid ""
+"It's a known fact: Our planet needs us to make better choices. Whether "
+"it's opting for products with reduced packaging, supporting brands that "
+"follow sustainable practices, or simply reducing food waste by buying "
+"what we need, every little bit helps."
+msgstr ""
+"C'est un fait connu : notre planète a besoin que nous fassions de "
+"meilleurs choix. Que ce soit en optant pour des produits à emballage "
+"réduit, en soutenant des marques qui suivent des pratiques durables, ou "
+"simplement en réduisant le gaspillage alimentaire en achetant ce dont "
+"nous avons besoin, chaque petit geste compte."
+
+#: templates/blog.html:35
+msgid ""
+"ComPrix doesn't just stop at price comparison. We guide you towards "
+"sustainable choices, ensuring that your shopping habits are in line with "
+"the health of our planet."
+msgstr ""
+"ComPrix ne se limite pas à la comparaison des prix. Nous vous orientons "
+"vers des choix durables, garantissant que vos habitudes de consommation "
+"soient en accord avec la santé de notre planète."
+
+#: templates/blog.html:36
+msgid "The Convenience Factor"
+msgstr "Le facteur de commodité"
+
+#: templates/blog.html:37
+msgid ""
+"Remember the days when you'd write down a shopping list on a piece of "
+"paper and hope you didn't forget it at home? Those days are behind us. "
+"With ComPrix, your user-centric shopping list is at the heart of your "
+"experience. And what's more? We offer health-focused recipe suggestions "
+"based on the products in your list. So, not only do you shop smart, but "
+"you also eat smart."
+msgstr ""
+"Vous souvenez-vous du temps où vous écriviez une liste de courses sur un "
+"bout de papier et espériez ne pas l'oublier à la maison ? Ces jours sont "
+"révolus. Avec ComPrix, votre liste d'achats centrée sur l'utilisateur est"
+" au cœur de votre expérience. Et ce n'est pas tout. Nous proposons des "
+"suggestions de recettes axées sur la santé, basées sur les produits de "
+"votre liste. Ainsi, vous ne faites pas que des achats intelligents, mais "
+"vous mangez également sainement."
+
+#: templates/blog.html:38
+msgid "Wrapping Up"
+msgstr "En conclusion"
+
+#: templates/blog.html:39
+msgid ""
+"The future of grocery shopping is here, and it's more than just adding "
+"items to a cart. It's about making decisions that are good for your "
+"wallet, your health, and the planet."
+msgstr ""
+"L'avenir des courses alimentaires est là, et ce n'est pas seulement "
+"ajouter des articles dans un panier. Il s'agit de prendre des décisions "
+"bénéfiques pour votre portefeuille, votre santé et la planète."
+
+#: templates/blog.html:40
+msgid ""
+"Discover the smart, sustainable, and convenient way to shop with ComPrix."
+" Your grocery journey reimagined."
+msgstr ""
+"Découvrez la manière intelligente, durable et pratique de faire vos "
+"courses avec ComPrix. Réinventez votre parcours d'achat alimentaire."
+
+#: templates/blog.html:49
+msgid "Making Healthy Choices: The Power of Informed Online Grocery Shopping"
+msgstr "Faire des choix sains : la force de l'achat de courses en ligne informé"
+
+#: templates/blog.html:50
+msgid ""
+"In our fast-paced world, maintaining a balanced diet and making health-"
+"conscious decisions can sometimes feel like a luxury. Between juggling "
+"work, family, and personal time, who has the hours to analyze every "
+"product on the grocery store shelf? This is where online grocery "
+"shopping, combined with the right tools, can be a game-changer."
+msgstr ""
+"Dans notre monde rapide, maintenir un régime équilibré et prendre des "
+"décisions conscientes pour la santé peut parfois sembler être un luxe. "
+"Entre jongler avec le travail, la famille et le temps personnel, qui a le"
+" temps d'analyser chaque produit sur l'étagère du supermarché ? C'est là "
+"que les courses en ligne, combinées aux bons outils, peuvent changer la "
+"donne."
+
+#: templates/blog.html:53
+msgid "The Rise of Online Grocery Shopping"
+msgstr "L'essor des courses en ligne"
+
+#: templates/blog.html:54
+msgid ""
+"The recent years have seen a massive surge in online grocery shopping. "
+"The reasons are many: convenience, the sheer variety, and often, better "
+"deals. But there's more to it. Online platforms provide an opportunity to"
+" research, compare, and make informed decisions about what goes into our "
+"shopping baskets and, ultimately, our bodies."
+msgstr ""
+"Ces dernières années ont vu une augmentation massive des courses en "
+"ligne. Les raisons sont nombreuses : la commodité, la grande variété et "
+"souvent, de meilleures offres. Mais il y a plus que cela. Les plateformes"
+" en ligne offrent la possibilité de rechercher, comparer et prendre des "
+"décisions éclairées sur ce qui entre dans nos paniers d'achat et, en fin "
+"de compte, dans nos corps."
+
+#: templates/blog.html:55
+msgid "Health at the Forefront with ComPrix"
+msgstr "La santé au premier plan avec ComPrix"
+
+#: templates/blog.html:56
+msgid ""
+"At ComPrix, we understand the importance of health. That's why, in "
+"addition to offering a smart price comparison, we guide our users towards"
+" healthier food choices. Wondering how?"
+msgstr ""
+"Chez ComPrix, nous comprenons l'importance de la santé. C'est pourquoi, "
+"en plus d'offrir une comparaison de prix intelligente, nous orientons nos"
+" utilisateurs vers des choix alimentaires plus sains. Vous vous demandez "
+"comment ?"
+
+#: templates/blog.html:57
+msgid ""
+"1. Nutritional Information at Your Fingertips: Instead of squinting at "
+"labels in the store, get a clear view of the nutritional value of "
+"products, allowing you to choose items that align with your dietary "
+"needs."
+msgstr ""
+"1. Informations nutritionnelles à portée de main : Au lieu de plisser les"
+" yeux sur les étiquettes en magasin, obtenez une vue claire de la valeur "
+"nutritionnelle des produits, vous permettant de choisir des articles qui "
+"correspondent à vos besoins alimentaires."
+
+#: templates/blog.html:58
+msgid ""
+"2. Recipe Suggestions: Not sure how to incorporate quinoa into your "
+"meals? Or looking for a low-sodium alternative for your favorite dish? "
+"Our health-focused recipe suggestions can inspire you to try out new, "
+"nutritious meals."
+msgstr ""
+"2. Suggestions de recettes : Vous ne savez pas comment intégrer le quinoa"
+" dans vos repas ? Ou à la recherche d'une alternative pauvre en sodium "
+"pour votre plat préféré ? Nos suggestions de recettes axées sur la santé "
+"peuvent vous inspirer à essayer de nouveaux plats nutritifs."
+
+#: templates/blog.html:59
+msgid ""
+"3. Sustainable Choices: Health isn't just about what we eat but also "
+"about the environment we live in. ComPrix promotes sustainable product "
+"options, ensuring that your health and the planet's health go hand in "
+"hand."
+msgstr ""
+"3. Choix durables : La santé ne concerne pas seulement ce que nous "
+"mangeons mais aussi l'environnement dans lequel nous vivons. ComPrix "
+"promeut des options de produits durables, garantissant que votre santé et"
+" celle de la planète vont de pair."
+
+#: templates/blog.html:60
+msgid "Harnessing the Power of Informed Shopping"
+msgstr "Exploiter le pouvoir des achats informés"
+
+#: templates/blog.html:61
+msgid ""
+"With ComPrix, you're no longer shopping in the dark. You have the "
+"information, the tools, and the suggestions right at your fingertips, "
+"ensuring that every grocery delivery at your doorstep aligns with your "
+"health goals."
+msgstr ""
+"Avec ComPrix, vous ne faites plus vos courses dans l'obscurité. Vous "
+"disposez de toutes les informations, des outils et des suggestions à "
+"portée de main, garantissant que chaque livraison de courses à votre "
+"porte soit en accord avec vos objectifs de santé."
+
+#: templates/blog.html:62 templates/blog.html:86
+msgid "In Conclusion"
+msgstr "En conclusion"
+
+#: templates/blog.html:63
+msgid ""
+"Healthy living is no longer just a trend—it's a necessity. And with the "
+"evolving landscape of online grocery shopping, tools like ComPrix make it"
+" easier than ever to make the right choices. Dive into a world where "
+"health, convenience, and sustainability meet. Dive into the world of "
+"ComPrix."
+msgstr ""
+"Vivre sainement n'est plus seulement une tendance, c'est une nécessité. "
+"Et avec l'évolution du paysage des courses en ligne, des outils comme "
+"ComPrix rendent plus facile que jamais de faire les bons choix. Plongez "
+"dans un monde où santé, commodité et durabilité se rencontrent. Plongez "
+"dans l'univers de ComPrix."
+
+#: templates/blog.html:73
+msgid ""
+"Grocery Shopping in the Age of Sustainability: How ComPrix Guides Your "
+"Green Journey"
+msgstr ""
+"Faire ses courses à l'ère de la durabilité : Comment ComPrix guide votre "
+"parcours vert"
+
+#: templates/blog.html:74
+msgid ""
+"From reusable bags to organic produce, sustainability in grocery shopping"
+" is no longer a niche – it's mainstream. Yet, as online grocery shopping "
+"gains traction, how do we ensure that our digital baskets are as green as"
+" our real-life canvas totes? Enter ComPrix, your companion in sustainable"
+" shopping."
+msgstr ""
+"Des sacs réutilisables aux produits bio, la durabilité dans les courses "
+"n'est plus une niche – elle est devenue courante. Pourtant, alors que les"
+" courses en ligne prennent de l'ampleur, comment pouvons-nous garantir "
+"que nos paniers numériques soient aussi verts que nos cabas en toile de "
+"la vie réelle ? Découvrez ComPrix, votre compagnon dans les achats "
+"durables."
+
+#: templates/blog.html:77
+msgid "The Green Wave in Online Shopping"
+msgstr "La vague verte dans les achats en ligne"
+
+#: templates/blog.html:78
+msgid ""
+"Sustainability isn't just a buzzword. It's an urgent need, especially "
+"given the challenges our planet currently faces. As consumers, our "
+"choices have a massive impact, and online shopping platforms have "
+"recognized this. There's an increasing demand for transparency – not just"
+" in prices, but in product origins, ethical practices, and environmental "
+"footprints."
+msgstr ""
+"La durabilité n'est pas qu'un mot à la mode. C'est un besoin urgent, en "
+"particulier compte tenu des défis auxquels notre planète est actuellement"
+" confrontée. En tant que consommateurs, nos choix ont un impact "
+"considérable, et les plateformes d'achat en ligne l'ont reconnu. Il y a "
+"une demande croissante de transparence, pas seulement dans les prix, mais"
+" aussi dans les origines des produits, les pratiques éthiques et les "
+"empreintes environnementales."
+
+#: templates/blog.html:79
+msgid "ComPrix: Not Just Smart Prices, But Smart Choices"
+msgstr ""
+"ComPrix : Non seulement des prix intelligents, mais aussi des choix "
+"judicieux"
+
+#: templates/blog.html:80
+msgid "Here's how ComPrix becomes an ally in your sustainable shopping journey:"
+msgstr ""
+"Voici comment ComPrix devient un allié dans votre parcours d'achats "
+"durables :"
+
+#: templates/blog.html:81
+msgid ""
+"1. Eco Badges: At a glance, see which products are eco-friendly. Our "
+"sustainability badges highlight items that are either locally sourced, "
+"have reduced carbon footprints, or come in minimal packaging."
+msgstr ""
+"1. Badges écologiques : D'un coup d'œil, voyez quels produits sont éco-"
+"responsables. Nos badges de durabilité mettent en évidence des articles "
+"soit issus de sources locales, soit ayant des empreintes carbone "
+"réduites, soit présentés dans un emballage minimal."
+
+#: templates/blog.html:82
+msgid ""
+"2. Organic and Fair Trade Options: ComPrix doesn't just show you the "
+"cheapest items, but also the ones that matter for our planet and its "
+"inhabitants. From organic grains to fair trade chocolates, make choices "
+"that reflect your values."
+msgstr ""
+"2. Options bio et équitables : ComPrix ne vous présente pas seulement les"
+" articles les moins chers, mais aussi ceux qui comptent pour notre "
+"planète et ses habitants. Des céréales biologiques aux chocolats "
+"équitables, faites des choix qui reflètent vos valeurs."
+
+#: templates/blog.html:83
+msgid ""
+"3. Sustainable Recipe Recommendations: Ever wondered how to use those "
+"seasonal vegetables? Our recipe suggestions not only take into account "
+"health but also seasonality, promoting local produce and reducing carbon "
+"footprints."
+msgstr ""
+"3. Recommandations de recettes durables : Vous êtes-vous déjà demandé "
+"comment utiliser ces légumes de saison ? Nos suggestions de recettes "
+"prennent non seulement en compte la santé mais aussi la saisonnalité, "
+"favorisant les produits locaux et réduisant les empreintes carbone."
+
+#: templates/blog.html:84
+msgid "Beyond the Basket: The Bigger Picture"
+msgstr "Au-delà du panier : La vision globale"
+
+#: templates/blog.html:85
+msgid ""
+"Our commitment doesn't stop at suggestions. We continuously collaborate "
+"with grocery partners to encourage and amplify their sustainability "
+"efforts, ensuring that as the ComPrix family grows, so does our positive "
+"impact on the planet."
+msgstr ""
+"Notre engagement ne s'arrête pas aux suggestions. Nous collaborons "
+"continuellement avec nos partenaires de l'épicerie pour encourager et "
+"amplifier leurs efforts de durabilité, garantissant qu'au fur et à mesure"
+" que la famille ComPrix grandit, notre impact positif sur la planète "
+"augmente également."
+
+#: templates/blog.html:87
+msgid ""
+"The green wave is here to stay, and online grocery shopping is no "
+"exception. With ComPrix, you don't just save money, but also ensure that "
+"every click, every addition to the basket, aligns with the greater good. "
+"Join us in redefining grocery shopping for a sustainable future."
+msgstr ""
+"La vague verte est là pour rester, et les courses en ligne ne font pas "
+"exception. Avec ComPrix, vous ne faites pas que économiser de l'argent, "
+"mais vous garantissez également que chaque clic, chaque ajout au panier, "
+"est en accord avec le bien commun. Rejoignez-nous pour redéfinir les "
+"courses alimentaires pour un avenir durable."
+
+#: templates/blog.html:94
+msgid "Post Categories"
+msgstr "Parcourir les catégories"
+
+#: templates/blog.html:97
+msgid "Smart shopping"
+msgstr "Achats intelligents"
+
+#: templates/blog.html:101
+msgid "Sustainability"
+msgstr "Durabilité"
+
+#: templates/blog.html:105
+msgid "Healthy choices"
+msgstr "Choix sains"
+
+#: templates/landing.html:4
+msgid "Comprix - Compare, Save, Shop Smart!"
+msgstr "Comprix - Comparez, Économisez, Achetez Malin !"
+
+#: templates/landing.html:43
+msgid "Get the Best Prices on Your Groceries, Instantly!"
+msgstr "Trouvez les meilleurs prix pour vos courses !"
+
+#: templates/landing.html:44
+msgid "Compare your grocery list across top supermarkets and shop smart."
+msgstr "Comparez vos courses dans les grands supermarchés et achetez futé."
+
+#: templates/landing.html:45
+msgid "GET STARTED"
+msgstr "C'EST PARTI"
+
+#: templates/landing.html:49
+msgid "Where do you want to shop?"
+msgstr "Où voulez-vous faire vos courses ?"
+
+#: templates/landing.html:51
+msgid "Please enter your ZIP code"
+msgstr "Entrez votre code postal, svp"
+
+#: templates/landing.html:53
+msgid "Create the shopping list"
+msgstr "Faites votre liste de courses"
+
+#: templates/landing.html:60
+msgid "How It Works"
+msgstr "Comment ça marche"
+
+#: templates/landing.html:63
+msgid "Create Your List"
+msgstr "Faites votre liste"
+
+#: templates/landing.html:64
+msgid ""
+"Add as much detail as you like, from brand preferences to package sizes. "
+"Choose how you'd like to receive your groceries and fine-tune your search"
+" with custom filters."
+msgstr ""
+"Ajoutez tous les détails que vous voulez, des marques aux tailles des "
+"produits. Choisissez comment recevoir vos achats et ajustez votre "
+"recherche avec des filtres."
+
+#: templates/landing.html:67
+msgid "Personalise the Cart"
+msgstr "Personnalisez votre panier"
+
+#: templates/landing.html:68
+msgid ""
+"We scan four top supermarket chains to find the most cost-effective "
+"choices for you. Feel free to tweak your choices for a more personalised "
+"shopping experience."
+msgstr ""
+"Nous comparons quatre grandes chaînes pour trouver les options les plus "
+"économiques pour vous. Modifiez à votre guise pour une expérience sur "
+"mesure."
+
+#: templates/landing.html:71
+msgid "Choose & Shop"
+msgstr "Choisissez et achetez"
+
+#: templates/landing.html:72
+msgid ""
+"View the total cost for your entire basket, including your preferred "
+"delivery method. Pick your favourite supermarket and seamlessly place "
+"your order directly with the retailer."
+msgstr ""
+"Consultez le coût total de votre panier, livraison incluse. Choisissez "
+"votre supermarché et passez la commande directement auprès du détaillant."
+
+#: templates/landing.html:75
+msgid "Enjoy the Savings"
+msgstr "Profitez des économies"
+
+#: templates/landing.html:76
+#, python-format
+msgid ""
+"Discover the joy of smart shopping. ComPrix helps you cut your grocery "
+"bills by up to 20%%, and offers insights into the nutritional and "
+"environmental impact of your choices."
+msgstr ""
+"ComPrix vous aide à réduire vos dépenses de courses jusqu'à 20 %% et vous"
+" informe de l'impact nutritionnel et environnemental de vos choix."
+
+#: templates/landing.html:83
+msgid "Our Main Features"
+msgstr "Nos fonctionnalités clés"
+
+#: templates/landing.html:89
+msgid "Real-Time Price Comparison"
+msgstr "Comparaison de prix en temps réel"
+
+#: templates/landing.html:90
+msgid ""
+"Instantly compare prices of your grocery list across multiple "
+"supermarkets."
+msgstr ""
+"Comparez instantanément les prix de votre liste de courses dans plusieurs"
+" supermarchés."
+
+#: templates/landing.html:96
+msgid "Healthy Recipes & Substitutes"
+msgstr "Recettes saines et alternatives"
+
+#: templates/landing.html:97
+msgid "Discover healthy recipes and find substitutes for better choices."
+msgstr ""
+"Découvrez des recettes saines et trouvez des substituts pour de meilleurs"
+" choix."
+
+#: templates/landing.html:103
+msgid "Sustainability Badges"
+msgstr "Labels de durabilité"
+
+#: templates/landing.html:104
+msgid "Identify eco-friendly and sustainable products with our badges."
+msgstr "Repérez les produits éco-responsables avec nos labels."
+
+#: templates/landing.html:111
+msgid "Subscribe to Newsletter"
+msgstr "Abonnez-vous à la Newsletter"
+
+#: templates/landing.html:112
+msgid "SUBSCRIBE"
+msgstr "S'ABONNER"
+
+#: templates/landing.html:118
+msgid "Subscribe to Our Newsletter"
+msgstr "Abonnez-vous à Notre Newsletter"
+
+#: templates/landing.html:121 templates/landing.html:162
+msgid "Enter your email"
+msgstr "Entrez votre email"
+
+#: templates/landing.html:122
+msgid "Subscribe"
+msgstr "S'abonner"
+
+#: templates/landing.html:124 templates/landing.html:165
+msgid "Thank you for subscribing!"
+msgstr "Merci de vous être abonné !"
+
+#: templates/landing.html:132
+msgid "Links"
+msgstr "Liens utiles"
+
+#: templates/landing.html:134
+msgid "Home"
+msgstr "Accueil"
+
+#: templates/landing.html:142
+msgid "Help"
+msgstr "Aide"
+
+#: templates/landing.html:144
+msgid "Contact"
+msgstr "Contactez-nous"
+
+#: templates/landing.html:145
+msgid "FAQs"
+msgstr "Questions Fréquentes"
+
+#: templates/landing.html:150
+msgid "Legal"
+msgstr "Légal"
+
+#: templates/landing.html:152
+msgid "Terms and conditions"
+msgstr "Conditions générales"
+
+#: templates/landing.html:153
+msgid "Privacy"
+msgstr "Politique de confidentialité"
+
+#: templates/landing.html:154
+msgid "Cookies"
+msgstr "Cookies"
+
+#: templates/landing.html:159
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: templates/landing.html:179
+msgid "© 2023 ComPrix"
+msgstr "© 2023 ComPrix"
+
+#: templates/login.html:5
+msgid "Login - ComPrix"
+msgstr "Connexion - ComPrix"
+
+#: templates/login.html:129
+msgid "Sign in to ComPrix"
+msgstr "Connectez-vous à ComPrix"
+
+#: templates/login.html:131
+msgid "Sign in with Google"
+msgstr "Se connecter avec Google"
+
+#: templates/login.html:132
+msgid "Sign in with Apple"
+msgstr "Se connecter avec Apple"
+
+#: templates/login.html:134
+msgid "Or"
+msgstr "Ou"
+
+#: templates/login.html:136 templates/signup.html:130
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: templates/login.html:137 templates/signup.html:132
+msgid "Password"
+msgstr "Mot de passe"
+
+#: templates/login.html:140
+msgid "Forgot password?"
+msgstr "Mot de passe oublié ?"
+
+#: templates/login.html:141
+msgid "Don't have an account?"
+msgstr "Vous n'avez pas de compte ?"
+
+#: templates/login.html:141
+msgid "Sign up"
+msgstr "S'inscrire"
+
+#: templates/recipes.html:4
+msgid "Comprix - Recipes"
+msgstr "Comprix - Recettes"
+
+#: templates/recipes.html:11
+msgid "Recipes"
+msgstr "Recettes"
+
+#: templates/recipes.html:12
+msgid "Get Inspired"
+msgstr "Laissez-vous inspirer"
+
+#: templates/recipes.html:24 templates/recipes.html:34
+msgid "Thai Curry with Chickpeas, Pumpkin and Spinach"
+msgstr "Curry Thaï aux pois chiches, potiron et épinards"
+
+#: templates/recipes.html:38 templates/recipes.html:87
+#: templates/recipes.html:127
+msgid "Ingredients for 2 Servings"
+msgstr "Ingrédients pour 2 personnes"
+
+#: templates/recipes.html:39
+msgid "• 1 cup cooked chickpeas (or canned)"
+msgstr "• 1 tasse de pois chiches cuits (ou en conserve)"
+
+#: templates/recipes.html:40
+msgid "• 300 g pumpkin (weighed before peeling)"
+msgstr "• 300 g de potiron (pesé avant épluchage)"
+
+#: templates/recipes.html:41
+msgid "• 1 small onion"
+msgstr "• 1 petit oignon"
+
+#: templates/recipes.html:42
+msgid ""
+"• 1 teaspoon of red curry paste (or 1 teaspoon of grated garlic and "
+"ginger and 1/2 teaspoon of ground hot pepper)"
+msgstr ""
+"• 1 cuillère à café de pâte de curry rouge (ou 1 cuillère à café d'ail et"
+" de gingembre râpés et 1/2 cuillère à café de piment fort moulu)"
+
+#: templates/recipes.html:43
+msgid "• 1/2 teaspoon ground turmeric"
+msgstr "• 1/2 cuillère à café de curcuma moulu"
+
+#: templates/recipes.html:44
+msgid "• 150 ml coconut milk"
+msgstr "• 150 ml de lait de coco"
+
+#: templates/recipes.html:45
+msgid "• Approx. 1/2 cup of broth"
+msgstr "• Environ 1/2 tasse de bouillon"
+
+#: templates/recipes.html:46
+msgid "• A large handful of spinach"
+msgstr "• Une grande poignée d'épinards"
+
+#: templates/recipes.html:47
+msgid "• Coriander (for garnish)"
+msgstr "• Coriandre (pour la garniture)"
+
+#: templates/recipes.html:48
+msgid "• Fresh chili (for garnish)"
+msgstr "• Piment frais (pour la garniture)"
+
+#: templates/recipes.html:49
+msgid "• 1 lime wedge (for serving)"
+msgstr "• 1 quartier de citron vert (pour servir)"
+
+#: templates/recipes.html:50
+msgid "• Salt (to taste)"
+msgstr "• Sel (au goût)"
+
+#: templates/recipes.html:51
+msgid "• 2 tablespoons of coconut oil (for frying)"
+msgstr "• 2 cuillères à soupe d'huile de coco (pour la friture)"
+
+#: templates/recipes.html:52
+msgid "• Rice (for serving)"
+msgstr "• Riz (pour servir)"
+
+#: templates/recipes.html:56 templates/recipes.html:99
+#: templates/recipes.html:142
+msgid "Preparation"
+msgstr "Préparation"
+
+#: templates/recipes.html:57
+msgid "• Peel the pumpkin and cut into cubes. Cut the onion into slices."
+msgstr "• Épluchez le potiron et coupez-le en cubes. Coupez l'oignon en tranches."
+
+#: templates/recipes.html:58
+msgid ""
+"• In a pan, fry the curry paste in 2 tablespoons of coconut milk. Add "
+"pumpkin, onion, season with salt and fry, stirring occasionally, for "
+"about 2 minutes."
+msgstr ""
+"• Dans une poêle, faites frire la pâte de curry dans 2 cuillères à soupe "
+"de lait de coco. Ajoutez le potiron, l'oignon, assaisonnez de sel et "
+"faites frire, en remuant de temps en temps, pendant environ 2 minutes."
+
+#: templates/recipes.html:59
+msgid ""
+"• Add ground turmeric and cooked or canned chickpeas (if possible, add a "
+"few tablespoons of the chickpeas water). Add another 2 tablespoons of "
+"milk and fry for 1 minute."
+msgstr ""
+"• Ajoutez le curcuma moulu et les pois chiches cuits ou en conserve (si "
+"possible, ajoutez quelques cuillères à soupe d'eau des pois chiches). "
+"Ajoutez 2 autres cuillères à soupe de lait et faites frire pendant 1 "
+"minute."
+
+#: templates/recipes.html:60
+msgid ""
+"• Pour in the rest of the coconut milk and bring to a boil. Cook for "
+"about 15 minutes, stirring occasionally. Pour the broth gradually and "
+"cook for approx. 5 - 10 minutes until the pumpkin is soft. In the "
+"meantime, stir every now and then. Finally, add the spinach, mix and set "
+"aside from the heat."
+msgstr ""
+"• Versez le reste du lait de coco et portez à ébullition. Laissez cuire "
+"environ 15 minutes, en remuant de temps en temps. Ajoutez le bouillon "
+"progressivement et laissez cuire environ 5 à 10 minutes jusqu'à ce que le"
+" potiron soit tendre. Entre-temps, remuez de temps à autre. Enfin, "
+"ajoutez les épinards, mélangez et retirez du feu."
+
+#: templates/recipes.html:61
+msgid ""
+"• Sprinkle with coriander and fresh chili, serve with rice and a lime "
+"wedge."
+msgstr ""
+"• Saupoudrez de coriandre et de piment frais, servez avec du riz et un "
+"quartier de citron vert."
+
+#: templates/recipes.html:71 templates/recipes.html:82
+msgid "Salmon Baked in Red Pesto"
+msgstr "Saumon cuit au pesto rouge"
+
+#: templates/recipes.html:88
+msgid "• 600 g salmon"
+msgstr "• 600 g de saumon"
+
+#: templates/recipes.html:89
+msgid "• Salt and pepper (to taste)"
+msgstr "• Sel et poivre (au goût)"
+
+#: templates/recipes.html:90
+msgid "• 2 tablespoons of red pesto (made from dried tomatoes)"
+msgstr "• 2 cuillères à soupe de pesto rouge (fait à partir de tomates séchées)"
+
+#: templates/recipes.html:91
+msgid "• 1/2 can of chopped, peeled tomatoes (or 1 fresh tomato)"
+msgstr "• 1/2 boîte de tomates pelées et hachées (ou 1 tomate fraîche)"
+
+#: templates/recipes.html:92
+msgid "• 2 teaspoons of dried oregano"
+msgstr "• 2 cuillères à café d'origan séché"
+
+#: templates/recipes.html:93
+msgid "• 2 tablespoons of extra olive oil"
+msgstr "• 2 cuillères à soupe d'huile d'olive extra"
+
+#: templates/recipes.html:94
+msgid "• Fresh basil (for garnish)"
+msgstr "• Basilic frais (pour la garniture)"
+
+#: templates/recipes.html:95
+msgid "• 1/2 cup grated Parmesan cheese"
+msgstr "• 1/2 tasse de parmesan râpé"
+
+#: templates/recipes.html:100
+msgid ""
+"• Cut off the skin from the fillets, rinse the salmon, dry it and cut "
+"into portions. Season with salt and pepper and spread with red pesto. "
+"Place in an ovenproof dish."
+msgstr ""
+"• Retirez la peau des filets, rincez le saumon, séchez-le et coupez-le en"
+" portions. Assaisonnez de sel et de poivre et étalez le pesto rouge. "
+"Placez dans un plat allant au four."
+
+#: templates/recipes.html:101
+msgid ""
+"• Place 2 tablespoons of chopped tomatoes on each portion and season with"
+" dried oregano, salt, and pepper. Drizzle with olive oil, sprinkle with "
+"basil and Parmesan. Preheat the oven to 200 degrees C and bake for about "
+"15 - 17 minutes."
+msgstr ""
+"• Placez 2 cuillères à soupe de tomates hachées sur chaque portion et "
+"assaisonnez d'origan séché, de sel et de poivre. Arrosez d'huile d'olive,"
+" saupoudrez de basilic et de parmesan. Préchauffez le four à 200 degrés C"
+" et faites cuire environ 15 à 17 minutes."
+
+#: templates/recipes.html:111 templates/recipes.html:122
+msgid "Pasta with Shrimp and Zucchini"
+msgstr "Pâtes aux crevettes et courgettes"
+
+#: templates/recipes.html:128
+msgid "• 12-16 shrimps"
+msgstr "• 12-16 crevettes"
+
+#: templates/recipes.html:129
+msgid "• 1 small zucchini (approx. 250 g)"
+msgstr "• 1 petite courgette (environ 250 g)"
+
+#: templates/recipes.html:130
+msgid "• 150 g tagliatelle pasta"
+msgstr "• 150 g de pâtes tagliatelles"
+
+#: templates/recipes.html:131
+msgid "• 4 tablespoons of chopped parsley"
+msgstr "• 4 cuillères à soupe de persil haché"
+
+#: templates/recipes.html:132
+#, python-format
+msgid "• 6 tablespoons of whipping cream 30%%"
+msgstr "• 6 cuillères à soupe de crème fouettée 30%%"
+
+#: templates/recipes.html:133
+msgid "• 2 cloves of garlic"
+msgstr "• 2 gousses d'ail"
+
+#: templates/recipes.html:134
+msgid "• 6 tablespoons of white wine"
+msgstr "• 6 cuillères à soupe de vin blanc"
+
+#: templates/recipes.html:135
+msgid "• 1 and 1/2 tablespoons of olive oil"
+msgstr "• 1 et 1/2 cuillères à soupe d'huile d'olive"
+
+#: templates/recipes.html:136
+msgid "• 2 tablespoons of butter"
+msgstr "• 2 cuillères à soupe de beurre"
+
+#: templates/recipes.html:137
+msgid "• A pinch of saffron (optional)"
+msgstr "• Une pincée de safran (facultatif)"
+
+#: templates/recipes.html:138
+msgid "• 2 lemon pieces (for serving)"
+msgstr "• 2 morceaux de citron (pour servir)"
+
+#: templates/recipes.html:143
+msgid ""
+"• Clean, wash, and dry the shrimp. Cut the zucchini into slices and "
+"halves. Chop the parsley and grate the garlic. Cook the pasta al dente, "
+"drain, reserving some pasta water."
+msgstr ""
+"• Nettoyez, lavez et séchez les crevettes. Coupez la courgette en "
+"tranches et en deux. Hachez le persil et râpez l'ail. Faites cuire les "
+"pâtes al dente, égouttez en réservant un peu d'eau de cuisson."
+
+#: templates/recipes.html:144
+msgid ""
+"• In a pan with olive oil and grated garlic, fry lightly, add zucchini, "
+"and stir-fry for about 5 minutes. Add butter, salt, optionally saffron, "
+"and fry for another 2-3 minutes."
+msgstr ""
+"• Dans une poêle avec de l'huile d'olive et de l'ail râpé, faites frire "
+"légèrement, ajoutez la courgette et faites sauter pendant environ 5 "
+"minutes. Ajoutez le beurre, le sel, éventuellement du safran, et faites "
+"frire pendant encore 2-3 minutes."
+
+#: templates/recipes.html:145
+msgid ""
+"• Move zucchini to the edge of the pan, add butter and shrimps in the "
+"free space, season them with salt, and fry for half a minute on each side"
+" over higher heat."
+msgstr ""
+"• Déplacez les courgettes sur le bord de la poêle, ajoutez du beurre et "
+"les crevettes dans l'espace libre, assaisonnez-les de sel et faites-les "
+"frire une demi-minute de chaque côté à feu vif."
+
+#: templates/recipes.html:146
+msgid ""
+"• Add parsley, mix all ingredients in the pan, and fry for a while. Pour "
+"in the wine and let it evaporate over high heat."
+msgstr ""
+"• Ajoutez le persil, mélangez tous les ingrédients dans la poêle et "
+"faites-les frire un moment. Versez le vin et laissez-le s'évaporer à feu "
+"vif."
+
+#: templates/recipes.html:147
+msgid ""
+"• Add the heavy cream, pasta, and a few tablespoons of pasta water. Mix "
+"and bring to a boil. Remove from heat when the sauce becomes thick. Serve"
+" with a lemon wedge."
+msgstr ""
+"• Ajoutez la crème épaisse, les pâtes et quelques cuillères à soupe d'eau"
+" de cuisson des pâtes. Mélangez et portez à ébullition. Retirez du feu "
+"lorsque la sauce épaissit. Servez avec un quartier de citron."
+
+#: templates/shopping_list.html:5
+msgid "Comprix - Shopping List"
+msgstr "Comprix - Liste de Courses"
+
+#: templates/shopping_list.html:57
+msgid "Create Your Shopping List!"
+msgstr "Créez votre liste de courses !"
+
+#: templates/shopping_list.html:60
+msgid "Enter your shopping list items, one by one"
+msgstr "Entrez les articles de votre liste de courses"
+
+#: templates/shopping_list.html:61
+msgid "Add"
+msgstr "Ajouter"
+
+#: templates/shopping_list.html:66
+msgid "Compare"
+msgstr "Comparer"
+
+#: templates/shopping_list.html:70
+msgid "Preferences"
+msgstr "Préférences"
+
+#: templates/shopping_list.html:75
+msgid "Click & Collect"
+msgstr "Click & Collect"
+
+#: templates/shopping_list.html:76
+msgid "Delivery"
+msgstr "Livraison"
+
+#: templates/shopping_list.html:83
+msgid "Price per item"
+msgstr "Prix par article"
+
+#: templates/shopping_list.html:84
+msgid "Per unit (kg, litre)"
+msgstr "Par unité (kg, litre)"
+
+#: templates/shopping_list.html:91
+msgid "Plant-based"
+msgstr "À base de plantes"
+
+#: templates/shopping_list.html:92
+msgid "All products"
+msgstr "Tous les produits"
+
+#: templates/shopping_list.html:104
+msgid "Browse Categories"
+msgstr "Parcourir les catégories"
+
+#: templates/shopping_list.html:125
+msgid "ComPrix"
+msgstr "ComPrix"
+
+#: templates/signup.html:5
+msgid "Signup - ComPrix"
+msgstr "Inscription - ComPrix"
+
+#: templates/signup.html:128
+msgid "Sign up for ComPrix"
+msgstr "Inscrivez-vous à ComPrix"
+
+#: templates/signup.html:131
+msgid "Email"
+msgstr "E-mail"
+
+#: templates/signup.html:133
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+#: templates/signup.html:135
+msgid "Already have an account?"
+msgstr "Vous avez déjà un compte ?"
+
+#: templates/sustainability_health_badges.html:4
+msgid "ComPrix - Sustainability & Health Badges"
+msgstr "ComPrix - Badges de Durabilité & Santé"
+
+#: templates/sustainability_health_badges.html:10
+msgid "Badges for Better Choices"
+msgstr "Badges pour de meilleurs choix"
+
+#: templates/sustainability_health_badges.html:17
+msgid "Sustainability Badge"
+msgstr "Label de Durabilité"
+
+#: templates/sustainability_health_badges.html:18
+msgid "Eco-Friendly Shopping Simplified."
+msgstr "Achats écologiques simplifiés."
+
+#: templates/sustainability_health_badges.html:19
+msgid ""
+"Our Sustainability Badge highlights products that meet high environmental"
+" standards, including Organic, Eco-Friendly Packaging, and Carbon "
+"Footprint Conscious items."
+msgstr ""
+"Notre label de durabilité met en lumière les produits répondant à de "
+"hautes normes environnementales, incluant les produits biologiques, "
+"l'emballage éco-responsable et les articles conscients de l'empreinte "
+"carbone."
+
+#: templates/sustainability_health_badges.html:27
+msgid "Health Badge"
+msgstr "Label Santé"
+
+#: templates/sustainability_health_badges.html:28
+msgid "Nourish Yourself with the Best."
+msgstr "Nourrissez-vous avec le meilleur."
+
+#: templates/sustainability_health_badges.html:29
+msgid ""
+"The Health Badge indicates products that are Nutrient-Rich, Low in "
+"Unhealthy Additives, and Balanced Diet Friendly."
+msgstr ""
+"Le label santé indique les produits riches en nutriments, pauvres en "
+"additifs malsains et adaptés à une alimentation équilibrée."
+
+#: templates/sustainability_health_badges.html:37
+msgid "Making Informed Choices"
+msgstr "Faire des choix éclairés"
+
+#: templates/sustainability_health_badges.html:38
+msgid ""
+"Look for these badges as you build your grocery list and make choices "
+"that align with your health and environmental values."
+msgstr ""
+"Recherchez ces labels lorsque vous établissez votre liste d'épicerie et "
+"faites des choix en accord avec vos valeurs de santé et "
+"environnementales."
+
+#: templates/sustainability_health_badges.html:44
+msgid "Together, we can make a difference, one purchase at a time."
+msgstr "Ensemble, nous pouvons faire une différence, un achat à la fois."
+

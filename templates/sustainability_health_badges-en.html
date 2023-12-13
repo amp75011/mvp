@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+ComPrix - Sustainability & Health Badges
+{% endblock %}
+
+{% block content %}
+
+<section class="badges-section">
+    <h1>Badges for Better Choices</h1>
+    <div class="row">
+        <!-- Sustainability Badge -->
+        <div class="badge-feature">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/badge1.png') }}">
+            </div>
+            <h3>Sustainability Badge</h3>
+            <h5>Eco-Friendly Shopping Simplified.</h5>
+            <p>Our Sustainability Badge highlights products that meet high environmental standards, including Organic, Eco-Friendly Packaging, and Carbon Footprint Conscious items.</p>
+        </div>
+
+        <!-- Health Badge -->
+        <div class="badge-feature">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/badge2.png') }}">
+            </div>
+            <h3>Health Badge</h3>
+            <h5>Nourish Yourself with the Best.</h5>
+            <p>The Health Badge indicates products that are Nutrient-Rich, Low in Unhealthy Additives, and Balanced Diet Friendly.</p>
+        </div>
+
+        <!-- Informed Choices -->
+        <div class="badge-feature">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/badge3.png') }}">
+            </div>
+            <h3>Making Informed Choices</h3>
+            <h5>  </h5>
+            <p>Look for these badges as you build your grocery list and make choices that align with your health and environmental values.</p>
+        </div>
+    </div>
+</section>
+
+<br>
+<!--<h4 style="text-align: center; max-width: 90%; margin-left: auto; margin-right: auto;">Together, we can make a difference, one purchase at a time.</h4>-->
+<h4 class="responsive-break">Together, we can make a difference, <span class="mobile-break"> </span>one purchase at a time.</h4>
+
+{% endblock %}

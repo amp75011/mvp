@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ _('Signup - ComPrix') }}</title>
+    <title>Signup - ComPrix</title>
     <style>
         *{
      margin: 0;
@@ -118,22 +118,21 @@
         padding: 30px 20px; /* Reduce padding for small screens */
         margin-top: 0;
     }
-   }
      </style>
 </head>
 <body>
-   <div class="login-box">
-      <span class="close-btn" onclick="goBack()">&times;</span>
-      <img src="{{ url_for('static', filename='images/logo_black.PNG') }}" class="logo">
-      <h2>{{ _('Sign up for ComPrix') }}</h2>
-      <form action="/signup" method="post">
-          <input type="text" name="username" placeholder="{{ _('Username') }}" required>
-          <input type="email" name="email" placeholder="{{ _('Email') }}" required>
-          <input type="password" name="password" placeholder="{{ _('Password') }}" required>
-          <button type="submit">{{ _('Sign Up') }}</button>
-      </form>
-      <p>{{ _('Already have an account?') }} <a href="{{ url_for('login_page') }}">{{ _('Login') }}</a></p>
-  </div>
+    <div class="login-box">
+        <span class="close-btn" onclick="goBack()">&times;</span>
+        <img src="{{ url_for('static', filename='images/logo_black.PNG') }}" class="logo">
+        <h2>Sign up for ComPrix</h2>
+        <form action="/signup" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login_page') }}">Login</a></p>
+    </div>
     <script>
         function goBack() {
     // Check if the previous page is 'login.html'

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ _('Comprix - Shopping List') }}</title>
+    <title>Comprix - Shopping List</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
@@ -25,21 +25,14 @@
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="">{{ _('Price Comparison Tool') }}</a></li>
-                    <li><a href="{{ url_for('recipes') }}">{{ _('Recipes & Substitutes') }}</a></li>
-                    <li><a href="{{ url_for('badges') }}">{{ _('Sustainability & Health Badges') }}</a></li>
-                    <li><a href="{{ url_for('blog') }}">{{ _('Blog') }}</a></li>
-                    <li><a href="{{ url_for('login_page') }}">{{ _('Login') }}</a></li>
-                    <li><a href="{{ url_for('signup_page') }}">{{ _('Signup') }}</a></li>
-                    <!-- Language Switcher -->
-                    <li class="language-switcher">
-                        <a href="{{ url_for('set_language', lang_code='en') }}">
-                            <img src="{{ url_for('static', filename='images/english-flag.png') }}" alt="{{ _('English') }}" style="width: 25px; height: auto;">
-                        </a>
-                        <a href="{{ url_for('set_language', lang_code='fr') }}">
-                            <img src="{{ url_for('static', filename='images/french-flag.png') }}" alt="{{ _('Français') }}" style="width: 25px; height: auto;">
-                        </a>
-                    </li>
+                    <li><a href="">Price Comparison Tool</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
+                    <li><a href="{{ url_for('badges') }}">Sustainability & Health Badges</a></li>
+                    <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                    <li><a href="{{ url_for('login_page') }}">Login</a></li>
+                    <li><a href="{{ url_for('signup_page') }}">Signup</a></li>
+                    <!--<li><a href="">About Us</a></li>-->
+                    <!--<li><a href="">FAQs & Support</a></li>-->
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -54,54 +47,54 @@
         <div class="list-and-preferences">
             <!--<img src="{{ url_for('static', filename='images/shopping_list_hero.png') }}" class="left-image" alt="Description">-->
             <div class="list-section">
-                <h1>{{ _('Create Your Shopping List!') }}</h1>
+                <h1>Create Your Shopping List!</h1>
                 <div class="shopping-list">
                     <div class="row">
-                        <input type="text" id="input-box" placeholder="{{ _('Enter your shopping list items, one by one') }}">
-                        <button onclick="addTask()">{{ _('Add') }}</button>
+                        <input type="text" id="input-box" placeholder="Enter your shopping list items, one by one">
+                        <button onclick="addTask()">Add</button>
                     </div>
                     <ul id="list-container">
                         <!-- List items will be added here -->
                     </ul>
-                    <button id="compare-button" class="compare-button" onclick="compareItems()">{{ _('Compare') }}</button>
+                    <button id="compare-button" class="compare-button" onclick="compareItems()" style="display: block;">Compare</button>
                 </div>
             </div>
             <div class="preferences-section">
-                <h2>{{ _('Preferences') }}</h2>
+                <h2>Preferences</h2>
                 <div class="preferences-container">
                     <div class="toggle-switch">
                         <input type="checkbox" id="delivery-toggle" name="delivery-toggle" hidden>
                         <label for="delivery-toggle" class="switch-label">
-                            <span class="toggle-text left">{{ _('Click & Collect') }}</span>
-                            <span class="toggle-text right">{{ _('Delivery') }}</span>
+                            <span class="toggle-text left">Click & Collect</span>
+                            <span class="toggle-text right">Delivery</span>
                             <span class="toggle-handle"></span>
                         </label>
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="price-toggle" name="price-toggle" hidden>
                         <label for="price-toggle" class="switch-label">
-                            <span class="toggle-text left">{{ _('Price per item') }}</span>
-                            <span class="toggle-text right">{{ _('Per unit (kg, litre)') }}</span>
+                            <span class="toggle-text left">Price per item</span>
+                            <span class="toggle-text right">Per unit (kg, litre)</span>
                             <span class="toggle-handle"></span>
                         </label>
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="vege-toggle" name="vege-toggle" hidden>
                         <label for="vege-toggle" class="switch-label">
-                            <span class="toggle-text left">{{ _('Plant-based') }}</span>
-                            <span class="toggle-text right">{{ _('All products') }}</span>
+                            <span class="toggle-text left">Plant-based</span>
+                            <span class="toggle-text right">All products</span>
                             <span class="toggle-handle"></span>
                         </label>
                     </div>
                 </div>                
-            </div>            
+            </div>
         </div>
     </div>
 </section>
 
 
     <section class="categories">
-        <h2 class="centered-title">{{ _('Browse Categories') }}</h2>
+        <h2 class="centered-title">Browse Categories</h2>
         <div class="category-container">
             {% for category in categories %}
                 <a href="{{ url_for('category_page', category_name=category.name) }}" class="category-item">
@@ -115,14 +108,14 @@
 
     <!-- Footer section -->
     <section class="footer_pages">
-        <h4>{{ _('Contact Us') }}</h4>
+        <h4>Contact Us</h4>
         <!--<p>Lorem ipsum</p>-->
         <div class="icons">
             <i class="fab fa-facebook-f"></i>
             <i class="fab fa-instagram"></i>
             <i class="fab fa-linkedin-in"></i>
         </div>
-        <p>© 2023 {{ _('ComPrix') }}</p>
+        <p>© 2023 ComPrix</p>
     </section>
 
     

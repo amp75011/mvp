@@ -1,0 +1,317 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comprix - Compare, Save, Shop Smart!</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style_landing.css') }}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        
+</head>
+    <body>
+        <section class="header_landing">
+            <nav class="nav">
+                <a href="{{ url_for('landing') }}"><img src="{{ url_for('static', filename='images/logo_small_beta.png') }}" class="logo-img"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i> 
+                    <ul>
+                        <li><span class="nav-link" onclick="openPopup()">Price Comparison Tool</span></li>
+                        <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
+                        <li><a href="{{ url_for('badges') }}">Sustainability & Health Badges</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li><a href="{{ url_for('login_page') }}">Login</a></li>
+                        <li><a href="{{ url_for('signup_page') }}">Signup</a></li>
+                        <!--<li><a href="">About Us</a></li>-->
+                        <!--<li><a href="">FAQs & Support</a></li>-->
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+
+        <div class="text-box-landing">
+            <h1>Get the Best Prices on Your Groceries, Instantly!</h1>
+            <p>Compare your grocery list across top supermarkets and shop smart.</p>
+            <button type="submit" class="hero-btn" onclick="openPopup()">GET STARTED</button>
+            <div class="popup" id="popup">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+              <img src="{{ url_for('static', filename='images/location_avocado.png') }}">
+              <h2>Where do you want to shop?</h2>
+              <!--<input type="text" id="input-box" placeholder="Please enter your ZIP code">-->
+              <div class="row">
+                <!--<input type="text" id="input-box" placeholder="Please enter your ZIP code">-->
+                <input type="text" id="arrondissement-search-input" placeholder="Please enter your ZIP code">
+            </div>
+              <!--<button type="submit" class="hero-btn" onclick="closePopup()">Create the shopping list</button>-->
+              <!--<a href="{{ url_for('shopping_list') }}" class="hero-btn">Create the shopping list</a>-->
+              <button type="submit" class="hero-btn" onclick="window.location.href='{{ url_for('shopping_list') }}'">Create the shopping list</button>
+            </div>
+        </div>
+        
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <h1>How It Works</h1>
+           <!---- <p>Lorem ipsum</p> -->
+           <div class="row">
+                <div class="steps">
+                    <h3>Create Your List</h3>
+                    <p>Add as much detail as you like, from brand preferences to package sizes. Choose how you'd like to receive your groceries and fine-tune your search with custom filters.</p>
+                </div>
+                <div class="steps">
+                    <h3>Personalise the Cart</h3>
+                    <p>We scan four top supermarket chains to find the most cost-effective choices for you. Feel free to tweak your choices for a more personalised shopping experience.</p>
+                </div>
+                <div class="steps">
+                    <h3>Choose & Shop</h3>
+                    <p>View the total cost for your entire basket, including your preferred delivery method. Pick your favourite supermarket and seamlessly place your order directly with the retailer.</p>
+                 </div>
+                 <div class="steps">
+                    <h3>Enjoy the Savings</h3>
+                    <p>Discover the joy of smart shopping. ComPrix helps you cut your grocery bills by up to 20%, and offers insights into the nutritional and environmental impact of your choices.</p>
+                </div>
+           </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h1>Our Main Features</h1>
+           <!---- <p>Lorem ipsum</p> -->
+           <div class="row">
+                <div class="feature">
+                    <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/feature1_canva_.png') }}">
+                    </div>
+                    <!--<div class="layer">SEE MINUTE 44</div> -->
+                    <h3>Real-Time Price Comparison</h3>
+                    <p>Instantly compare prices of your grocery list across multiple supermarkets.</p>
+                </div>
+                <div class="feature">
+                    <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/feature2_canva.png') }}">
+                    </div>
+                    <h3>Healthy Recipes & Substitutes</h3>
+                    <p>Discover healthy recipes and find substitutes for better choices.</p>
+                </div>
+                <div class="feature">
+                    <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/feature3_canva_comingsoon.png') }}">
+                    </div>
+                    <h3>Sustainability Badges</h3>
+                    <p>Identify eco-friendly and sustainable products with our badges.</p>
+                </div>
+                <!--WITH AN ICON<div class="feature">
+                    <div class="image-container">
+                        <img src="{{ url_for('static', filename='images/feature3_canva.png') }}">
+                    </div>
+                    <div class="text-with-icon">
+                        <h3>Sustainability Badges</h3>
+                        <img src="{{ url_for('static', filename='images/coming_soon.png') }}" alt="Coming Soon" class="coming-soon-icon">
+                    </div>
+                    <p>Identify eco-friendly and sustainable products with our badges.</p>
+                </div>-->             
+           </div>
+        </section>
+        <!-----SEE MINUTE 49 !!! --->
+
+        <!----- Newsletter --->
+
+        <section class="newsletter">
+            <h1>Subscribe to Newsletter</h1>
+            <button class="hero-btn" onclick="openSubscribePopup()">SUBSCRIBE</button>
+        </section>
+
+        <div id="subscribePopup" class="subscribe-popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closeSubscribePopup()">&times;</span>
+                <h2>Subscribe to Our Newsletter</h2>
+                
+                <form id="subscribeForm" action="{{ url_for('subscribe_newsletter') }}" method="post">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit" class="hero-btn">Subscribe</button>
+                </form>
+                <!----- <form id="subscribeForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="hero-btn">Subscribe</button>
+                </form> --->
+                <p id="thankYouMessage" style="display:none;">Thank you for subscribing!</p>
+            </div>
+        </div>
+        
+        
+        <!----- FOOTER --->
+        <footer>
+            <div class="row">
+                 <div class="col">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('landing') }}">Home</a></li>
+                        <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
+                        <li><a href="{{ url_for('badges') }}">Sustainability & Health Badges</a></li>
+                        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="{{ url_for('faq') }}">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                
+                <div class="col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms and conditions</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>                
+               
+                <!-----<div class="col">
+                    <h3>Newsletter</h3>
+                    <form>
+                         <i class="far fa-envelope"></i>
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                    <div class="social-icons">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-linkedin-in"></i>        
+                    </div>
+                </div>--->
+                <div class="col">
+                    <h3>Newsletter</h3>
+                    <form id="footerNewsletterForm" action="{{ url_for('subscribe_newsletter') }}" method="post">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                    <!-----<form id="footerNewsletterForm">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>--->
+                    <p id="footerThankYouMessage" style="display:none;">Thank you for subscribing!</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/comprix.shop" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/comprix.shop/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>                        
+                        <i class="fab fa-linkedin-in"></i>        
+                    </div>
+                </div>
+                
+            </div>
+            <hr>
+            <p class="copyright">© 2023 ComPrix</p>
+        </footer>
+
+       <!-----Java Script for toggle menu--->
+        <script>
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right = "0";
+            }
+
+            function hideMenu(){
+                navLinks.style.right = "-200px";
+            }
+        
+            let popup = document.getElementById("popup");
+
+            // opening and closing the pop-up
+            function openPopup() {
+                popup.classList.add("open-popup"); 
+                navLinks.style.right = "-200px";
+            }
+
+            
+            function closePopup() {
+                popup.classList.remove("open-popup"); 
+            }
+
+            // NEWSLETTER
+            function openSubscribePopup() {
+    document.getElementById("subscribePopup").style.display = "block";
+}
+
+function closeSubscribePopup() {
+    document.getElementById("subscribePopup").style.display = "none";
+}
+
+// Updated form submission handling with AJAX request
+document.getElementById("subscribeForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    const form = this;
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => {
+        if(response.ok) {
+            document.getElementById("thankYouMessage").style.display = "block";
+            form.reset(); // Reset the form after successful submission
+            // Optionally, you can close the popup after a delay
+            setTimeout(() => {
+                closeSubscribePopup();
+            }, 3000); // Close popup after 3 seconds
+        } else {
+            alert("Subscription failed. Please try again.");
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+
+    // FOOTER
+
+    document.getElementById("footerNewsletterForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    const form = this;
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => {
+        if(response.ok) {
+            document.getElementById("footerThankYouMessage").style.display = "block";
+            form.reset(); // Reset the form after successful submission
+        } else {
+            alert("Subscription failed. Please try again.");
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+        </script>
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var arrondissements = {{ arrondissements | tojson | safe }};
+                
+                $("#arrondissement-search-input").autocomplete({
+                    source: arrondissements,
+                    open: function() {
+                        // Add a custom class to the autocomplete menu
+                        $(".ui-autocomplete").addClass("custom-scroll");
+                    }
+                });
+
+            });
+
+        
+        </script>
+        
+    </body>
+</html>

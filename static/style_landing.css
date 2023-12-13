@@ -67,9 +67,30 @@
     width: 100%;
 }
 
+.nav-links ul li.language-switcher::after {
+    background: none;
+}
 /*body {
     background-color: #eeeeee;
 }*/
+
+.flag-img {
+    width: 25px;
+    height: auto;
+    vertical-align: middle; /* Aligns the flag with the text */
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center; /* Aligns flags vertically center in the list item */
+}
+
+@media screen and (max-width: 768px) {
+    /* Mobile specific styles */
+    .language-switcher {
+        justify-content: center; /* Centers the flags in the mobile menu */
+    }
+}
 
 
 /* The Get the Best Prices on Your Groceries, Instantly!
@@ -229,7 +250,7 @@ p{
 
 /* OUR MAIN FEATURES */
 .features{
-    width: 95%;
+    width: 98%;
     margin: auto;
     text-align: center;
     padding-top: 30px;
@@ -608,7 +629,7 @@ footer h3:hover::after {
 }
 .popup button{
     width: 70%;
-    margin-top: 100px;
+    margin-top: 70px;
     padding: 10px 0;
     background: #f44336;
     /*background: #6fd649;*/

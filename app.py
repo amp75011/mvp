@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_babel import Babel
 import pandas as pd
 import re
 import os
@@ -9,6 +10,18 @@ from mysql.connector import Error as mysqlError
 
 
 app = Flask(__name__)
+
+# Define the function to get the current locale
+def get_locale():
+    return request.args.get('lang') or session.get('lang') or 'en'
+
+# Babel configuration
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+
+# Initialize Babel
+babel = Babel()
+babel.init_app(app, locale_selector=get_locale)
 
 bcrypt = Bcrypt(app)
 
@@ -110,6 +123,11 @@ def landing():
     # Pass the arrondissements data to the landing.html template
     return render_template('landing.html', arrondissements=arrondissements)
 
+
+@app.route('/set_language/<lang_code>')
+def set_language(lang_code):
+    session['lang'] = lang_code
+    return redirect(request.referrer or url_for('landing'))
 
 
 # shopping list with a sophisticated autocompletion

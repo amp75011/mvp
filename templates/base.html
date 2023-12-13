@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Comprix - Default Title{% endblock %}</title>
+    <title>{% block title %}{{ _('Comprix - Default Title') }}{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -32,14 +32,22 @@
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="{{ url_for('shopping_list') }}">Price Comparison Tool</a></li>
-                    <li><a href="{{ url_for('recipes') }}">Recipes & Substitutes</a></li>
-                    <li><a href="{{ url_for('badges') }}">Sustainability & Health Badges</a></li>
-                    <li><a href="{{ url_for('blog') }}">Blog</a></li>
-                    <li><a href="{{ url_for('login_page') }}">Login</a></li>
-                    <li><a href="{{ url_for('signup_page') }}">Signup</a></li>
+                    <li><a href="{{ url_for('shopping_list') }}">{{ _('Price Comparison Tool') }}</a></li>
+                    <li><a href="{{ url_for('recipes') }}">{{ _('Recipes & Substitutes') }}</a></li>
+                    <li><a href="{{ url_for('badges') }}">{{ _('Sustainability & Health Badges') }}</a></li>
+                    <li><a href="{{ url_for('blog') }}">{{ _('Blog') }}</a></li>
+                    <li><a href="{{ url_for('login_page') }}">{{ _('Login') }}</a></li>
+                    <li><a href="{{ url_for('signup_page') }}">{{ _('Signup') }}</a></li>
                     <!--<li><a href="">About Us</a></li>-->
                     <!--<li><a href="">FAQs & Support</a></li>-->
+                    <li class="language-switcher">
+                        <a href="{{ url_for('set_language', lang_code='en') }}">
+                            <img src="{{ url_for('static', filename='images/english-flag.png') }}" alt="{{ _('English') }}" style="width: 25px; height: auto;">
+                        </a>
+                        <a href="{{ url_for('set_language', lang_code='fr') }}">
+                            <img src="{{ url_for('static', filename='images/french-flag.png') }}" alt="{{ _('Français') }}" style="width: 25px; height: auto;">
+                        </a>
+                    </li>
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -51,7 +59,7 @@
     {% endblock %}
 
     <section class="footer_pages">
-        <h4>Contact Us</h4>
+        <h4>{{ _('Contact Us') }}</h4>
         <!--<p>Lorem ipsum</p>-->
         <div class="icons">
             <a href="https://www.facebook.com/comprix.shop" target="_blank" class="instagram-icon">

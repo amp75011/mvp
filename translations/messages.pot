@@ -1,0 +1,539 @@
+# Translations template for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-12-13 19:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: templates/landing.html:4
+msgid "Comprix - Compare, Save, Shop Smart!"
+msgstr ""
+
+#: templates/landing.html:21 templates/shopping_list.html:28
+msgid "Price Comparison Tool"
+msgstr ""
+
+#: templates/landing.html:22 templates/landing.html:135
+#: templates/shopping_list.html:29
+msgid "Recipes & Substitutes"
+msgstr ""
+
+#: templates/landing.html:23 templates/landing.html:136
+#: templates/shopping_list.html:30
+msgid "Sustainability & Health Badges"
+msgstr ""
+
+#: templates/landing.html:24 templates/landing.html:137
+#: templates/shopping_list.html:31
+msgid "Blog"
+msgstr ""
+
+#: templates/landing.html:25 templates/shopping_list.html:32
+msgid "Login"
+msgstr ""
+
+#: templates/landing.html:26 templates/shopping_list.html:33
+msgid "Signup"
+msgstr ""
+
+#: templates/landing.html:30 templates/shopping_list.html:37
+msgid "English"
+msgstr ""
+
+#: templates/landing.html:33 templates/shopping_list.html:40
+msgid "Français"
+msgstr ""
+
+#: templates/landing.html:43
+msgid "Get the Best Prices on Your Groceries, Instantly!"
+msgstr ""
+
+#: templates/landing.html:44
+msgid "Compare your grocery list across top supermarkets and shop smart."
+msgstr ""
+
+#: templates/landing.html:45
+msgid "GET STARTED"
+msgstr ""
+
+#: templates/landing.html:49
+msgid "Where do you want to shop?"
+msgstr ""
+
+#: templates/landing.html:51
+msgid "Please enter your ZIP code"
+msgstr ""
+
+#: templates/landing.html:53
+msgid "Create the shopping list"
+msgstr ""
+
+#: templates/landing.html:60
+msgid "How It Works"
+msgstr ""
+
+#: templates/landing.html:63
+msgid "Create Your List"
+msgstr ""
+
+#: templates/landing.html:64
+msgid ""
+"Add as much detail as you like, from brand preferences to package sizes. "
+"Choose how you'd like to receive your groceries and fine-tune your search"
+" with custom filters."
+msgstr ""
+
+#: templates/landing.html:67
+msgid "Personalise the Cart"
+msgstr ""
+
+#: templates/landing.html:68
+msgid ""
+"We scan four top supermarket chains to find the most cost-effective "
+"choices for you. Feel free to tweak your choices for a more personalised "
+"shopping experience."
+msgstr ""
+
+#: templates/landing.html:71
+msgid "Choose & Shop"
+msgstr ""
+
+#: templates/landing.html:72
+msgid ""
+"View the total cost for your entire basket, including your preferred "
+"delivery method. Pick your favourite supermarket and seamlessly place "
+"your order directly with the retailer."
+msgstr ""
+
+#: templates/landing.html:75
+msgid "Enjoy the Savings"
+msgstr ""
+
+#: templates/landing.html:76
+#, python-format
+msgid ""
+"Discover the joy of smart shopping. ComPrix helps you cut your grocery "
+"bills by up to 20%%, and offers insights into the nutritional and "
+"environmental impact of your choices."
+msgstr ""
+
+#: templates/landing.html:83
+msgid "Our Main Features"
+msgstr ""
+
+#: templates/landing.html:89
+msgid "Real-Time Price Comparison"
+msgstr ""
+
+#: templates/landing.html:90
+msgid ""
+"Instantly compare prices of your grocery list across multiple "
+"supermarkets."
+msgstr ""
+
+#: templates/landing.html:96
+msgid "Healthy Recipes & Substitutes"
+msgstr ""
+
+#: templates/landing.html:97
+msgid "Discover healthy recipes and find substitutes for better choices."
+msgstr ""
+
+#: templates/landing.html:103
+msgid "Sustainability Badges"
+msgstr ""
+
+#: templates/landing.html:104
+msgid "Identify eco-friendly and sustainable products with our badges."
+msgstr ""
+
+#: templates/landing.html:111
+msgid "Subscribe to Newsletter"
+msgstr ""
+
+#: templates/landing.html:112
+msgid "SUBSCRIBE"
+msgstr ""
+
+#: templates/landing.html:118
+msgid "Subscribe to Our Newsletter"
+msgstr ""
+
+#: templates/landing.html:121 templates/landing.html:162
+msgid "Enter your email"
+msgstr ""
+
+#: templates/landing.html:122
+msgid "Subscribe"
+msgstr ""
+
+#: templates/landing.html:124 templates/landing.html:165
+msgid "Thank you for subscribing!"
+msgstr ""
+
+#: templates/landing.html:132
+msgid "Links"
+msgstr ""
+
+#: templates/landing.html:134
+msgid "Home"
+msgstr ""
+
+#: templates/landing.html:142
+msgid "Help"
+msgstr ""
+
+#: templates/landing.html:144
+msgid "Contact"
+msgstr ""
+
+#: templates/landing.html:145
+msgid "FAQs"
+msgstr ""
+
+#: templates/landing.html:150
+msgid "Legal"
+msgstr ""
+
+#: templates/landing.html:152
+msgid "Terms and conditions"
+msgstr ""
+
+#: templates/landing.html:153
+msgid "Privacy"
+msgstr ""
+
+#: templates/landing.html:154
+msgid "Cookies"
+msgstr ""
+
+#: templates/landing.html:159
+msgid "Newsletter"
+msgstr ""
+
+#: templates/landing.html:179
+msgid "© 2023 ComPrix"
+msgstr ""
+
+#: templates/recipes.html:4
+msgid "Comprix - Recipes"
+msgstr ""
+
+#: templates/recipes.html:11
+msgid "Recipes"
+msgstr ""
+
+#: templates/recipes.html:12
+msgid "Get Inspired"
+msgstr ""
+
+#: templates/recipes.html:24 templates/recipes.html:34
+msgid "Thai Curry with Chickpeas, Pumpkin and Spinach"
+msgstr ""
+
+#: templates/recipes.html:38 templates/recipes.html:87
+#: templates/recipes.html:127
+msgid "Ingredients for 2 Servings"
+msgstr ""
+
+#: templates/recipes.html:39
+msgid "• 1 cup cooked chickpeas (or canned)"
+msgstr ""
+
+#: templates/recipes.html:40
+msgid "• 300 g pumpkin (weighed before peeling)"
+msgstr ""
+
+#: templates/recipes.html:41
+msgid "• 1 small onion"
+msgstr ""
+
+#: templates/recipes.html:42
+msgid ""
+"• 1 teaspoon of red curry paste (or 1 teaspoon of grated garlic and "
+"ginger and 1/2 teaspoon of ground hot pepper)"
+msgstr ""
+
+#: templates/recipes.html:43
+msgid "• 1/2 teaspoon ground turmeric"
+msgstr ""
+
+#: templates/recipes.html:44
+msgid "• 150 ml coconut milk"
+msgstr ""
+
+#: templates/recipes.html:45
+msgid "• Approx. 1/2 cup of broth"
+msgstr ""
+
+#: templates/recipes.html:46
+msgid "• A large handful of spinach"
+msgstr ""
+
+#: templates/recipes.html:47
+msgid "• Coriander (for garnish)"
+msgstr ""
+
+#: templates/recipes.html:48
+msgid "• Fresh chili (for garnish)"
+msgstr ""
+
+#: templates/recipes.html:49
+msgid "• 1 lime wedge (for serving)"
+msgstr ""
+
+#: templates/recipes.html:50
+msgid "• Salt (to taste)"
+msgstr ""
+
+#: templates/recipes.html:51
+msgid "• 2 tablespoons of coconut oil (for frying)"
+msgstr ""
+
+#: templates/recipes.html:52
+msgid "• Rice (for serving)"
+msgstr ""
+
+#: templates/recipes.html:56 templates/recipes.html:99
+#: templates/recipes.html:142
+msgid "Preparation"
+msgstr ""
+
+#: templates/recipes.html:57
+msgid "• Peel the pumpkin and cut into cubes. Cut the onion into slices."
+msgstr ""
+
+#: templates/recipes.html:58
+msgid ""
+"• In a pan, fry the curry paste in 2 tablespoons of coconut milk. Add "
+"pumpkin, onion, season with salt and fry, stirring occasionally, for "
+"about 2 minutes."
+msgstr ""
+
+#: templates/recipes.html:59
+msgid ""
+"• Add ground turmeric and cooked or canned chickpeas (if possible, add a "
+"few tablespoons of the chickpeas water). Add another 2 tablespoons of "
+"milk and fry for 1 minute."
+msgstr ""
+
+#: templates/recipes.html:60
+msgid ""
+"• Pour in the rest of the coconut milk and bring to a boil. Cook for "
+"about 15 minutes, stirring occasionally. Pour the broth gradually and "
+"cook for approx. 5 - 10 minutes until the pumpkin is soft. In the "
+"meantime, stir every now and then. Finally, add the spinach, mix and set "
+"aside from the heat."
+msgstr ""
+
+#: templates/recipes.html:61
+msgid ""
+"• Sprinkle with coriander and fresh chili, serve with rice and a lime "
+"wedge."
+msgstr ""
+
+#: templates/recipes.html:71 templates/recipes.html:82
+msgid "Salmon Baked in Red Pesto"
+msgstr ""
+
+#: templates/recipes.html:88
+msgid "• 600 g salmon"
+msgstr ""
+
+#: templates/recipes.html:89
+msgid "• Salt and pepper (to taste)"
+msgstr ""
+
+#: templates/recipes.html:90
+msgid "• 2 tablespoons of red pesto (made from dried tomatoes)"
+msgstr ""
+
+#: templates/recipes.html:91
+msgid "• 1/2 can of chopped, peeled tomatoes (or 1 fresh tomato)"
+msgstr ""
+
+#: templates/recipes.html:92
+msgid "• 2 teaspoons of dried oregano"
+msgstr ""
+
+#: templates/recipes.html:93
+msgid "• 2 tablespoons of extra olive oil"
+msgstr ""
+
+#: templates/recipes.html:94
+msgid "• Fresh basil (for garnish)"
+msgstr ""
+
+#: templates/recipes.html:95
+msgid "• 1/2 cup grated Parmesan cheese"
+msgstr ""
+
+#: templates/recipes.html:100
+msgid ""
+"• Cut off the skin from the fillets, rinse the salmon, dry it and cut "
+"into portions. Season with salt and pepper and spread with red pesto. "
+"Place in an ovenproof dish."
+msgstr ""
+
+#: templates/recipes.html:101
+msgid ""
+"• Place 2 tablespoons of chopped tomatoes on each portion and season with"
+" dried oregano, salt, and pepper. Drizzle with olive oil, sprinkle with "
+"basil and Parmesan. Preheat the oven to 200 degrees C and bake for about "
+"15 - 17 minutes."
+msgstr ""
+
+#: templates/recipes.html:111 templates/recipes.html:122
+msgid "Pasta with Shrimp and Zucchini"
+msgstr ""
+
+#: templates/recipes.html:128
+msgid "• 12-16 shrimps"
+msgstr ""
+
+#: templates/recipes.html:129
+msgid "• 1 small zucchini (approx. 250 g)"
+msgstr ""
+
+#: templates/recipes.html:130
+msgid "• 150 g tagliatelle pasta"
+msgstr ""
+
+#: templates/recipes.html:131
+msgid "• 4 tablespoons of chopped parsley"
+msgstr ""
+
+#: templates/recipes.html:132
+msgid "• 6 tablespoons of whipping cream 30%"
+msgstr ""
+
+#: templates/recipes.html:133
+msgid "• 2 cloves of garlic"
+msgstr ""
+
+#: templates/recipes.html:134
+msgid "• 6 tablespoons of white wine"
+msgstr ""
+
+#: templates/recipes.html:135
+msgid "• 1 and 1/2 tablespoons of olive oil"
+msgstr ""
+
+#: templates/recipes.html:136
+msgid "• 2 tablespoons of butter"
+msgstr ""
+
+#: templates/recipes.html:137
+msgid "• A pinch of saffron (optional)"
+msgstr ""
+
+#: templates/recipes.html:138
+msgid "• 2 lemon pieces (for serving)"
+msgstr ""
+
+#: templates/recipes.html:143
+msgid ""
+"• Clean, wash, and dry the shrimp. Cut the zucchini into slices and "
+"halves. Chop the parsley and grate the garlic. Cook the pasta al dente, "
+"drain, reserving some pasta water."
+msgstr ""
+
+#: templates/recipes.html:144
+msgid ""
+"• In a pan with olive oil and grated garlic, fry lightly, add zucchini, "
+"and stir-fry for about 5 minutes. Add butter, salt, optionally saffron, "
+"and fry for another 2-3 minutes."
+msgstr ""
+
+#: templates/recipes.html:145
+msgid ""
+"• Move zucchini to the edge of the pan, add butter and shrimps in the "
+"free space, season them with salt, and fry for half a minute on each side"
+" over higher heat."
+msgstr ""
+
+#: templates/recipes.html:146
+msgid ""
+"• Add parsley, mix all ingredients in the pan, and fry for a while. Pour "
+"in the wine and let it evaporate over high heat."
+msgstr ""
+
+#: templates/recipes.html:147
+msgid ""
+"• Add the heavy cream, pasta, and a few tablespoons of pasta water. Mix "
+"and bring to a boil. Remove from heat when the sauce becomes thick. Serve"
+" with a lemon wedge."
+msgstr ""
+
+#: templates/shopping_list.html:5
+msgid "Comprix - Shopping List"
+msgstr ""
+
+#: templates/shopping_list.html:57
+msgid "Create Your Shopping List!"
+msgstr ""
+
+#: templates/shopping_list.html:60
+msgid "Enter your shopping list items, one by one"
+msgstr ""
+
+#: templates/shopping_list.html:61
+msgid "Add"
+msgstr ""
+
+#: templates/shopping_list.html:66
+msgid "Compare"
+msgstr ""
+
+#: templates/shopping_list.html:70
+msgid "Preferences"
+msgstr ""
+
+#: templates/shopping_list.html:75
+msgid "Click & Collect"
+msgstr ""
+
+#: templates/shopping_list.html:76
+msgid "Delivery"
+msgstr ""
+
+#: templates/shopping_list.html:83
+msgid "Price per item"
+msgstr ""
+
+#: templates/shopping_list.html:84
+msgid "Per unit (kg, litre)"
+msgstr ""
+
+#: templates/shopping_list.html:91
+msgid "Plant-based"
+msgstr ""
+
+#: templates/shopping_list.html:92
+msgid "All products"
+msgstr ""
+
+#: templates/shopping_list.html:104
+msgid "Browse Categories"
+msgstr ""
+
+#: templates/shopping_list.html:118
+msgid "Contact Us"
+msgstr ""
+
+#: templates/shopping_list.html:125
+msgid "ComPrix"
+msgstr ""
+

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ _('Login - ComPrix') }}</title>
+    <title>Login - ComPrix</title>
     <style>
        *{
     margin: 0;
@@ -118,27 +118,27 @@
         padding: 30px 20px; /* Reduce padding for small screens */
         margin-top: 0;
     }
-   }
+
 </style>
 </head>
 
 <body>
-   <div class="login-box">
+    <div class="login-box">
         <span class="close-btn" onclick="goBack()">&times;</span>
         <img src="{{ url_for('static', filename='images/logo_black.PNG') }}" class="logo">
-        <h2>{{ _('Sign in to ComPrix') }}</h2>
+        <h2>Sign in to ComPrix</h2>
         <!-- Example Social Media Logins -->
-        <button><img src="{{ url_for('static', filename='images/google.png') }}"> {{ _('Sign in with Google') }}</button>
-        <button><img src="{{ url_for('static', filename='images/apple.png') }}"> {{ _('Sign in with Apple') }}</button>
+        <button><img src="{{ url_for('static', filename='images/google.png') }}"> Sign in with Google</button>
+        <button><img src="{{ url_for('static', filename='images/apple.png') }}"> Sign in with Apple</button>
         <hr>
-        <span class="or-text">{{ _('Or') }}</span>
+        <span class="or-text">Or</span>
         <form action="/login" method="post">
-            <input type="text" name="username" placeholder="{{ _('Username') }}" required>
-            <input type="password" name="password" placeholder="{{ _('Password') }}" required>
-            <button type="submit">{{ _('Login') }}</button>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
         </form>
-        <button>{{ _('Forgot password?') }}</button>
-        <p>{{ _("Don't have an account?") }} <a href="{{ url_for('signup_page') }}">{{ _('Sign up') }}</a></p>
+        <button>Forgot password?</button>
+        <p>Don't have an account? <a href="{{ url_for('signup_page') }}">Sign up</a></p>
     </div>
     
     <script>
