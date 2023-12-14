@@ -19,7 +19,7 @@
         <div class="work-list">
             <!-- Recipe 1 -->
             <div class="work">
-                <img src="{{ url_for('static', filename='images/recipe1.png') }}">
+                <img src="{{ url_for('static', filename='images/recipe1-canva.png') }}">
                 <div class="layer">
                     <h3>{{ _('Thai Curry with Chickpeas, Pumpkin and Spinach') }}</h3>
                     <a href="javascript:void(0)" onclick="openModal('recipeModal1')">
@@ -64,9 +64,10 @@
                 </div>
             </div>
 
+             
             <!-- Recipe 2 -->
             <div class="work">
-                <img src="{{ url_for('static', filename='images/recipe2.png') }}">
+                <img src="{{ url_for('static', filename='images/recipe2-canva.png') }}">
                 <div class="layer">
                     <h3>{{ _('Salmon Baked in Red Pesto') }}</h3>
                     <a href="javascript:void(0)" onclick="openModal('recipeModal2')">
@@ -104,52 +105,96 @@
                 </div>
             </div>
 
-            <!-- Recipe 3 -->
-            <div class="work">
-                <img src="{{ url_for('static', filename='images/recipe3.png') }}">
-                <div class="layer">
-                    <h3>{{ _('Pasta with Shrimp and Zucchini') }}</h3>
-                    <a href="javascript:void(0)" onclick="openModal('recipeModal3')">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Recipe 3 Modal -->
-            <div id="recipeModal3" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>{{ _('Pasta with Shrimp and Zucchini') }}</h2>
-        
-                    <div style="display: flex; margin-bottom: 20px;">
-                        <!-- Ingredients Section -->
-                        <div style="flex: 1; padding-right: 20px;">
-                            <h5>{{ _('Ingredients for 2 Servings') }}</h5>
-                            <p>{{ _('• 12-16 shrimps') }}</p> 
-                            <p>{{ _('• 1 small zucchini (approx. 250 g)') }}</p>
-                            <p>{{ _('• 150 g tagliatelle pasta') }}</p>
-                            <p>{{ _('• 4 tablespoons of chopped parsley') }}</p>
-                            <p>{{ _('• 6 tablespoons of whipping cream 30%%') }}</p>
-                            <p>{{ _('• 2 cloves of garlic') }}</p>
-                            <p>{{ _('• 6 tablespoons of white wine') }}</p>
-                            <p>{{ _('• 1 and 1/2 tablespoons of olive oil') }}</p>
-                            <p>{{ _('• 2 tablespoons of butter') }}</p>
-                            <p>{{ _('• A pinch of saffron (optional)') }}</p>
-                            <p>{{ _('• 2 lemon pieces (for serving)') }}</p>
-                        </div>
-                        <!-- Preparation Section -->
-                        <div style="flex: 1; padding-left: 20px;">
-                            <h5>{{ _('Preparation') }}</h5>
-                            <p>{{ _('• Clean, wash, and dry the shrimp. Cut the zucchini into slices and halves. Chop the parsley and grate the garlic. Cook the pasta al dente, drain, reserving some pasta water.') }}</p>
-                            <p>{{ _('• In a pan with olive oil and grated garlic, fry lightly, add zucchini, and stir-fry for about 5 minutes. Add butter, salt, optionally saffron, and fry for another 2-3 minutes.') }}</p>
-                            <p>{{ _('• Move zucchini to the edge of the pan, add butter and shrimps in the free space, season them with salt, and fry for half a minute on each side over higher heat.') }}</p>
-                            <p>{{ _('• Add parsley, mix all ingredients in the pan, and fry for a while. Pour in the wine and let it evaporate over high heat.') }}</p>
-                            <p>{{ _('• Add the heavy cream, pasta, and a few tablespoons of pasta water. Mix and bring to a boil. Remove from heat when the sauce becomes thick. Serve with a lemon wedge.') }}</p>
-                        </div>
+        <!-- Recipe 3 -->
+        <!--<div class="work">
+            <img src="{{ url_for('static', filename='images/recette2-kwestia.jpg') }}">
+            <div class="layer">
+                <h3>{{ _('Pasta with Shrimp and Zucchini') }}</h3>
+                <a href="javascript:void(0)" onclick="openModal('recipeModal3')">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>-->
+
+        <!-- Recipe 3 Modal -->
+         <!--<div id="recipeModal3" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>{{ _('Pasta with Shrimp and Zucchini') }}</h2>-->
+    
+                <!--<div style="display: flex; margin-bottom: 20px;">-->
+                    <!-- Ingredients Section -->
+                    <!--<div style="flex: 1; padding-right: 20px;">
+                        <h5>{{ _('Ingredients for 2 Servings') }}</h5>
+                        <p>{{ _('• 12-16 shrimps') }}</p> 
+                        <p>{{ _('• 1 small zucchini (approx. 250 g)') }}</p>
+                        <p>{{ _('• 150 g tagliatelle pasta') }}</p>
+                        <p>{{ _('• 4 tablespoons of chopped parsley') }}</p>
+                        <p>{{ _('• 6 tablespoons of whipping cream 30%%') }}</p>
+                        <p>{{ _('• 2 cloves of garlic') }}</p>
+                        <p>{{ _('• 6 tablespoons of white wine') }}</p>
+                        <p>{{ _('• 1 and 1/2 tablespoons of olive oil') }}</p>
+                        <p>{{ _('• 2 tablespoons of butter') }}</p>
+                        <p>{{ _('• A pinch of saffron (optional)') }}</p>
+                        <p>{{ _('• 2 lemon pieces (for serving)') }}</p>
+                    </div>-->
+                    <!-- Preparation Section -->
+                    <!--<div style="flex: 1; padding-left: 20px;">
+                        <h5>{{ _('Preparation') }}</h5>
+                        <p>{{ _('• Clean, wash, and dry the shrimp. Cut the zucchini into slices and halves. Chop the parsley and grate the garlic. Cook the pasta al dente, drain, keeping a bit of water.') }}</p>
+                        <p>{{ _('• In a pan with olive oil and grated garlic, fry lightly, add zucchini, and stir-fry for about 5 minutes. Add butter, salt, optionally saffron, and fry for another 2-3 minutes.') }}</p>
+                        <p>{{ _('• Move zucchini to the edge of the pan, add butter and shrimps in the free space, season them with salt, and fry for half a minute on each side over higher heat.') }}</p>
+                        <p>{{ _('• Add parsley, mix all ingredients in the pan, and fry for a while. Pour in the wine and let it evaporate over high heat.') }}</p>
+                        <p>{{ _('• Add the cream, pasta, and a few tablespoons of pasta water. Mix and bring to a boil. Remove from heat when the sauce becomes thick. Serve with a lemon wedge.') }}</p>
                     </div>
                 </div>
             </div>
+        </div>-->
+        
+        <!-- Recipe 3 -->
+        <div class="work">
+            <img src="{{ url_for('static', filename='images/recipe3-canva.png') }}">
+            <div class="layer">
+                <h3>{{ _('Grilled Trout with Vegetables and Figs') }}</h3>
+                <a href="javascript:void(0)" onclick="openModal('recipeModal3')">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
 
+        <!-- Recipe 3 Modal -->
+        <div id="recipeModal3" class="modal">
+         <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>{{ _('Grilled Trout with Vegetables and Figs') }}</h2>
+
+                <div style="display: flex; margin-bottom: 20px;">
+                    <!-- Ingredients Section -->
+                    <div style="flex: 1; padding-right: 20px;">
+                        <h5>{{ _('Ingredients for 2 Servings') }}</h5>
+                        <p>{{ _('• 2 trout fillets') }}</p>
+                        <p>{{ _('• 1 cup broccoli florets') }}</p>
+                        <p>{{ _('• 1 cup green beans, ends trimmed') }}</p>
+                        <p>{{ _('• 1 cup sliced carrots') }}</p>
+                        <p>{{ _('• 1/2 cup cherry tomatoes, halved') }}</p>
+                        <p>{{ _('• 4 fresh figs, quartered') }}</p>
+                        <p>{{ _('• 2 tablespoons olive oil') }}</p>
+                        <p>{{ _('• Salt and pepper to taste') }}</p>
+                        <p>{{ _('• Optional herbs like thyme or rosemary') }}</p>
+                    </div>
+                    <!-- Preparation Section -->
+                    <div style="flex: 1; padding-left: 20px;">
+                        <h5>{{ _('Preparation') }}</h5>
+                        <p>{{ _('• Preheat your grill pan over medium-high heat. Brush the trout fillets with olive oil and season with salt, pepper, and optional herbs.') }}</p>
+                        <p>{{ _('• Grill the trout for about 4-5 minutes per side or until it flakes easily with a fork.') }}</p>
+                        <p>{{ _('• Steam broccoli, green beans, and carrots until just tender. Add them to the grill pan with the tomatoes, drizzle with olive oil, and season.') }}</p>
+                        <p>{{ _('• Grill the vegetables for 2-3 minutes, then add the fig quarters and cook for an additional 1-2 minutes.') }}</p>
+                        <p>{{ _('• Serve the grilled trout and vegetables hot, with the figs adding a sweet contrast.') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         </div>
         <!----------<a href="#" class="btn">See more</a>---------->

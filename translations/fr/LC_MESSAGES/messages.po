@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-13 22:20+0100\n"
+"POT-Creation-Date: 2023-12-14 16:16+0100\n"
 "PO-Revision-Date: 2023-12-12 18:24+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -259,8 +259,8 @@ msgid ""
 "nutritious meals."
 msgstr ""
 "2. Suggestions de recettes : Vous ne savez pas comment intégrer le quinoa"
-" dans vos repas ? Ou à la recherche d'une alternative pauvre en sodium "
-"pour votre plat préféré ? Nos suggestions de recettes axées sur la santé "
+" dans vos repas ? Ou vous cherchez une alternative pauvre en sodium pour "
+"votre plat préféré ? Nos suggestions de recettes axées sur la santé "
 "peuvent vous inspirer à essayer de nouveaux plats nutritifs."
 
 #: templates/blog.html:59
@@ -363,7 +363,7 @@ msgstr ""
 msgid "Here's how ComPrix becomes an ally in your sustainable shopping journey:"
 msgstr ""
 "Voici comment ComPrix devient un allié dans votre parcours d'achats "
-"durables :"
+"durables:"
 
 #: templates/blog.html:81
 msgid ""
@@ -371,7 +371,7 @@ msgid ""
 "sustainability badges highlight items that are either locally sourced, "
 "have reduced carbon footprints, or come in minimal packaging."
 msgstr ""
-"1. Badges écologiques : D'un coup d'œil, voyez quels produits sont éco-"
+"1. Badges durabilité : D'un coup d'œil, voyez quels produits sont éco-"
 "responsables. Nos badges de durabilité mettent en évidence des articles "
 "soit issus de sources locales, soit ayant des empreintes carbone "
 "réduites, soit présentés dans un emballage minimal."
@@ -561,11 +561,11 @@ msgstr ""
 
 #: templates/landing.html:103
 msgid "Sustainability Badges"
-msgstr "Labels de durabilité"
+msgstr "Badges durabilité"
 
 #: templates/landing.html:104
 msgid "Identify eco-friendly and sustainable products with our badges."
-msgstr "Repérez les produits éco-responsables avec nos labels."
+msgstr "Repérez les produits éco-responsables avec nos badges."
 
 #: templates/landing.html:111
 msgid "Subscribe to Newsletter"
@@ -691,8 +691,8 @@ msgstr "Laissez-vous inspirer"
 msgid "Thai Curry with Chickpeas, Pumpkin and Spinach"
 msgstr "Curry Thaï aux pois chiches, potiron et épinards"
 
-#: templates/recipes.html:38 templates/recipes.html:87
-#: templates/recipes.html:127
+#: templates/recipes.html:38 templates/recipes.html:88
+#: templates/recipes.html:129 templates/recipes.html:175
 msgid "Ingredients for 2 Servings"
 msgstr "Ingrédients pour 2 personnes"
 
@@ -756,8 +756,8 @@ msgstr "• 2 cuillères à soupe d'huile de coco (pour la friture)"
 msgid "• Rice (for serving)"
 msgstr "• Riz (pour servir)"
 
-#: templates/recipes.html:56 templates/recipes.html:99
-#: templates/recipes.html:142
+#: templates/recipes.html:56 templates/recipes.html:100
+#: templates/recipes.html:144 templates/recipes.html:188
 msgid "Preparation"
 msgstr "Préparation"
 
@@ -808,43 +808,43 @@ msgstr ""
 "• Saupoudrez de coriandre et de piment frais, servez avec du riz et un "
 "quartier de citron vert."
 
-#: templates/recipes.html:71 templates/recipes.html:82
+#: templates/recipes.html:72 templates/recipes.html:83
 msgid "Salmon Baked in Red Pesto"
 msgstr "Saumon cuit au pesto rouge"
 
-#: templates/recipes.html:88
+#: templates/recipes.html:89
 msgid "• 600 g salmon"
 msgstr "• 600 g de saumon"
 
-#: templates/recipes.html:89
+#: templates/recipes.html:90
 msgid "• Salt and pepper (to taste)"
 msgstr "• Sel et poivre (au goût)"
 
-#: templates/recipes.html:90
+#: templates/recipes.html:91
 msgid "• 2 tablespoons of red pesto (made from dried tomatoes)"
 msgstr "• 2 cuillères à soupe de pesto rouge (fait à partir de tomates séchées)"
 
-#: templates/recipes.html:91
+#: templates/recipes.html:92
 msgid "• 1/2 can of chopped, peeled tomatoes (or 1 fresh tomato)"
 msgstr "• 1/2 boîte de tomates pelées et hachées (ou 1 tomate fraîche)"
 
-#: templates/recipes.html:92
+#: templates/recipes.html:93
 msgid "• 2 teaspoons of dried oregano"
 msgstr "• 2 cuillères à café d'origan séché"
 
-#: templates/recipes.html:93
+#: templates/recipes.html:94
 msgid "• 2 tablespoons of extra olive oil"
 msgstr "• 2 cuillères à soupe d'huile d'olive extra"
 
-#: templates/recipes.html:94
+#: templates/recipes.html:95
 msgid "• Fresh basil (for garnish)"
 msgstr "• Basilic frais (pour la garniture)"
 
-#: templates/recipes.html:95
+#: templates/recipes.html:96
 msgid "• 1/2 cup grated Parmesan cheese"
 msgstr "• 1/2 tasse de parmesan râpé"
 
-#: templates/recipes.html:100
+#: templates/recipes.html:101
 msgid ""
 "• Cut off the skin from the fillets, rinse the salmon, dry it and cut "
 "into portions. Season with salt and pepper and spread with red pesto. "
@@ -854,7 +854,7 @@ msgstr ""
 " portions. Assaisonnez de sel et de poivre et étalez le pesto rouge. "
 "Placez dans un plat allant au four."
 
-#: templates/recipes.html:101
+#: templates/recipes.html:102
 msgid ""
 "• Place 2 tablespoons of chopped tomatoes on each portion and season with"
 " dried oregano, salt, and pepper. Drizzle with olive oil, sprinkle with "
@@ -866,66 +866,66 @@ msgstr ""
 " saupoudrez de basilic et de parmesan. Préchauffez le four à 200 degrés C"
 " et faites cuire environ 15 à 17 minutes."
 
-#: templates/recipes.html:111 templates/recipes.html:122
+#: templates/recipes.html:113 templates/recipes.html:124
 msgid "Pasta with Shrimp and Zucchini"
 msgstr "Pâtes aux crevettes et courgettes"
 
-#: templates/recipes.html:128
+#: templates/recipes.html:130
 msgid "• 12-16 shrimps"
 msgstr "• 12-16 crevettes"
 
-#: templates/recipes.html:129
+#: templates/recipes.html:131
 msgid "• 1 small zucchini (approx. 250 g)"
 msgstr "• 1 petite courgette (environ 250 g)"
 
-#: templates/recipes.html:130
+#: templates/recipes.html:132
 msgid "• 150 g tagliatelle pasta"
 msgstr "• 150 g de pâtes tagliatelles"
 
-#: templates/recipes.html:131
+#: templates/recipes.html:133
 msgid "• 4 tablespoons of chopped parsley"
 msgstr "• 4 cuillères à soupe de persil haché"
 
-#: templates/recipes.html:132
+#: templates/recipes.html:134
 #, python-format
 msgid "• 6 tablespoons of whipping cream 30%%"
-msgstr "• 6 cuillères à soupe de crème fouettée 30%%"
+msgstr "• 6 cuillères à soupe de crème fleurette 30%%"
 
-#: templates/recipes.html:133
+#: templates/recipes.html:135
 msgid "• 2 cloves of garlic"
 msgstr "• 2 gousses d'ail"
 
-#: templates/recipes.html:134
+#: templates/recipes.html:136
 msgid "• 6 tablespoons of white wine"
 msgstr "• 6 cuillères à soupe de vin blanc"
 
-#: templates/recipes.html:135
+#: templates/recipes.html:137
 msgid "• 1 and 1/2 tablespoons of olive oil"
 msgstr "• 1 et 1/2 cuillères à soupe d'huile d'olive"
 
-#: templates/recipes.html:136
+#: templates/recipes.html:138
 msgid "• 2 tablespoons of butter"
 msgstr "• 2 cuillères à soupe de beurre"
 
-#: templates/recipes.html:137
+#: templates/recipes.html:139
 msgid "• A pinch of saffron (optional)"
 msgstr "• Une pincée de safran (facultatif)"
 
-#: templates/recipes.html:138
+#: templates/recipes.html:140
 msgid "• 2 lemon pieces (for serving)"
 msgstr "• 2 morceaux de citron (pour servir)"
 
-#: templates/recipes.html:143
+#: templates/recipes.html:145
 msgid ""
 "• Clean, wash, and dry the shrimp. Cut the zucchini into slices and "
 "halves. Chop the parsley and grate the garlic. Cook the pasta al dente, "
-"drain, reserving some pasta water."
+"drain, keeping a bit of water."
 msgstr ""
-"• Nettoyez, lavez et séchez les crevettes. Coupez la courgette en "
-"tranches et en deux. Hachez le persil et râpez l'ail. Faites cuire les "
-"pâtes al dente, égouttez en réservant un peu d'eau de cuisson."
+"• Nettoyez, lavez et séchez les crevettes. Coupez la courgette en demi-"
+"tranches. Hachez le persil et râpez l'ail. Faites cuire les pâtes al "
+"dente, égouttez en conservant un peu d'eau."
 
-#: templates/recipes.html:144
+#: templates/recipes.html:146
 msgid ""
 "• In a pan with olive oil and grated garlic, fry lightly, add zucchini, "
 "and stir-fry for about 5 minutes. Add butter, salt, optionally saffron, "
@@ -936,7 +936,7 @@ msgstr ""
 "minutes. Ajoutez le beurre, le sel, éventuellement du safran, et faites "
 "frire pendant encore 2-3 minutes."
 
-#: templates/recipes.html:145
+#: templates/recipes.html:147
 msgid ""
 "• Move zucchini to the edge of the pan, add butter and shrimps in the "
 "free space, season them with salt, and fry for half a minute on each side"
@@ -946,7 +946,7 @@ msgstr ""
 "les crevettes dans l'espace libre, assaisonnez-les de sel et faites-les "
 "frire une demi-minute de chaque côté à feu vif."
 
-#: templates/recipes.html:146
+#: templates/recipes.html:148
 msgid ""
 "• Add parsley, mix all ingredients in the pan, and fry for a while. Pour "
 "in the wine and let it evaporate over high heat."
@@ -955,15 +955,97 @@ msgstr ""
 "faites-les frire un moment. Versez le vin et laissez-le s'évaporer à feu "
 "vif."
 
-#: templates/recipes.html:147
+#: templates/recipes.html:149
 msgid ""
-"• Add the heavy cream, pasta, and a few tablespoons of pasta water. Mix "
-"and bring to a boil. Remove from heat when the sauce becomes thick. Serve"
-" with a lemon wedge."
+"• Add the cream, pasta, and a few tablespoons of pasta water. Mix and "
+"bring to a boil. Remove from heat when the sauce becomes thick. Serve "
+"with a lemon wedge."
 msgstr ""
-"• Ajoutez la crème épaisse, les pâtes et quelques cuillères à soupe d'eau"
-" de cuisson des pâtes. Mélangez et portez à ébullition. Retirez du feu "
+"• Ajoutez la crème, les pâtes et quelques cuillères à soupe d'eau de "
+"cuisson des pâtes. Mélangez et portez à ébullition. Retirez du feu "
 "lorsque la sauce épaissit. Servez avec un quartier de citron."
+
+#: templates/recipes.html:159 templates/recipes.html:170
+msgid "Grilled Trout with Vegetables and Figs"
+msgstr "Truite grillée avec légumes et figues"
+
+#: templates/recipes.html:176
+msgid "• 2 trout fillets"
+msgstr "• 2 filets de truite"
+
+#: templates/recipes.html:177
+msgid "• 1 cup broccoli florets"
+msgstr "• 1 tasse de fleurettes de brocoli"
+
+#: templates/recipes.html:178
+msgid "• 1 cup green beans, ends trimmed"
+msgstr "• 1 tasse de haricots verts, extrémités coupées"
+
+#: templates/recipes.html:179
+msgid "• 1 cup sliced carrots"
+msgstr "• 1 tasse de carottes tranchées"
+
+#: templates/recipes.html:180
+msgid "• 1/2 cup cherry tomatoes, halved"
+msgstr "• 1/2 tasse de tomates cerises, coupées en deux"
+
+#: templates/recipes.html:181
+msgid "• 4 fresh figs, quartered"
+msgstr "• 4 figues fraîches, coupées en quatre"
+
+#: templates/recipes.html:182
+msgid "• 2 tablespoons olive oil"
+msgstr "• 2 cuillères à soupe d'huile d'olive"
+
+#: templates/recipes.html:183
+msgid "• Salt and pepper to taste"
+msgstr "• Sel et poivre au goût"
+
+#: templates/recipes.html:184
+msgid "• Optional herbs like thyme or rosemary"
+msgstr "• Herbes facultatives comme le thym ou le romarin"
+
+#: templates/recipes.html:189
+msgid ""
+"• Preheat your grill pan over medium-high heat. Brush the trout fillets "
+"with olive oil and season with salt, pepper, and optional herbs."
+msgstr ""
+"• Préchauffez votre poêle à griller à feu moyen-élevé. Brossez les filets"
+" de truite avec de l'huile d'olive et assaisonnez avec du sel, du poivre "
+"et des herbes facultatives."
+
+#: templates/recipes.html:190
+msgid ""
+"• Grill the trout for about 4-5 minutes per side or until it flakes "
+"easily with a fork."
+msgstr ""
+"• Faites griller la truite environ 4-5 minutes de chaque côté ou jusqu'à "
+"ce qu'elle s'effrite facilement avec une fourchette."
+
+#: templates/recipes.html:191
+msgid ""
+"• Steam broccoli, green beans, and carrots until just tender. Add them to"
+" the grill pan with the tomatoes, drizzle with olive oil, and season."
+msgstr ""
+"• Faites cuire à la vapeur le brocoli, les haricots verts et les carottes"
+" jusqu'à ce qu'ils soient juste tendres. Ajoutez-les dans la poêle à "
+"griller avec les tomates, arrosez d'huile d'olive et assaisonnez."
+
+#: templates/recipes.html:192
+msgid ""
+"• Grill the vegetables for 2-3 minutes, then add the fig quarters and "
+"cook for an additional 1-2 minutes."
+msgstr ""
+"• Faites griller les légumes pendant 2-3 minutes, puis ajoutez les "
+"quartiers de figue et faites cuire pendant 1-2 minutes supplémentaires."
+
+#: templates/recipes.html:193
+msgid ""
+"• Serve the grilled trout and vegetables hot, with the figs adding a "
+"sweet contrast."
+msgstr ""
+"• Servez la truite grillée et les légumes chauds, avec les figues "
+"ajoutant un contraste sucré."
 
 #: templates/shopping_list.html:5
 msgid "Comprix - Shopping List"
@@ -1051,7 +1133,7 @@ msgstr "Badges pour de meilleurs choix"
 
 #: templates/sustainability_health_badges.html:17
 msgid "Sustainability Badge"
-msgstr "Label de Durabilité"
+msgstr "Badge Durabilité"
 
 #: templates/sustainability_health_badges.html:18
 msgid "Eco-Friendly Shopping Simplified."
@@ -1063,14 +1145,14 @@ msgid ""
 " standards, including Organic, Eco-Friendly Packaging, and Carbon "
 "Footprint Conscious items."
 msgstr ""
-"Notre label de durabilité met en lumière les produits répondant à de "
+"Notre badge de durabilité met en lumière les produits répondant à de "
 "hautes normes environnementales, incluant les produits biologiques, "
 "l'emballage éco-responsable et les articles conscients de l'empreinte "
 "carbone."
 
 #: templates/sustainability_health_badges.html:27
 msgid "Health Badge"
-msgstr "Label Santé"
+msgstr "Badge Santé"
 
 #: templates/sustainability_health_badges.html:28
 msgid "Nourish Yourself with the Best."
@@ -1081,7 +1163,7 @@ msgid ""
 "The Health Badge indicates products that are Nutrient-Rich, Low in "
 "Unhealthy Additives, and Balanced Diet Friendly."
 msgstr ""
-"Le label santé indique les produits riches en nutriments, pauvres en "
+"Le badge santé indique les produits riches en nutriments, pauvres en "
 "additifs malsains et adaptés à une alimentation équilibrée."
 
 #: templates/sustainability_health_badges.html:37
@@ -1093,7 +1175,7 @@ msgid ""
 "Look for these badges as you build your grocery list and make choices "
 "that align with your health and environmental values."
 msgstr ""
-"Recherchez ces labels lorsque vous établissez votre liste d'épicerie et "
+"Recherchez ces badges lorsque vous préparez votre liste de courses et "
 "faites des choix en accord avec vos valeurs de santé et "
 "environnementales."
 
