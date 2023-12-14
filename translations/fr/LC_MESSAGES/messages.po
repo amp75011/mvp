@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-14 17:31+0100\n"
+"POT-Creation-Date: 2023-12-14 19:18+0100\n"
 "PO-Revision-Date: 2023-12-12 18:24+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -482,8 +482,7 @@ msgstr "Recettes récentes"
 msgid "Discover new tastes and ideas for your next meal."
 msgstr "Découvrez de nouveaux goûts et idées pour votre prochain repas."
 
-#: templates/dashboard.html:31 templates/recipes.html:72
-#: templates/recipes.html:83
+#: templates/dashboard.html:31
 msgid "Salmon Baked in Red Pesto"
 msgstr "Saumon cuit au pesto rouge"
 
@@ -525,9 +524,10 @@ msgid ""
 "various supermarkets, provides recipe suggestions, and offers insights "
 "into the nutritional and environmental impacts of your choices."
 msgstr ""
-"ComPrix est une plateforme en ligne qui vous aide à comparer les prix dans "
-"différents supermarchés, propose des suggestions de recettes et offre des "
-"aperçus sur les impacts nutritionnels et environnementaux de vos choix."
+"ComPrix est une plateforme en ligne qui vous aide à comparer les prix "
+"dans différents supermarchés, propose des suggestions de recettes et "
+"offre des aperçus sur les impacts nutritionnels et environnementaux de "
+"vos choix."
 
 #: templates/faq.html:27
 msgid "How does the price comparison tool work?"
@@ -539,9 +539,10 @@ msgid ""
 "the prices of items on your shopping list. You can compare prices across "
 "different stores to make informed shopping decisions."
 msgstr ""
-"Notre outil rassemble des données de plusieurs supermarchés et vous présente "
-"les prix des articles de votre liste de courses. Vous pouvez comparer les prix "
-"dans différents magasins pour prendre des décisions d'achat éclairées."
+"Notre outil rassemble des données de plusieurs supermarchés et vous "
+"présente les prix des articles de votre liste de courses. Vous pouvez "
+"comparer les prix dans différents magasins pour prendre des décisions "
+"d'achat éclairées."
 
 #: templates/faq.html:33
 msgid "How often is the price information updated?"
@@ -552,8 +553,8 @@ msgid ""
 "Price information is updated daily to ensure you have the most current "
 "data."
 msgstr ""
-"Les informations sur les prix sont mises à jour quotidiennement pour vous assurer "
-"de disposer des données les plus récentes."
+"Les informations sur les prix sont mises à jour quotidiennement pour vous"
+" assurer de disposer des données les plus récentes."
 
 #: templates/faq.html:39
 msgid "Can I purchase items directly through ComPrix?"
@@ -565,9 +566,10 @@ msgid ""
 "through our site, we provide links to the products on supermarket "
 "websites where you can complete your purchase."
 msgstr ""
-"ComPrix est un outil de comparaison, et bien que vous ne puissiez pas acheter "
-"directement sur notre site, nous fournissons des liens vers les produits sur les "
-"sites web des supermarchés où vous pouvez finaliser votre achat."
+"ComPrix est un outil de comparaison, et bien que vous ne puissiez pas "
+"acheter directement sur notre site, nous fournissons des liens vers les "
+"produits sur les sites web des supermarchés où vous pouvez finaliser "
+"votre achat."
 
 #: templates/faq.html:45
 msgid "Are the recipes provided by ComPrix healthy?"
@@ -579,9 +581,9 @@ msgid ""
 "includes nutritional information to help you make the best choice for "
 "your dietary needs."
 msgstr ""
-"Nous proposons une gamme de recettes, y compris des options saines. Chaque recette "
-"comprend des informations nutritionnelles pour vous aider à faire le meilleur choix "
-"pour vos besoins diététiques."
+"Nous proposons une gamme de recettes, y compris des options saines. "
+"Chaque recette comprend des informations nutritionnelles pour vous aider "
+"à faire le meilleur choix pour vos besoins diététiques."
 
 #: templates/faq.html:51
 msgid "How does ComPrix ensure the accuracy of its information?"
@@ -593,22 +595,25 @@ msgid ""
 "update our database. However, we advise users to double-check prices and "
 "product details on the actual supermarket's website."
 msgstr ""
-"Nous collaborons avec des supermarchés et utilisons des systèmes automatisés pour "
-"mettre régulièrement à jour notre base de données. Cependant, nous conseillons aux "
-"utilisateurs de vérifier les prix et les détails des produits sur le site web du "
-"supermarché concerné."
+"Nous collaborons avec des supermarchés et utilisons des systèmes "
+"automatisés pour mettre régulièrement à jour notre base de données. "
+"Cependant, nous conseillons aux utilisateurs de vérifier les prix et les "
+"détails des produits sur le site web du supermarché concerné."
 
 #: templates/faq.html:57
 msgid "How can I contact ComPrix for support or feedback?"
-msgstr "Comment puis-je contacter ComPrix pour obtenir de l'aide ou donner mon avis ?"
+msgstr ""
+"Comment puis-je contacter ComPrix pour obtenir de l'aide ou donner mon "
+"avis ?"
 
 #: templates/faq.html:58
 msgid ""
 "You can reach us through our contact form on the website. We value your "
 "feedback and aim to respond as quickly as possible."
 msgstr ""
-"Vous pouvez nous joindre via notre formulaire de contact sur le site web. Nous "
-"apprécions vos retours et nous efforçons de répondre aussi rapidement que possible."
+"Vous pouvez nous joindre via notre formulaire de contact sur le site web."
+" Nous apprécions vos retours et nous efforçons de répondre aussi "
+"rapidement que possible."
 
 #: templates/faq.html:63
 msgid "Is my personal information safe with ComPrix?"
@@ -620,9 +625,10 @@ msgid ""
 "French data protection laws to ensure your personal information is "
 "securely handled."
 msgstr ""
-"La protection de votre vie privée est notre priorité absolue. Nous nous conformons "
-"au RGPD et aux lois françaises sur la protection des données pour garantir que vos "
-"informations personnelles sont traitées en toute sécurité."
+"La protection de votre vie privée est notre priorité absolue. Nous nous "
+"conformons au RGPD et aux lois françaises sur la protection des données "
+"pour garantir que vos informations personnelles sont traitées en toute "
+"sécurité."
 
 #: templates/faq.html:69
 msgid "What should I do if I notice a discrepancy in pricing?"
@@ -633,32 +639,38 @@ msgid ""
 "If you find a discrepancy, please contact us with the details. We strive "
 "for accuracy and appreciate your help in keeping our data up-to-date."
 msgstr ""
-"Si vous constatez une divergence, veuillez nous contacter avec les détails. Nous "
-"nous efforçons d'être précis et apprécions votre aide pour maintenir nos données à jour."
+"Si vous constatez une divergence, veuillez nous contacter avec les "
+"détails. Nous nous efforçons d'être précis et apprécions votre aide pour "
+"maintenir nos données à jour."
 
 #: templates/faq.html:75
 msgid "Can I suggest a feature or a supermarket to be added to ComPrix?"
-msgstr "Puis-je suggérer une fonctionnalité ou un supermarché à ajouter à ComPrix ?"
+msgstr ""
+"Puis-je suggérer une fonctionnalité ou un supermarché à ajouter à ComPrix"
+" ?"
 
 #: templates/faq.html:76
 msgid ""
 "Absolutely! We welcome your suggestions to improve ComPrix. Please use "
 "our contact form to share your ideas."
 msgstr ""
-"Absolument ! Nous accueillons vos suggestions pour améliorer ComPrix. Veuillez "
-"utiliser notre formulaire de contact pour partager vos idées."
+"Absolument ! Nous accueillons vos suggestions pour améliorer ComPrix. "
+"Veuillez utiliser notre formulaire de contact pour partager vos idées."
 
 #: templates/faq.html:81
 msgid "How can I stay updated with ComPrix's latest features and updates?"
-msgstr "Comment puis-je rester informé des dernières fonctionnalités et mises à jour de ComPrix ?"
+msgstr ""
+"Comment puis-je rester informé des dernières fonctionnalités et mises à "
+"jour de ComPrix ?"
 
 #: templates/faq.html:82
 msgid ""
 "You can subscribe to our newsletter, follow us on social media, or "
 "regularly visit our blog for the latest news and updates."
 msgstr ""
-"Vous pouvez vous abonner à notre newsletter, nous suivre sur les réseaux sociaux, "
-"ou visiter régulièrement notre blog pour les dernières nouvelles et mises à jour."
+"Vous pouvez vous abonner à notre newsletter, nous suivre sur les réseaux "
+"sociaux, ou visiter régulièrement notre blog pour les dernières nouvelles"
+" et mises à jour."
 
 #: templates/landing.html:4
 msgid "Comprix - Compare, Save, Shop Smart!"
@@ -901,231 +913,246 @@ msgstr "Recettes"
 msgid "Get Inspired"
 msgstr "Laissez-vous inspirer"
 
-#: templates/recipes.html:24 templates/recipes.html:34
-msgid "Thai Curry with Chickpeas, Pumpkin and Spinach"
-msgstr "Curry Thaï aux pois chiches, potiron et épinards"
-
-#: templates/recipes.html:38 templates/recipes.html:88
-#: templates/recipes.html:129 templates/recipes.html:175
-msgid "Ingredients for 2 Servings"
-msgstr "Ingrédients pour 2 personnes"
-
-#: templates/recipes.html:39
-msgid "• 1 cup cooked chickpeas (or canned)"
-msgstr "• 1 tasse de pois chiches cuits (ou en conserve)"
+#: templates/recipes.html:24 templates/recipes.html:35
+msgid "Thai Curry with Chickpeas and Sweet Potato"
+msgstr "Curry thaï aux pois chiches et à la patate douce"
 
 #: templates/recipes.html:40
-msgid "• 300 g pumpkin (weighed before peeling)"
-msgstr "• 300 g de potiron (pesé avant épluchage)"
+msgid "Ingredients for 4 Servings"
+msgstr "Ingrédients pour 4 personnes"
 
 #: templates/recipes.html:41
-msgid "• 1 small onion"
-msgstr "• 1 petit oignon"
+msgid "• 2 large sweet potatoes, peeled and cubed"
+msgstr "• 2 grandes patates douces, pelées et coupées en cubes"
 
 #: templates/recipes.html:42
-msgid ""
-"• 1 teaspoon of red curry paste (or 1 teaspoon of grated garlic and "
-"ginger and 1/2 teaspoon of ground hot pepper)"
-msgstr ""
-"• 1 cuillère à café de pâte de curry rouge (ou 1 cuillère à café d'ail et"
-" de gingembre râpés et 1/2 cuillère à café de piment fort moulu)"
+msgid "• 1 can (15 oz) of chickpeas, drained and rinsed"
+msgstr "• 1 boîte (425 g) de pois chiches, égouttés et rincés"
 
 #: templates/recipes.html:43
-msgid "• 1/2 teaspoon ground turmeric"
-msgstr "• 1/2 cuillère à café de curcuma moulu"
+msgid "• 1 can (14 oz) coconut milk"
+msgstr "• 1 boîte (400 ml) de lait de coco"
 
 #: templates/recipes.html:44
-msgid "• 150 ml coconut milk"
-msgstr "• 150 ml de lait de coco"
+msgid "• 2 tablespoons Thai red curry paste"
+msgstr "• 2 cuillères à soupe de pâte de curry rouge thaï"
 
 #: templates/recipes.html:45
-msgid "• Approx. 1/2 cup of broth"
-msgstr "• Environ 1/2 tasse de bouillon"
+msgid "• 1 onion, finely chopped"
+msgstr "• 1 oignon, finement haché"
 
 #: templates/recipes.html:46
-msgid "• A large handful of spinach"
-msgstr "• Une grande poignée d'épinards"
+msgid "• 2 cloves garlic, minced"
+msgstr "• 2 gousses d'ail, hachées"
 
 #: templates/recipes.html:47
-msgid "• Coriander (for garnish)"
-msgstr "• Coriandre (pour la garniture)"
+msgid "• 1 tablespoon fresh ginger, grated"
+msgstr "• 1 cuillère à soupe de gingembre frais, râpé"
 
 #: templates/recipes.html:48
-msgid "• Fresh chili (for garnish)"
-msgstr "• Piment frais (pour la garniture)"
+msgid "• 1 tablespoon cooking oil"
+msgstr "• 1 cuillère à soupe d'huile de cuisson"
 
 #: templates/recipes.html:49
-msgid "• 1 lime wedge (for serving)"
-msgstr "• 1 quartier de citron vert (pour servir)"
+msgid "• 1 red bell pepper, diced"
+msgstr "• 1 poivron rouge, coupé en dés"
 
 #: templates/recipes.html:50
-msgid "• Salt (to taste)"
-msgstr "• Sel (au goût)"
+msgid "• 1 cup vegetable broth or water"
+msgstr "• 1 tasse de bouillon de légumes ou d'eau"
 
 #: templates/recipes.html:51
-msgid "• 2 tablespoons of coconut oil (for frying)"
-msgstr "• 2 cuillères à soupe d'huile de coco (pour la friture)"
+msgid "• Juice of 1 lime"
+msgstr "• Jus d'1 citron vert"
 
 #: templates/recipes.html:52
-msgid "• Rice (for serving)"
-msgstr "• Riz (pour servir)"
+msgid "• 1 tablespoon soy sauce or fish sauce (optional)"
+msgstr "• 1 cuillère à soupe de sauce soja ou de sauce poisson (facultatif)"
 
-#: templates/recipes.html:56 templates/recipes.html:100
-#: templates/recipes.html:144 templates/recipes.html:188
+#: templates/recipes.html:53
+msgid "• Salt to taste"
+msgstr "• Sel, à convenance"
+
+#: templates/recipes.html:54
+msgid "• Fresh cilantro leaves, for garnish"
+msgstr "• Feuilles de coriandre fraîche, pour la garniture"
+
+#: templates/recipes.html:55
+msgid "• Cooked rice or naan bread, for serving"
+msgstr "• Riz cuit ou pain naan, pour servir"
+
+#: templates/recipes.html:59 templates/recipes.html:103
+#: templates/recipes.html:151 templates/recipes.html:195
 msgid "Preparation"
 msgstr "Préparation"
 
-#: templates/recipes.html:57
-msgid "• Peel the pumpkin and cut into cubes. Cut the onion into slices."
-msgstr "• Épluchez le potiron et coupez-le en cubes. Coupez l'oignon en tranches."
-
-#: templates/recipes.html:58
-msgid ""
-"• In a pan, fry the curry paste in 2 tablespoons of coconut milk. Add "
-"pumpkin, onion, season with salt and fry, stirring occasionally, for "
-"about 2 minutes."
-msgstr ""
-"• Dans une poêle, faites frire la pâte de curry dans 2 cuillères à soupe "
-"de lait de coco. Ajoutez le potiron, l'oignon, assaisonnez de sel et "
-"faites frire, en remuant de temps en temps, pendant environ 2 minutes."
-
-#: templates/recipes.html:59
-msgid ""
-"• Add ground turmeric and cooked or canned chickpeas (if possible, add a "
-"few tablespoons of the chickpeas water). Add another 2 tablespoons of "
-"milk and fry for 1 minute."
-msgstr ""
-"• Ajoutez le curcuma moulu et les pois chiches cuits ou en conserve (si "
-"possible, ajoutez quelques cuillères à soupe d'eau des pois chiches). "
-"Ajoutez 2 autres cuillères à soupe de lait et faites frire pendant 1 "
-"minute."
-
 #: templates/recipes.html:60
 msgid ""
-"• Pour in the rest of the coconut milk and bring to a boil. Cook for "
-"about 15 minutes, stirring occasionally. Pour the broth gradually and "
-"cook for approx. 5 - 10 minutes until the pumpkin is soft. In the "
-"meantime, stir every now and then. Finally, add the spinach, mix and set "
-"aside from the heat."
+"• Heat the oil in a pot over medium heat. Sauté onion until translucent. "
+"Add garlic and ginger, sautéing until aromatic."
 msgstr ""
-"• Versez le reste du lait de coco et portez à ébullition. Laissez cuire "
-"environ 15 minutes, en remuant de temps en temps. Ajoutez le bouillon "
-"progressivement et laissez cuire environ 5 à 10 minutes jusqu'à ce que le"
-" potiron soit tendre. Entre-temps, remuez de temps à autre. Enfin, "
-"ajoutez les épinards, mélangez et retirez du feu."
+"• Chauffer l'huile dans une casserole à feu moyen. Faire revenir l'oignon"
+" jusqu'à ce qu'il soit translucide. Ajouter l'ail et le gingembre, et "
+"faire revenir jusqu'à ce que ce soit aromatique."
 
 #: templates/recipes.html:61
 msgid ""
-"• Sprinkle with coriander and fresh chili, serve with rice and a lime "
-"wedge."
+"• Stir in the curry paste and cook for 1-2 minutes. Pour in coconut milk "
+"and broth, and bring to a simmer."
 msgstr ""
-"• Saupoudrez de coriandre et de piment frais, servez avec du riz et un "
-"quartier de citron vert."
+"• Incorporer la pâte de curry et cuire pendant 1-2 minutes. Verser le "
+"lait de coco et le bouillon, et porter à frémissement."
 
-#: templates/recipes.html:89
-msgid "• 600 g salmon"
-msgstr "• 600 g de saumon"
+#: templates/recipes.html:62
+msgid ""
+"• Add sweet potatoes and chickpeas. Simmer for 15-20 minutes or until "
+"sweet potatoes are tender."
+msgstr ""
+"• Ajouter les patates douces et les pois chiches. Laisser mijoter pendant"
+" 15-20 minutes ou jusqu'à ce que les patates douces soient tendres."
 
-#: templates/recipes.html:90
-msgid "• Salt and pepper (to taste)"
-msgstr "• Sel et poivre (au goût)"
+#: templates/recipes.html:63
+msgid ""
+"• Add red bell pepper and cook for 5 more minutes. Stir in lime juice and"
+" soy sauce, and season with salt."
+msgstr ""
+"• Ajouter le poivron rouge et cuire pendant 5 minutes supplémentaires. "
+"Incorporer le jus de citron vert et la sauce soja, et assaisonner avec du"
+" sel."
 
-#: templates/recipes.html:91
-msgid "• 2 tablespoons of red pesto (made from dried tomatoes)"
-msgstr "• 2 cuillères à soupe de pesto rouge (fait à partir de tomates séchées)"
+#: templates/recipes.html:64
+msgid "• Serve over rice, garnished with cilantro."
+msgstr "• Servir sur du riz, garni de coriandre."
+
+#: templates/recipes.html:75 templates/recipes.html:86
+msgid "Grilled Salmon with Asparagus and Cherry Tomatoes"
+msgstr "Saumon grillé avec asperges et tomates cerises"
+
+#: templates/recipes.html:91 templates/recipes.html:136
+#: templates/recipes.html:182
+msgid "Ingredients for 2 Servings"
+msgstr "Ingrédients pour 2 personnes"
 
 #: templates/recipes.html:92
-msgid "• 1/2 can of chopped, peeled tomatoes (or 1 fresh tomato)"
-msgstr "• 1/2 boîte de tomates pelées et hachées (ou 1 tomate fraîche)"
+msgid "• 1 salmon fillet (approximately 6-8 ounces)"
+msgstr "• 1 filet de saumon (environ 170-225 grammes)"
 
 #: templates/recipes.html:93
-msgid "• 2 teaspoons of dried oregano"
-msgstr "• 2 cuillères à café d'origan séché"
+msgid "• 1 bunch of asparagus, ends trimmed"
+msgstr "• 1 botte d'asperges, extrémités coupées"
 
 #: templates/recipes.html:94
-msgid "• 2 tablespoons of extra olive oil"
-msgstr "• 2 cuillères à soupe d'huile d'olive extra"
+msgid "• A handful of cherry tomatoes on the vine"
+msgstr "• Une poignée de tomates cerises sur la vigne"
 
-#: templates/recipes.html:95
-msgid "• Fresh basil (for garnish)"
-msgstr "• Basilic frais (pour la garniture)"
+#: templates/recipes.html:95 templates/recipes.html:189
+msgid "• 2 tablespoons olive oil"
+msgstr "• 2 cuillères à soupe d'huile d'olive"
 
 #: templates/recipes.html:96
-msgid "• 1/2 cup grated Parmesan cheese"
-msgstr "• 1/2 tasse de parmesan râpé"
+msgid "• Salt and freshly ground black pepper, to taste"
+msgstr "• Sel et poivre noir fraîchement moulu, au goût"
 
-#: templates/recipes.html:101
+#: templates/recipes.html:97
+msgid "• 1 lemon, cut into wedges"
+msgstr "• 1 citron, coupé en quartiers"
+
+#: templates/recipes.html:98
+msgid "• Fresh thyme or dill for garnish"
+msgstr "• Du thym frais ou de l'aneth pour garnir"
+
+#: templates/recipes.html:99
+msgid "• Optional: Red pepper flakes"
+msgstr "• Optionnel : Flocons de piment rouge"
+
+#: templates/recipes.html:104
 msgid ""
-"• Cut off the skin from the fillets, rinse the salmon, dry it and cut "
-"into portions. Season with salt and pepper and spread with red pesto. "
-"Place in an ovenproof dish."
+"• Preheat your grill to medium-high heat. Season the salmon with salt and"
+" pepper."
 msgstr ""
-"• Retirez la peau des filets, rincez le saumon, séchez-le et coupez-le en"
-" portions. Assaisonnez de sel et de poivre et étalez le pesto rouge. "
-"Placez dans un plat allant au four."
+"• Préchauffez votre grill à feu moyen-élevé. Assaisonnez le saumon avec du sel et "
+"du poivre."
 
-#: templates/recipes.html:102
+#: templates/recipes.html:105
 msgid ""
-"• Place 2 tablespoons of chopped tomatoes on each portion and season with"
-" dried oregano, salt, and pepper. Drizzle with olive oil, sprinkle with "
-"basil and Parmesan. Preheat the oven to 200 degrees C and bake for about "
-"15 - 17 minutes."
+"• Toss the asparagus and cherry tomatoes in olive oil, salt, and pepper, "
+"and place them on the grill."
 msgstr ""
-"• Placez 2 cuillères à soupe de tomates hachées sur chaque portion et "
-"assaisonnez d'origan séché, de sel et de poivre. Arrosez d'huile d'olive,"
-" saupoudrez de basilic et de parmesan. Préchauffez le four à 200 degrés C"
-" et faites cuire environ 15 à 17 minutes."
+"• Enrobez les asperges et les tomates cerises d'huile d'olive, de sel et de poivre, "
+"et placez-les sur le grill."
 
-#: templates/recipes.html:113 templates/recipes.html:124
+#: templates/recipes.html:106
+msgid ""
+"• Grill the vegetables for 3-4 minutes, then add the salmon and grill for"
+" 5-6 minutes on each side."
+msgstr ""
+"• Faites griller les légumes pendant 3-4 minutes, puis ajoutez le saumon et faites griller "
+"pour 5-6 minutes de chaque côté."
+
+#: templates/recipes.html:107
+msgid ""
+"• Serve the salmon on a bed of asparagus with tomatoes and a lemon wedge "
+"on the side."
+msgstr ""
+"• Servez le saumon sur un lit d'asperges avec des tomates et un quartier de citron "
+"sur le côté."
+
+#: templates/recipes.html:108
+msgid "• Garnish with fresh herbs before serving."
+msgstr "• Garnissez de herbes fraîches avant de servir."
+
+
+
+#: templates/recipes.html:120 templates/recipes.html:131
 msgid "Pasta with Shrimp and Zucchini"
 msgstr "Pâtes aux crevettes et courgettes"
 
-#: templates/recipes.html:130
+#: templates/recipes.html:137
 msgid "• 12-16 shrimps"
 msgstr "• 12-16 crevettes"
 
-#: templates/recipes.html:131
+#: templates/recipes.html:138
 msgid "• 1 small zucchini (approx. 250 g)"
 msgstr "• 1 petite courgette (environ 250 g)"
 
-#: templates/recipes.html:132
+#: templates/recipes.html:139
 msgid "• 150 g tagliatelle pasta"
 msgstr "• 150 g de pâtes tagliatelles"
 
-#: templates/recipes.html:133
+#: templates/recipes.html:140
 msgid "• 4 tablespoons of chopped parsley"
 msgstr "• 4 cuillères à soupe de persil haché"
 
-#: templates/recipes.html:134
+#: templates/recipes.html:141
 #, python-format
 msgid "• 6 tablespoons of whipping cream 30%%"
 msgstr "• 6 cuillères à soupe de crème fleurette 30%%"
 
-#: templates/recipes.html:135
+#: templates/recipes.html:142
 msgid "• 2 cloves of garlic"
 msgstr "• 2 gousses d'ail"
 
-#: templates/recipes.html:136
+#: templates/recipes.html:143
 msgid "• 6 tablespoons of white wine"
 msgstr "• 6 cuillères à soupe de vin blanc"
 
-#: templates/recipes.html:137
+#: templates/recipes.html:144
 msgid "• 1 and 1/2 tablespoons of olive oil"
 msgstr "• 1 et 1/2 cuillères à soupe d'huile d'olive"
 
-#: templates/recipes.html:138
+#: templates/recipes.html:145
 msgid "• 2 tablespoons of butter"
 msgstr "• 2 cuillères à soupe de beurre"
 
-#: templates/recipes.html:139
+#: templates/recipes.html:146
 msgid "• A pinch of saffron (optional)"
 msgstr "• Une pincée de safran (facultatif)"
 
-#: templates/recipes.html:140
+#: templates/recipes.html:147
 msgid "• 2 lemon pieces (for serving)"
 msgstr "• 2 morceaux de citron (pour servir)"
 
-#: templates/recipes.html:145
+#: templates/recipes.html:152
 msgid ""
 "• Clean, wash, and dry the shrimp. Cut the zucchini into slices and "
 "halves. Chop the parsley and grate the garlic. Cook the pasta al dente, "
@@ -1135,7 +1162,7 @@ msgstr ""
 "tranches. Hachez le persil et râpez l'ail. Faites cuire les pâtes al "
 "dente, égouttez en conservant un peu d'eau."
 
-#: templates/recipes.html:146
+#: templates/recipes.html:153
 msgid ""
 "• In a pan with olive oil and grated garlic, fry lightly, add zucchini, "
 "and stir-fry for about 5 minutes. Add butter, salt, optionally saffron, "
@@ -1146,7 +1173,7 @@ msgstr ""
 "minutes. Ajoutez le beurre, le sel, éventuellement du safran, et faites "
 "frire pendant encore 2-3 minutes."
 
-#: templates/recipes.html:147
+#: templates/recipes.html:154
 msgid ""
 "• Move zucchini to the edge of the pan, add butter and shrimps in the "
 "free space, season them with salt, and fry for half a minute on each side"
@@ -1156,7 +1183,7 @@ msgstr ""
 "les crevettes dans l'espace libre, assaisonnez-les de sel et faites-les "
 "frire une demi-minute de chaque côté à feu vif."
 
-#: templates/recipes.html:148
+#: templates/recipes.html:155
 msgid ""
 "• Add parsley, mix all ingredients in the pan, and fry for a while. Pour "
 "in the wine and let it evaporate over high heat."
@@ -1165,7 +1192,7 @@ msgstr ""
 "faites-les frire un moment. Versez le vin et laissez-le s'évaporer à feu "
 "vif."
 
-#: templates/recipes.html:149
+#: templates/recipes.html:156
 msgid ""
 "• Add the cream, pasta, and a few tablespoons of pasta water. Mix and "
 "bring to a boil. Remove from heat when the sauce becomes thick. Serve "
@@ -1175,47 +1202,43 @@ msgstr ""
 "cuisson des pâtes. Mélangez et portez à ébullition. Retirez du feu "
 "lorsque la sauce épaissit. Servez avec un quartier de citron."
 
-#: templates/recipes.html:159 templates/recipes.html:170
+#: templates/recipes.html:166 templates/recipes.html:177
 msgid "Grilled Trout with Vegetables and Figs"
 msgstr "Truite grillée avec légumes et figues"
 
-#: templates/recipes.html:176
+#: templates/recipes.html:183
 msgid "• 2 trout fillets"
 msgstr "• 2 filets de truite"
 
-#: templates/recipes.html:177
+#: templates/recipes.html:184
 msgid "• 1 cup broccoli florets"
 msgstr "• 1 tasse de fleurettes de brocoli"
 
-#: templates/recipes.html:178
+#: templates/recipes.html:185
 msgid "• 1 cup green beans, ends trimmed"
 msgstr "• 1 tasse de haricots verts, extrémités coupées"
 
-#: templates/recipes.html:179
+#: templates/recipes.html:186
 msgid "• 1 cup sliced carrots"
 msgstr "• 1 tasse de carottes tranchées"
 
-#: templates/recipes.html:180
+#: templates/recipes.html:187
 msgid "• 1/2 cup cherry tomatoes, halved"
 msgstr "• 1/2 tasse de tomates cerises, coupées en deux"
 
-#: templates/recipes.html:181
+#: templates/recipes.html:188
 msgid "• 4 fresh figs, quartered"
 msgstr "• 4 figues fraîches, coupées en quatre"
 
-#: templates/recipes.html:182
-msgid "• 2 tablespoons olive oil"
-msgstr "• 2 cuillères à soupe d'huile d'olive"
-
-#: templates/recipes.html:183
+#: templates/recipes.html:190
 msgid "• Salt and pepper to taste"
 msgstr "• Sel et poivre au goût"
 
-#: templates/recipes.html:184
+#: templates/recipes.html:191
 msgid "• Optional herbs like thyme or rosemary"
 msgstr "• Herbes facultatives comme le thym ou le romarin"
 
-#: templates/recipes.html:189
+#: templates/recipes.html:196
 msgid ""
 "• Preheat your grill pan over medium-high heat. Brush the trout fillets "
 "with olive oil and season with salt, pepper, and optional herbs."
@@ -1224,7 +1247,7 @@ msgstr ""
 " de truite avec de l'huile d'olive et assaisonnez avec du sel, du poivre "
 "et des herbes facultatives."
 
-#: templates/recipes.html:190
+#: templates/recipes.html:197
 msgid ""
 "• Grill the trout for about 4-5 minutes per side or until it flakes "
 "easily with a fork."
@@ -1232,7 +1255,7 @@ msgstr ""
 "• Faites griller la truite environ 4-5 minutes de chaque côté ou jusqu'à "
 "ce qu'elle s'effrite facilement avec une fourchette."
 
-#: templates/recipes.html:191
+#: templates/recipes.html:198
 msgid ""
 "• Steam broccoli, green beans, and carrots until just tender. Add them to"
 " the grill pan with the tomatoes, drizzle with olive oil, and season."
@@ -1241,7 +1264,7 @@ msgstr ""
 " jusqu'à ce qu'ils soient juste tendres. Ajoutez-les dans la poêle à "
 "griller avec les tomates, arrosez d'huile d'olive et assaisonnez."
 
-#: templates/recipes.html:192
+#: templates/recipes.html:199
 msgid ""
 "• Grill the vegetables for 2-3 minutes, then add the fig quarters and "
 "cook for an additional 1-2 minutes."
@@ -1249,7 +1272,7 @@ msgstr ""
 "• Faites griller les légumes pendant 2-3 minutes, puis ajoutez les "
 "quartiers de figue et faites cuire pendant 1-2 minutes supplémentaires."
 
-#: templates/recipes.html:193
+#: templates/recipes.html:200
 msgid ""
 "• Serve the grilled trout and vegetables hot, with the figs adding a "
 "sweet contrast."
@@ -1392,4 +1415,164 @@ msgstr ""
 #: templates/sustainability_health_badges.html:44
 msgid "Together, we can make a difference, one purchase at a time."
 msgstr "Ensemble, nous pouvons faire une différence, un achat à la fois."
+
+#~ msgid "• 1 cup cooked chickpeas (or canned)"
+#~ msgstr "• 1 tasse de pois chiches cuits (ou en conserve)"
+
+#~ msgid "• 300 g pumpkin (weighed before peeling)"
+#~ msgstr "• 300 g de potiron (pesé avant épluchage)"
+
+#~ msgid "• 1 small onion"
+#~ msgstr "• 1 petit oignon"
+
+#~ msgid ""
+#~ "• 1 teaspoon of red curry paste"
+#~ " (or 1 teaspoon of grated garlic "
+#~ "and ginger and 1/2 teaspoon of "
+#~ "ground hot pepper)"
+#~ msgstr ""
+#~ "• 1 cuillère à café de pâte "
+#~ "de curry rouge (ou 1 cuillère à"
+#~ " café d'ail et de gingembre râpés "
+#~ "et 1/2 cuillère à café de piment"
+#~ " fort moulu)"
+
+#~ msgid "• 1/2 teaspoon ground turmeric"
+#~ msgstr "• 1/2 cuillère à café de curcuma moulu"
+
+#~ msgid "• Approx. 1/2 cup of broth"
+#~ msgstr "• Environ 1/2 tasse de bouillon"
+
+#~ msgid "• A large handful of spinach"
+#~ msgstr "• Une grande poignée d'épinards"
+
+#~ msgid "• Coriander (for garnish)"
+#~ msgstr "• Coriandre (pour la garniture)"
+
+#~ msgid "• 1 lime wedge (for serving)"
+#~ msgstr "• 1 quartier de citron vert (pour servir)"
+
+#~ msgid "• 2 tablespoons of coconut oil (for frying)"
+#~ msgstr "• 2 cuillères à soupe d'huile de coco (pour la friture)"
+
+#~ msgid "• Peel the pumpkin and cut into cubes. Cut the onion into slices."
+#~ msgstr ""
+#~ "• Épluchez le potiron et coupez-le"
+#~ " en cubes. Coupez l'oignon en "
+#~ "tranches."
+
+#~ msgid ""
+#~ "• In a pan, fry the curry "
+#~ "paste in 2 tablespoons of coconut "
+#~ "milk. Add pumpkin, onion, season with"
+#~ " salt and fry, stirring occasionally, "
+#~ "for about 2 minutes."
+#~ msgstr ""
+#~ "• Dans une poêle, faites frire la"
+#~ " pâte de curry dans 2 cuillères "
+#~ "à soupe de lait de coco. Ajoutez"
+#~ " le potiron, l'oignon, assaisonnez de "
+#~ "sel et faites frire, en remuant de"
+#~ " temps en temps, pendant environ 2"
+#~ " minutes."
+
+#~ msgid ""
+#~ "• Add ground turmeric and cooked "
+#~ "or canned chickpeas (if possible, add"
+#~ " a few tablespoons of the chickpeas"
+#~ " water). Add another 2 tablespoons of"
+#~ " milk and fry for 1 minute."
+#~ msgstr ""
+#~ "• Ajoutez le curcuma moulu et les"
+#~ " pois chiches cuits ou en conserve"
+#~ " (si possible, ajoutez quelques cuillères"
+#~ " à soupe d'eau des pois chiches). "
+#~ "Ajoutez 2 autres cuillères à soupe "
+#~ "de lait et faites frire pendant 1"
+#~ " minute."
+
+#~ msgid ""
+#~ "• Pour in the rest of the "
+#~ "coconut milk and bring to a boil."
+#~ " Cook for about 15 minutes, stirring"
+#~ " occasionally. Pour the broth gradually "
+#~ "and cook for approx. 5 - 10 "
+#~ "minutes until the pumpkin is soft. "
+#~ "In the meantime, stir every now "
+#~ "and then. Finally, add the spinach, "
+#~ "mix and set aside from the heat."
+#~ msgstr ""
+#~ "• Versez le reste du lait de "
+#~ "coco et portez à ébullition. Laissez "
+#~ "cuire environ 15 minutes, en remuant "
+#~ "de temps en temps. Ajoutez le "
+#~ "bouillon progressivement et laissez cuire "
+#~ "environ 5 à 10 minutes jusqu'à ce"
+#~ " que le potiron soit tendre. "
+#~ "Entre-temps, remuez de temps à autre."
+#~ " Enfin, ajoutez les épinards, mélangez "
+#~ "et retirez du feu."
+
+#~ msgid ""
+#~ "• Sprinkle with coriander and fresh "
+#~ "chili, serve with rice and a lime"
+#~ " wedge."
+#~ msgstr ""
+#~ "• Saupoudrez de coriandre et de "
+#~ "piment frais, servez avec du riz "
+#~ "et un quartier de citron vert."
+
+#~ msgid "• 600 g salmon"
+#~ msgstr "• 600 g de saumon"
+
+#~ msgid "• Salt and pepper (to taste)"
+#~ msgstr "• Sel et poivre (au goût)"
+
+#~ msgid "• 2 tablespoons of red pesto (made from dried tomatoes)"
+#~ msgstr "• 2 cuillères à soupe de pesto rouge (fait à partir de tomates séchées)"
+
+#~ msgid "• 1/2 can of chopped, peeled tomatoes (or 1 fresh tomato)"
+#~ msgstr "• 1/2 boîte de tomates pelées et hachées (ou 1 tomate fraîche)"
+
+#~ msgid "• 2 teaspoons of dried oregano"
+#~ msgstr "• 2 cuillères à café d'origan séché"
+
+#~ msgid "• 2 tablespoons of extra olive oil"
+#~ msgstr "• 2 cuillères à soupe d'huile d'olive extra"
+
+#~ msgid "• 1/2 cup grated Parmesan cheese"
+#~ msgstr "• 1/2 tasse de parmesan râpé"
+
+#~ msgid ""
+#~ "• Cut off the skin from the "
+#~ "fillets, rinse the salmon, dry it "
+#~ "and cut into portions. Season with "
+#~ "salt and pepper and spread with "
+#~ "red pesto. Place in an ovenproof "
+#~ "dish."
+#~ msgstr ""
+#~ "• Retirez la peau des filets, "
+#~ "rincez le saumon, séchez-le et "
+#~ "coupez-le en portions. Assaisonnez de "
+#~ "sel et de poivre et étalez le "
+#~ "pesto rouge. Placez dans un plat "
+#~ "allant au four."
+
+#~ msgid ""
+#~ "• Place 2 tablespoons of chopped "
+#~ "tomatoes on each portion and season "
+#~ "with dried oregano, salt, and pepper."
+#~ " Drizzle with olive oil, sprinkle "
+#~ "with basil and Parmesan. Preheat the "
+#~ "oven to 200 degrees C and bake "
+#~ "for about 15 - 17 minutes."
+#~ msgstr ""
+#~ "• Placez 2 cuillères à soupe de"
+#~ " tomates hachées sur chaque portion "
+#~ "et assaisonnez d'origan séché, de sel"
+#~ " et de poivre. Arrosez d'huile "
+#~ "d'olive, saupoudrez de basilic et de "
+#~ "parmesan. Préchauffez le four à 200 "
+#~ "degrés C et faites cuire environ "
+#~ "15 à 17 minutes."
 

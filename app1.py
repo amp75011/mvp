@@ -11,16 +11,17 @@ from mysql.connector import Error as mysqlError
 
 app = Flask(__name__)
 
-# Flask-Babel Configuration
-babel = Babel(app)  # Initialize Babel with app
+# Define the function to get the current locale
+def get_locale():
+    return request.args.get('lang') or session.get('lang') or 'en'
 
+# Babel configuration
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
 
-@babel.localeselector
-def get_locale():
-    # Select a locale from the user request or by default
-    return request.args.get('lang') or session.get('lang') or 'en'
+# Initialize Babel
+babel = Babel()
+babel.init_app(app, locale_selector=get_locale)
 
 bcrypt = Bcrypt(app)
 
@@ -40,7 +41,7 @@ try:
     cur = conn.cursor(dictionary=True)  # Use dictionary=True to get dict cursor
 except mysql.connector.Error as error:
     print("Error: ", error)
-
+    
 # Normalising French characters
 def normalize_string(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
@@ -108,7 +109,7 @@ def landing():
     try:
         # Load data from Excel file
         df = pd.read_excel('./arrondissements.xlsx')
-
+        
         # Check if 'ZIP_code' column exists
         if 'ZIP_code' not in df.columns:
             raise ValueError("Column 'ZIP_code' not found in Excel file")
@@ -150,15 +151,15 @@ def shopping_list():
     # categories = [{'name': cat, 'image': cat.lower().replace(' ', '_').replace('&', 'and').replace('è', 'e') + '.jpg'} for cat in df_categories['category'].dropna().unique()]
     categories = [
     {
-        'name': cat,
+        'name': cat, 
         'image': normalize_string(cat).lower().replace(' ', '_').replace('&', 'and') + '.jpg'
-    }
+    } 
     for cat in df_categories['category'].dropna().unique()
 ]
-
+    
     # Sending the data to the frontend (noe the difference: categories are the aisles, category comes into the serach bar and price comparison)
-    return render_template('shopping_list.html',
-                           descriptions=descriptions,
+    return render_template('shopping_list.html', 
+                           descriptions=descriptions, 
                            brands=brands,
                            category=category,
                             categories=categories)
@@ -176,14 +177,14 @@ def category_page(category_name):
     # Create a list of dictionaries for subcategories with name and image
     subcategories = [
         {
-            'name': subcategory,
+            'name': subcategory, 
             'image': normalize_string(subcategory).lower().replace(' ', '_') + '.png'
-        }
+        } 
         for subcategory in raw_subcategories
     ]
 
-    return render_template('category_page.html',
-                           subcategories=subcategories,
+    return render_template('category_page.html', 
+                           subcategories=subcategories, 
                            category_name=category_name)
 
 
@@ -284,8 +285,8 @@ def compare_prices():
                     if not cheapest_in_category.empty:
                         pivot_prices.at[index, shop] = cheapest_in_category.iloc[0]['Price']
                         pivot_urls.at[index, shop] = cheapest_in_category.iloc[0]['URL']
-
-
+         
+        
         # Check if pivot_prices is not empty before calculating totals
         if not pivot_prices.empty:
             total_prices = pivot_prices.sum().to_dict()
@@ -302,12 +303,12 @@ def compare_prices():
         pivot_prices_dict = pivot_prices.fillna('N/A').to_dict(orient='index')
 
     store_names = list(pivot_prices.columns) if not pivot_prices.empty else []
-
+    
     # Convert pivot_urls to a dictionary format for Jinja2
     pivot_urls_dict = pivot_urls.to_dict(orient='index') if not pivot_urls.empty else {}
 
 
-    return render_template('compare_results.html',
+    return render_template('compare_results.html', 
                            pivot_prices_html=pivot_prices.to_html(classes='pivot-table', border=0) if not pivot_prices.empty else "",
                            pivot_urls_html=pivot_urls.to_html(classes='pivot-table', border=0) if not pivot_urls.empty else "",
                            pivot_prices_dict=pivot_prices_dict,
@@ -346,7 +347,7 @@ def login_action():
         # Establish a database connection using MySQL
         conn = mysql.connector.connect(**db_params)
         cur = conn.cursor(dictionary=True)
-
+        
         # Check user credentials
         cur.execute('SELECT * FROM users WHERE username = %s', (username,))
         user = cur.fetchone()
@@ -426,14 +427,14 @@ def dashboard():
         return render_template('dashboard.html')  # Render a dashboard template
     else:
         return redirect(url_for('login_page'))  # If not logged in, redirect to login
-
+    
 
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
 
 
-## NEWSLETTER
+## NEWSLETTER 
 @app.route('/subscribe_newsletter', methods=['POST'])
 def subscribe_newsletter():
     email = request.form.get('email')
@@ -457,7 +458,7 @@ def subscribe_newsletter():
             cur.close()
             conn.close()
 
-
+    
 
 # Make sure to add a secret key for sessions to work
 # app.secret_key = os.environ.get('SECRET_KEY')  # Replace with a real secret key

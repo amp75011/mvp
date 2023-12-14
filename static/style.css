@@ -899,9 +899,11 @@ nav .fa{
 }
 
 .footer_pages h4{
-    margin-bottom: 25px;
+    margin-bottom: 0;
     margin-top: 20px;
-    font-weight: 600;
+    font-weight: 550;
+    font-size: 18px;
+    font-family: 'Permanent Marker';
 }
 
 .icons .fab{
@@ -914,6 +916,10 @@ nav .fa{
 
 .instagram-icon {
     text-decoration: none; /* Removes any text decoration */
+}
+
+.footer_pages p{
+    margin-top: 20px;
 }
 
 /* COMPARE RESULTS */

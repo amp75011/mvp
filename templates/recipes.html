@@ -21,44 +21,47 @@
             <div class="work">
                 <img src="{{ url_for('static', filename='images/recipe1-canva.png') }}">
                 <div class="layer">
-                    <h3>{{ _('Thai Curry with Chickpeas, Pumpkin and Spinach') }}</h3>
+                    <h3>{{ _('Thai Curry with Chickpeas and Sweet Potato') }}</h3>
                     <a href="javascript:void(0)" onclick="openModal('recipeModal1')">
                         <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
+
             <!-- Recipe 1 Modal -->
             <div id="recipeModal1" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <h2>{{ _('Thai Curry with Chickpeas, Pumpkin and Spinach') }}</h2>
+                    <h2>{{ _('Thai Curry with Chickpeas and Sweet Potato') }}</h2>
+
                     <div style="display: flex; margin-bottom: 20px;">
                         <!-- Ingredients Section -->
-                        <div style="flex: 1; padding-left: 20px;">
-                            <h5>{{ _('Ingredients for 2 Servings') }}</h5>
-                            <p>{{ _('• 1 cup cooked chickpeas (or canned)') }}</p>
-                            <p>{{ _('• 300 g pumpkin (weighed before peeling)') }}</p>
-                            <p>{{ _('• 1 small onion') }}</p>
-                            <p>{{ _('• 1 teaspoon of red curry paste (or 1 teaspoon of grated garlic and ginger and 1/2 teaspoon of ground hot pepper)') }}</p>
-                            <p>{{ _('• 1/2 teaspoon ground turmeric') }}</p>
-                            <p>{{ _('• 150 ml coconut milk') }}</p>
-                            <p>{{ _('• Approx. 1/2 cup of broth') }}</p>
-                            <p>{{ _('• A large handful of spinach') }}</p>
-                            <p>{{ _('• Coriander (for garnish)') }}</p>
-                            <p>{{ _('• Fresh chili (for garnish)') }}</p>
-                            <p>{{ _('• 1 lime wedge (for serving)') }}</p>
-                            <p>{{ _('• Salt (to taste)') }}</p>
-                            <p>{{ _('• 2 tablespoons of coconut oil (for frying)') }}</p>
-                            <p>{{ _('• Rice (for serving)') }}</p>
+                        <div style="flex: 1; padding-right: 20px;">
+                            <h5>{{ _('Ingredients for 4 Servings') }}</h5>
+                            <p>{{ _('• 2 large sweet potatoes, peeled and cubed') }}</p>
+                            <p>{{ _('• 1 can (15 oz) of chickpeas, drained and rinsed') }}</p>
+                            <p>{{ _('• 1 can (14 oz) coconut milk') }}</p>
+                            <p>{{ _('• 2 tablespoons Thai red curry paste') }}</p>
+                            <p>{{ _('• 1 onion, finely chopped') }}</p>
+                            <p>{{ _('• 2 cloves garlic, minced') }}</p>
+                            <p>{{ _('• 1 tablespoon fresh ginger, grated') }}</p>
+                            <p>{{ _('• 1 tablespoon cooking oil') }}</p>
+                            <p>{{ _('• 1 red bell pepper, diced') }}</p>
+                            <p>{{ _('• 1 cup vegetable broth or water') }}</p>
+                            <p>{{ _('• Juice of 1 lime') }}</p>
+                            <p>{{ _('• 1 tablespoon soy sauce or fish sauce (optional)') }}</p>
+                            <p>{{ _('• Salt to taste') }}</p>
+                            <p>{{ _('• Fresh cilantro leaves, for garnish') }}</p>
+                            <p>{{ _('• Cooked rice or naan bread, for serving') }}</p>
                         </div>
                         <!-- Preparation Section -->
                         <div style="flex: 1; padding-left: 20px;">
                             <h5>{{ _('Preparation') }}</h5>
-                            <p>{{ _('• Peel the pumpkin and cut into cubes. Cut the onion into slices.') }}</p>
-                            <p>{{ _('• In a pan, fry the curry paste in 2 tablespoons of coconut milk. Add pumpkin, onion, season with salt and fry, stirring occasionally, for about 2 minutes.') }}</p>
-                            <p>{{ _('• Add ground turmeric and cooked or canned chickpeas (if possible, add a few tablespoons of the chickpeas water). Add another 2 tablespoons of milk and fry for 1 minute.') }}</p>
-                            <p>{{ _('• Pour in the rest of the coconut milk and bring to a boil. Cook for about 15 minutes, stirring occasionally. Pour the broth gradually and cook for approx. 5 - 10 minutes until the pumpkin is soft. In the meantime, stir every now and then. Finally, add the spinach, mix and set aside from the heat.') }}</p>
-                            <p>{{ _('• Sprinkle with coriander and fresh chili, serve with rice and a lime wedge.') }}</p>
+                            <p>{{ _('• Heat the oil in a pot over medium heat. Sauté onion until translucent. Add garlic and ginger, sautéing until aromatic.') }}</p>
+                            <p>{{ _('• Stir in the curry paste and cook for 1-2 minutes. Pour in coconut milk and broth, and bring to a simmer.') }}</p>
+                            <p>{{ _('• Add sweet potatoes and chickpeas. Simmer for 15-20 minutes or until sweet potatoes are tender.') }}</p>
+                            <p>{{ _('• Add red bell pepper and cook for 5 more minutes. Stir in lime juice and soy sauce, and season with salt.') }}</p>
+                            <p>{{ _('• Serve over rice, garnished with cilantro.') }}</p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +72,7 @@
             <div class="work">
                 <img src="{{ url_for('static', filename='images/recipe2-canva.png') }}">
                 <div class="layer">
-                    <h3>{{ _('Salmon Baked in Red Pesto') }}</h3>
+                    <h3>{{ _('Grilled Salmon with Asparagus and Cherry Tomatoes') }}</h3>
                     <a href="javascript:void(0)" onclick="openModal('recipeModal2')">
                         <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -80,30 +83,34 @@
             <div id="recipeModal2" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <h2>{{ _('Salmon Baked in Red Pesto') }}</h2>
-        
-                 <div style="display: flex; margin-bottom: 20px;">
+                    <h2>{{ _('Grilled Salmon with Asparagus and Cherry Tomatoes') }}</h2>
+
+                    <div style="display: flex; margin-bottom: 20px;">
                         <!-- Ingredients Section -->
                         <div style="flex: 1; padding-right: 20px;">
                             <h5>{{ _('Ingredients for 2 Servings') }}</h5>
-                            <p>{{ _('• 600 g salmon') }}</p> 
-                            <p>{{ _('• Salt and pepper (to taste)') }}</p>
-                            <p>{{ _('• 2 tablespoons of red pesto (made from dried tomatoes)') }}</p>
-                            <p>{{ _('• 1/2 can of chopped, peeled tomatoes (or 1 fresh tomato)') }}</p>
-                            <p>{{ _('• 2 teaspoons of dried oregano') }}</p>
-                            <p>{{ _('• 2 tablespoons of extra olive oil') }}</p>
-                            <p>{{ _('• Fresh basil (for garnish)') }}</p>
-                            <p>{{ _('• 1/2 cup grated Parmesan cheese') }}</p>
+                            <p>{{ _('• 1 salmon fillet (approximately 6-8 ounces)') }}</p>
+                            <p>{{ _('• 1 bunch of asparagus, ends trimmed') }}</p>
+                            <p>{{ _('• A handful of cherry tomatoes on the vine') }}</p>
+                            <p>{{ _('• 2 tablespoons olive oil') }}</p>
+                            <p>{{ _('• Salt and freshly ground black pepper, to taste') }}</p>
+                            <p>{{ _('• 1 lemon, cut into wedges') }}</p>
+                            <p>{{ _('• Fresh thyme or dill for garnish') }}</p>
+                            <p>{{ _('• Optional: Red pepper flakes') }}</p>
                         </div>
                         <!-- Preparation Section -->
                         <div style="flex: 1; padding-left: 20px;">
                             <h5>{{ _('Preparation') }}</h5>
-                            <p>{{ _('• Cut off the skin from the fillets, rinse the salmon, dry it and cut into portions. Season with salt and pepper and spread with red pesto. Place in an ovenproof dish.') }}</p>
-                            <p>{{ _('• Place 2 tablespoons of chopped tomatoes on each portion and season with dried oregano, salt, and pepper. Drizzle with olive oil, sprinkle with basil and Parmesan. Preheat the oven to 200 degrees C and bake for about 15 - 17 minutes.') }}</p>
+                            <p>{{ _('• Preheat your grill to medium-high heat. Season the salmon with salt and pepper.') }}</p>
+                            <p>{{ _('• Toss the asparagus and cherry tomatoes in olive oil, salt, and pepper, and place them on the grill.') }}</p>
+                            <p>{{ _('• Grill the vegetables for 3-4 minutes, then add the salmon and grill for 5-6 minutes on each side.') }}</p>
+                            <p>{{ _('• Serve the salmon on a bed of asparagus with tomatoes and a lemon wedge on the side.') }}</p>
+                            <p>{{ _('• Garnish with fresh herbs before serving.') }}</p>
                         </div>
                     </div>
                 </div>
             </div>
+
 
 
         <!-- Recipe 3 -->
