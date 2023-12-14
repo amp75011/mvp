@@ -1,41 +1,43 @@
 {% extends "base.html" %}
 
-{% block title %}{{ session['username'] | capitalize }}'s Dashboard{% endblock %}
+{% block title %}
+{{ _('Dashboard') }} - {{ session['username'] | capitalize }}
+{% endblock %}
 
 {% block content %}
 <section class="dashboard">
     <div class="container">
         <div class="welcome-message">
-            <h1>Welcome back, {{ session['username'] | capitalize }}!</h1>
-            <p>Here's a quick overview of your account.</p>
+            <h1>{{ _('Welcome back,') }} {{ session['username'] | capitalize }}!</h1>
+            <p>{{ _('Here\'s a quick overview of your account.') }}</p>
         </div>
         <div class="dashboard-widgets">
             <div class="widget shopping-list-summary">
-                <h2>Your Shopping Lists</h2>
-                <p>A summary of your most recent lists.</p>
+                <h2>{{ _('Your Shopping Lists') }}</h2>
+                <p>{{ _('A summary of your most recent lists.') }}</p>
                 <!-- Dynamically populate the recent shopping lists -->
                 <ul>
-                    <li><a href="{{ url_for('shopping_list') }}">Weekly Groceries</a></li>
+                    <li><a href="{{ url_for('shopping_list') }}">{{ _('Weekly Groceries') }}</a></li>
                     <!-- Additional lists -->
                 </ul>
-                <a href="{{ url_for('shopping_list') }}" class="more-link">View all lists</a>
+                <a href="{{ url_for('shopping_list') }}" class="more-link">{{ _('View all lists') }}</a>
             </div>
 
             <div class="widget recipes-summary">
-                <h2>Recent Recipes</h2>
-                <p>Discover new tastes and ideas for your next meal.</p>
+                <h2>{{ _('Recent Recipes') }}</h2>
+                <p>{{ _('Discover new tastes and ideas for your next meal.') }}</p>
                 <!-- Dynamically populate the recent recipes -->
                 <ul>
-                    <li><a href="{{ url_for('recipes') }}">Salmon Baked in Red Pesto</a></li>
+                    <li><a href="{{ url_for('recipes') }}">{{ _('Salmon Baked in Red Pesto') }}</a></li>
                     <!-- Additional recipes -->
                 </ul>
-                <a href="{{ url_for('recipes') }}" class="more-link">View all recipes</a>
+                <a href="{{ url_for('recipes') }}" class="more-link">{{ _('View all recipes') }}</a>
             </div>
 
             <div class="widget profile-summary">
-                <h2>Your Profile</h2>
-                <p>Manage your personal information and settings.</p>
-                <a href="#" class="more-link">Edit Profile</a>
+                <h2>{{ _('Your Profile') }}</h2>
+                <p>{{ _('Manage your personal information and settings.') }}</p>
+                <a href="#" class="more-link">{{ _('Edit Profile') }}</a>
             </div>
         </div>
 

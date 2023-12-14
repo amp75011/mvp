@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-ComPrix - FAQs
+{{ _('ComPrix - FAQs') }}
 {% endblock %}
 
 {% block content %}
@@ -9,87 +9,83 @@ ComPrix - FAQs
 <section class="faq-main-container">
     <div class="faq-image-container">
         <!-- Add your image here -->
-        <img src="{{ url_for('static', filename='images/faq_.png') }}"  alt="Descriptive Alt Text">
-        <img src="{{ url_for('static', filename='images/faq.png') }}"  alt="Descriptive Alt Text">
+        <img src="{{ url_for('static', filename='images/faq_.png') }}"  alt="{{ _('Descriptive Alt Text') }}">
+        <img src="{{ url_for('static', filename='images/faq.png') }}"  alt="{{ _('Descriptive Alt Text') }}">
     </div>
-<div class="faq-content-container">
-    <h1 class="faq-title">Frequently Asked Questions</h1>
+    <div class="faq-content-container">
+        <h1 class="faq-title">{{ _('Frequently Asked Questions') }}</h1>
 
-    <div class="faq-container">
-        <!-- FAQ 1 -->
-        <div class="faq-item">
-            <h3 class="faq-question">What is ComPrix?</h3>
-            <p class="faq-answer">ComPrix is an online platform that helps you compare prices across various supermarkets, provides recipe suggestions, and offers insights into the nutritional and environmental impacts of your choices.</p>
-        </div>
+        <div class="faq-container">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <h3 class="faq-question">{{ _('What is ComPrix?') }}</h3>
+                <p class="faq-answer">{{ _('ComPrix is an online platform that helps you compare prices across various supermarkets, provides recipe suggestions, and offers insights into the nutritional and environmental impacts of your choices.') }}</p>
+            </div>
 
-        <!-- FAQ 2 -->
-        <div class="faq-item">
-            <h3 class="faq-question">How does the price comparison tool work?</h3>
-            <p class="faq-answer">Our tool aggregates data from several supermarkets and presents you with the prices of items on your shopping list. You can compare prices across different stores to make informed shopping decisions.</p>
-        </div>
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <h3 class="faq-question">{{ _('How does the price comparison tool work?') }}</h3>
+                <p class="faq-answer">{{ _('Our tool aggregates data from several supermarkets and presents you with the prices of items on your shopping list. You can compare prices across different stores to make informed shopping decisions.') }}</p>
+            </div>
 
-        <!-- FAQ 3 
-        <div class="faq-item">
-            <h3 class="faq-question">Is ComPrix free to use?</h3>
-            <p class="faq-answer">Yes, ComPrix is free for users. We believe in helping you make the best shopping decisions without any extra cost.</p>
-        </div>-->
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <h3 class="faq-question">{{ _('How often is the price information updated?') }}</h3>
+                <p class="faq-answer">{{ _('Price information is updated daily to ensure you have the most current data.') }}</p>
+            </div>
 
-        <!-- FAQ 4 -->
-        <div class="faq-item">
-            <h3 class="faq-question">How often is the price information updated?</h3>
-            <p class="faq-answer">Price information is updated daily to ensure you have the most current data.</p>
-        </div>
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <h3 class="faq-question">{{ _('Can I purchase items directly through ComPrix?') }}</h3>
+                <p class="faq-answer">{{ _('ComPrix is a comparison tool, and while you cannot purchase directly through our site, we provide links to the products on supermarket websites where you can complete your purchase.') }}</p>
+            </div>
 
-        <!-- FAQ 5 -->
-        <div class="faq-item">
-            <h3 class="faq-question">Can I purchase items directly through ComPrix?</h3>
-            <p class="faq-answer">ComPrix is a comparison tool, and while you cannot purchase directly through our site, we provide links to the products on supermarket websites where you can complete your purchase.</p>
-        </div>
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+                <h3 class="faq-question">{{ _('Are the recipes provided by ComPrix healthy?') }}</h3>
+                <p class="faq-answer">{{ _('We offer a range of recipes, including healthy options. Each recipe includes nutritional information to help you make the best choice for your dietary needs.') }}</p>
+            </div>
 
-        <!-- FAQ 6 -->
-        <div class="faq-item">
-            <h3 class="faq-question">Are the recipes provided by ComPrix healthy?</h3>
-            <p class="faq-answer">We offer a range of recipes, including healthy options. Each recipe includes nutritional information to help you make the best choice for your dietary needs.</p>
-        </div>
+            <!-- FAQ 7 -->
+            <div class="faq-item">
+                <h3 class="faq-question">{{ _('How does ComPrix ensure the accuracy of its information?') }}</h3>
+                <p class="faq-answer">{{ _('We collaborate with supermarkets and use automated systems to regularly update our database. However, we advise users to double-check prices and product details on the actual supermarket\'s website.') }}</p>
+            </div>
 
-        <!-- FAQ 7 -->
-        <div class="faq-item">
-            <h3 class="faq-question">How does ComPrix ensure the accuracy of its information?</h3>
-            <p class="faq-answer">We collaborate with supermarkets and use automated systems to regularly update our database. However, we advise users to double-check prices and product details on the actual supermarket's website.</p>
-        </div>
+            <!-- FAQ 8 -->
+            <div class="faq-item">
+                <h3 class="faq-question">{{ _('How can I contact ComPrix for support or feedback?') }}</h3>
+                <p class="faq-answer">{{ _('You can reach us through our contact form on the website. We value your feedback and aim to respond as quickly as possible.') }}</p>
+            </div>
 
-        <!-- FAQ 8 (or email us at [Support Email])-->
-        <div class="faq-item">
-            <h3 class="faq-question">How can I contact ComPrix for support or feedback?</h3>
-            <p class="faq-answer">You can reach us through our contact form on the website. We value your feedback and aim to respond as quickly as possible.</p>
-        </div>
+                <!-- FAQ 9 -->
+                <div class="faq-item">
+                    <h3 class="faq-question">{{ _('Is my personal information safe with ComPrix?') }}</h3>
+                    <p class="faq-answer">{{ _('Protecting your privacy is our top priority. We comply with GDPR and French data protection laws to ensure your personal information is securely handled.') }}</p>
+                </div>
 
-        <!-- FAQ 9 -->
-        <div class="faq-item">
-            <h3 class="faq-question">Is my personal information safe with ComPrix?</h3>
-            <p class="faq-answer">Protecting your privacy is our top priority. We comply with GDPR and French data protection laws to ensure your personal information is securely handled.</p>
-        </div>
+                <!-- FAQ 10 -->
+                <div class="faq-item">
+                    <h3 class="faq-question">{{ _('What should I do if I notice a discrepancy in pricing?') }}</h3>
+                    <p class="faq-answer">{{ _('If you find a discrepancy, please contact us with the details. We strive for accuracy and appreciate your help in keeping our data up-to-date.') }}</p>
+                </div>
 
-        <!-- FAQ 10 -->
-        <div class="faq-item">
-            <h3 class="faq-question">What should I do if I notice a discrepancy in pricing?</h3>
-            <p class="faq-answer">If you find a discrepancy, please contact us with the details. We strive for accuracy and appreciate your help in keeping our data up-to-date.</p>
-        </div>
+                <!-- FAQ 11 -->
+                <div class="faq-item">
+                    <h3 class="faq-question">{{ _('Can I suggest a feature or a supermarket to be added to ComPrix?') }}</h3>
+                    <p class="faq-answer">{{ _('Absolutely! We welcome your suggestions to improve ComPrix. Please use our contact form to share your ideas.') }}</p>
+                </div>
 
-        <!-- FAQ 11 -->
-        <div class="faq-item">
-            <h3 class="faq-question">Can I suggest a feature or a supermarket to be added to ComPrix?</h3>
-            <p class="faq-answer">Absolutely! We welcome your suggestions to improve ComPrix. Please use our contact form to share your ideas.</p>
-        </div>
-
-        <!-- FAQ 12 -->
-        <div class="faq-item">
-            <h3 class="faq-question">How can I stay updated with ComPrix's latest features and updates?</h3>
-            <p class="faq-answer">You can subscribe to our newsletter, follow us on social media, or regularly visit our blog for the latest news and updates.</p>
+                <!-- FAQ 12 -->
+                <div class="faq-item">
+                    <h3 class="faq-question">{{ _('How can I stay updated with ComPrix\'s latest features and updates?') }}</h3>
+                    <p class="faq-answer">{{ _('You can subscribe to our newsletter, follow us on social media, or regularly visit our blog for the latest news and updates.') }}</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </section>
+
 {% endblock %}
 
 {% block scripts %}

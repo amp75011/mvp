@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-14 16:16+0100\n"
+"POT-Creation-Date: 2023-12-14 17:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -331,6 +331,191 @@ msgstr ""
 
 #: templates/blog.html:105
 msgid "Healthy choices"
+msgstr ""
+
+#: templates/dashboard.html:4
+msgid "Dashboard"
+msgstr ""
+
+#: templates/dashboard.html:11
+msgid "Welcome back,"
+msgstr ""
+
+#: templates/dashboard.html:12
+msgid "Here's a quick overview of your account."
+msgstr ""
+
+#: templates/dashboard.html:16
+msgid "Your Shopping Lists"
+msgstr ""
+
+#: templates/dashboard.html:17
+msgid "A summary of your most recent lists."
+msgstr ""
+
+#: templates/dashboard.html:20
+msgid "Weekly Groceries"
+msgstr ""
+
+#: templates/dashboard.html:23
+msgid "View all lists"
+msgstr ""
+
+#: templates/dashboard.html:27
+msgid "Recent Recipes"
+msgstr ""
+
+#: templates/dashboard.html:28
+msgid "Discover new tastes and ideas for your next meal."
+msgstr ""
+
+#: templates/dashboard.html:31 templates/recipes.html:72
+#: templates/recipes.html:83
+msgid "Salmon Baked in Red Pesto"
+msgstr ""
+
+#: templates/dashboard.html:34
+msgid "View all recipes"
+msgstr ""
+
+#: templates/dashboard.html:38
+msgid "Your Profile"
+msgstr ""
+
+#: templates/dashboard.html:39
+msgid "Manage your personal information and settings."
+msgstr ""
+
+#: templates/dashboard.html:40
+msgid "Edit Profile"
+msgstr ""
+
+#: templates/faq.html:4
+msgid "ComPrix - FAQs"
+msgstr ""
+
+#: templates/faq.html:12 templates/faq.html:13
+msgid "Descriptive Alt Text"
+msgstr ""
+
+#: templates/faq.html:16
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: templates/faq.html:21
+msgid "What is ComPrix?"
+msgstr ""
+
+#: templates/faq.html:22
+msgid ""
+"ComPrix is an online platform that helps you compare prices across "
+"various supermarkets, provides recipe suggestions, and offers insights "
+"into the nutritional and environmental impacts of your choices."
+msgstr ""
+
+#: templates/faq.html:27
+msgid "How does the price comparison tool work?"
+msgstr ""
+
+#: templates/faq.html:28
+msgid ""
+"Our tool aggregates data from several supermarkets and presents you with "
+"the prices of items on your shopping list. You can compare prices across "
+"different stores to make informed shopping decisions."
+msgstr ""
+
+#: templates/faq.html:33
+msgid "How often is the price information updated?"
+msgstr ""
+
+#: templates/faq.html:34
+msgid ""
+"Price information is updated daily to ensure you have the most current "
+"data."
+msgstr ""
+
+#: templates/faq.html:39
+msgid "Can I purchase items directly through ComPrix?"
+msgstr ""
+
+#: templates/faq.html:40
+msgid ""
+"ComPrix is a comparison tool, and while you cannot purchase directly "
+"through our site, we provide links to the products on supermarket "
+"websites where you can complete your purchase."
+msgstr ""
+
+#: templates/faq.html:45
+msgid "Are the recipes provided by ComPrix healthy?"
+msgstr ""
+
+#: templates/faq.html:46
+msgid ""
+"We offer a range of recipes, including healthy options. Each recipe "
+"includes nutritional information to help you make the best choice for "
+"your dietary needs."
+msgstr ""
+
+#: templates/faq.html:51
+msgid "How does ComPrix ensure the accuracy of its information?"
+msgstr ""
+
+#: templates/faq.html:52
+msgid ""
+"We collaborate with supermarkets and use automated systems to regularly "
+"update our database. However, we advise users to double-check prices and "
+"product details on the actual supermarket's website."
+msgstr ""
+
+#: templates/faq.html:57
+msgid "How can I contact ComPrix for support or feedback?"
+msgstr ""
+
+#: templates/faq.html:58
+msgid ""
+"You can reach us through our contact form on the website. We value your "
+"feedback and aim to respond as quickly as possible."
+msgstr ""
+
+#: templates/faq.html:63
+msgid "Is my personal information safe with ComPrix?"
+msgstr ""
+
+#: templates/faq.html:64
+msgid ""
+"Protecting your privacy is our top priority. We comply with GDPR and "
+"French data protection laws to ensure your personal information is "
+"securely handled."
+msgstr ""
+
+#: templates/faq.html:69
+msgid "What should I do if I notice a discrepancy in pricing?"
+msgstr ""
+
+#: templates/faq.html:70
+msgid ""
+"If you find a discrepancy, please contact us with the details. We strive "
+"for accuracy and appreciate your help in keeping our data up-to-date."
+msgstr ""
+
+#: templates/faq.html:75
+msgid "Can I suggest a feature or a supermarket to be added to ComPrix?"
+msgstr ""
+
+#: templates/faq.html:76
+msgid ""
+"Absolutely! We welcome your suggestions to improve ComPrix. Please use "
+"our contact form to share your ideas."
+msgstr ""
+
+#: templates/faq.html:81
+msgid "How can I stay updated with ComPrix's latest features and updates?"
+msgstr ""
+
+#: templates/faq.html:82
+msgid ""
+"You can subscribe to our newsletter, follow us on social media, or "
+"regularly visit our blog for the latest news and updates."
 msgstr ""
 
 #: templates/landing.html:4
@@ -663,10 +848,6 @@ msgstr ""
 msgid ""
 "• Sprinkle with coriander and fresh chili, serve with rice and a lime "
 "wedge."
-msgstr ""
-
-#: templates/recipes.html:72 templates/recipes.html:83
-msgid "Salmon Baked in Red Pesto"
 msgstr ""
 
 #: templates/recipes.html:89

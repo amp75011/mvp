@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-14 16:16+0100\n"
+"POT-Creation-Date: 2023-12-14 17:31+0100\n"
 "PO-Revision-Date: 2023-12-12 18:24+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -446,6 +446,220 @@ msgstr "Durabilité"
 msgid "Healthy choices"
 msgstr "Choix sains"
 
+#: templates/dashboard.html:4
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: templates/dashboard.html:11
+msgid "Welcome back,"
+msgstr "Bon retour,"
+
+#: templates/dashboard.html:12
+msgid "Here's a quick overview of your account."
+msgstr "Voici un aperçu rapide de votre compte."
+
+#: templates/dashboard.html:16
+msgid "Your Shopping Lists"
+msgstr "Vos listes de courses"
+
+#: templates/dashboard.html:17
+msgid "A summary of your most recent lists."
+msgstr "Un résumé de vos listes les plus récentes."
+
+#: templates/dashboard.html:20
+msgid "Weekly Groceries"
+msgstr "Courses hebdomadaires"
+
+#: templates/dashboard.html:23
+msgid "View all lists"
+msgstr "Voir toutes les listes"
+
+#: templates/dashboard.html:27
+msgid "Recent Recipes"
+msgstr "Recettes récentes"
+
+#: templates/dashboard.html:28
+msgid "Discover new tastes and ideas for your next meal."
+msgstr "Découvrez de nouveaux goûts et idées pour votre prochain repas."
+
+#: templates/dashboard.html:31 templates/recipes.html:72
+#: templates/recipes.html:83
+msgid "Salmon Baked in Red Pesto"
+msgstr ""
+
+#: templates/dashboard.html:34
+msgid "View all recipes"
+msgstr "Voir toutes les recettes"
+
+#: templates/dashboard.html:38
+msgid "Your Profile"
+msgstr "Votre profil"
+
+#: templates/dashboard.html:39
+msgid "Manage your personal information and settings."
+msgstr "Gérez vos informations personnelles et vos paramètres."
+
+#: templates/dashboard.html:40
+msgid "Edit Profile"
+msgstr "Modifier le profil"
+
+#: templates/faq.html:4
+msgid "ComPrix - FAQs"
+msgstr "ComPrix - FAQ"
+
+#: templates/faq.html:12 templates/faq.html:13
+msgid "Descriptive Alt Text"
+msgstr "Texte alternatif descriptif"
+
+#: templates/faq.html:16
+msgid "Frequently Asked Questions"
+msgstr "Questions Fréquemment Posées"
+
+#: templates/faq.html:21
+msgid "What is ComPrix?"
+msgstr "Qu'est-ce que ComPrix ?"
+
+#: templates/faq.html:22
+msgid ""
+"ComPrix is an online platform that helps you compare prices across "
+"various supermarkets, provides recipe suggestions, and offers insights "
+"into the nutritional and environmental impacts of your choices."
+msgstr ""
+"ComPrix est une plateforme en ligne qui vous aide à comparer les prix dans "
+"différents supermarchés, propose des suggestions de recettes et offre des "
+"aperçus sur les impacts nutritionnels et environnementaux de vos choix."
+
+#: templates/faq.html:27
+msgid "How does the price comparison tool work?"
+msgstr "Comment fonctionne l'outil de comparaison des prix ?"
+
+#: templates/faq.html:28
+msgid ""
+"Our tool aggregates data from several supermarkets and presents you with "
+"the prices of items on your shopping list. You can compare prices across "
+"different stores to make informed shopping decisions."
+msgstr ""
+"Notre outil rassemble des données de plusieurs supermarchés et vous présente "
+"les prix des articles de votre liste de courses. Vous pouvez comparer les prix "
+"dans différents magasins pour prendre des décisions d'achat éclairées."
+
+#: templates/faq.html:33
+msgid "How often is the price information updated?"
+msgstr "À quelle fréquence les informations sur les prix sont-elles mises à jour ?"
+
+#: templates/faq.html:34
+msgid ""
+"Price information is updated daily to ensure you have the most current "
+"data."
+msgstr ""
+"Les informations sur les prix sont mises à jour quotidiennement pour vous assurer "
+"de disposer des données les plus récentes."
+
+#: templates/faq.html:39
+msgid "Can I purchase items directly through ComPrix?"
+msgstr "Puis-je acheter des articles directement via ComPrix ?"
+
+#: templates/faq.html:40
+msgid ""
+"ComPrix is a comparison tool, and while you cannot purchase directly "
+"through our site, we provide links to the products on supermarket "
+"websites where you can complete your purchase."
+msgstr ""
+"ComPrix est un outil de comparaison, et bien que vous ne puissiez pas acheter "
+"directement sur notre site, nous fournissons des liens vers les produits sur les "
+"sites web des supermarchés où vous pouvez finaliser votre achat."
+
+#: templates/faq.html:45
+msgid "Are the recipes provided by ComPrix healthy?"
+msgstr "Les recettes fournies par ComPrix sont-elles saines ?"
+
+#: templates/faq.html:46
+msgid ""
+"We offer a range of recipes, including healthy options. Each recipe "
+"includes nutritional information to help you make the best choice for "
+"your dietary needs."
+msgstr ""
+"Nous proposons une gamme de recettes, y compris des options saines. Chaque recette "
+"comprend des informations nutritionnelles pour vous aider à faire le meilleur choix "
+"pour vos besoins diététiques."
+
+#: templates/faq.html:51
+msgid "How does ComPrix ensure the accuracy of its information?"
+msgstr "Comment ComPrix garantit-il l'exactitude de ses informations ?"
+
+#: templates/faq.html:52
+msgid ""
+"We collaborate with supermarkets and use automated systems to regularly "
+"update our database. However, we advise users to double-check prices and "
+"product details on the actual supermarket's website."
+msgstr ""
+"Nous collaborons avec des supermarchés et utilisons des systèmes automatisés pour "
+"mettre régulièrement à jour notre base de données. Cependant, nous conseillons aux "
+"utilisateurs de vérifier les prix et les détails des produits sur le site web du "
+"supermarché concerné."
+
+#: templates/faq.html:57
+msgid "How can I contact ComPrix for support or feedback?"
+msgstr "Comment puis-je contacter ComPrix pour obtenir de l'aide ou donner mon avis ?"
+
+#: templates/faq.html:58
+msgid ""
+"You can reach us through our contact form on the website. We value your "
+"feedback and aim to respond as quickly as possible."
+msgstr ""
+"Vous pouvez nous joindre via notre formulaire de contact sur le site web. Nous "
+"apprécions vos retours et nous efforçons de répondre aussi rapidement que possible."
+
+#: templates/faq.html:63
+msgid "Is my personal information safe with ComPrix?"
+msgstr "Mes informations personnelles sont-elles en sécurité avec ComPrix ?"
+
+#: templates/faq.html:64
+msgid ""
+"Protecting your privacy is our top priority. We comply with GDPR and "
+"French data protection laws to ensure your personal information is "
+"securely handled."
+msgstr ""
+"La protection de votre vie privée est notre priorité absolue. Nous nous conformons "
+"au RGPD et aux lois françaises sur la protection des données pour garantir que vos "
+"informations personnelles sont traitées en toute sécurité."
+
+#: templates/faq.html:69
+msgid "What should I do if I notice a discrepancy in pricing?"
+msgstr "Que dois-je faire si je remarque une divergence dans les prix ?"
+
+#: templates/faq.html:70
+msgid ""
+"If you find a discrepancy, please contact us with the details. We strive "
+"for accuracy and appreciate your help in keeping our data up-to-date."
+msgstr ""
+"Si vous constatez une divergence, veuillez nous contacter avec les détails. Nous "
+"nous efforçons d'être précis et apprécions votre aide pour maintenir nos données à jour."
+
+#: templates/faq.html:75
+msgid "Can I suggest a feature or a supermarket to be added to ComPrix?"
+msgstr "Puis-je suggérer une fonctionnalité ou un supermarché à ajouter à ComPrix ?"
+
+#: templates/faq.html:76
+msgid ""
+"Absolutely! We welcome your suggestions to improve ComPrix. Please use "
+"our contact form to share your ideas."
+msgstr ""
+"Absolument ! Nous accueillons vos suggestions pour améliorer ComPrix. Veuillez "
+"utiliser notre formulaire de contact pour partager vos idées."
+
+#: templates/faq.html:81
+msgid "How can I stay updated with ComPrix's latest features and updates?"
+msgstr "Comment puis-je rester informé des dernières fonctionnalités et mises à jour de ComPrix ?"
+
+#: templates/faq.html:82
+msgid ""
+"You can subscribe to our newsletter, follow us on social media, or "
+"regularly visit our blog for the latest news and updates."
+msgstr ""
+"Vous pouvez vous abonner à notre newsletter, nous suivre sur les réseaux sociaux, "
+"ou visiter régulièrement notre blog pour les dernières nouvelles et mises à jour."
+
 #: templates/landing.html:4
 msgid "Comprix - Compare, Save, Shop Smart!"
 msgstr "Comprix - Comparez, Économisez, Achetez Malin !"
@@ -807,10 +1021,6 @@ msgid ""
 msgstr ""
 "• Saupoudrez de coriandre et de piment frais, servez avec du riz et un "
 "quartier de citron vert."
-
-#: templates/recipes.html:72 templates/recipes.html:83
-msgid "Salmon Baked in Red Pesto"
-msgstr "Saumon cuit au pesto rouge"
 
 #: templates/recipes.html:89
 msgid "• 600 g salmon"
