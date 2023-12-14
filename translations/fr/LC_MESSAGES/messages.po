@@ -485,7 +485,7 @@ msgstr "Découvrez de nouveaux goûts et idées pour votre prochain repas."
 #: templates/dashboard.html:31 templates/recipes.html:72
 #: templates/recipes.html:83
 msgid "Salmon Baked in Red Pesto"
-msgstr ""
+msgstr "Saumon cuit au pesto rouge"
 
 #: templates/dashboard.html:34
 msgid "View all recipes"
