@@ -25,21 +25,19 @@ Comprix - Comparison Results
                     </tr>
                 </thead>
                 <tbody>
-                    {% for item, prices in pivot_prices_dict.items() %}
-                    <tr>
-                        <td>{{ item }}</td>
-                        {% for store in store_names %}
-                            <td>
-                                {% set price = prices[store] %}
-                                {% set url = pivot_urls_dict[item][store] %}
-                                {% if price != 'N/A' %}
-                                    <a href="{{ url }}" target="_blank">€{{ "%.2f"|format(price) }}</a>
-                                {% else %}
-                                    {{ price }}
-                                {% endif %}
-                            </td>
-                        {% endfor %}
-                    </tr>
+                    {% for item, stores in pivot_prices_dict.items() %}
+                        <tr {% if item == 'Total' %} class="total-row" {% endif %}>
+                            <td>{{ item }}</td>
+                            {% for store, price in stores.items() %}
+                                <td>
+                                    {% if item != 'Total' and price != 'N/A' %}
+                                        <a href="{{ pivot_urls_dict[item][store] }}" target="_blank">€{{ price }}</a>
+                                    {% else %}
+                                        {{ price }}
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
                     {% endfor %}
                 </tbody>
                 <tfoot>

@@ -11,17 +11,16 @@ from mysql.connector import Error as mysqlError
 
 app = Flask(__name__)
 
-# Define the function to get the current locale
-def get_locale():
-    return request.args.get('lang') or session.get('lang') or 'en'
+# Flask-Babel Configuration
+babel = Babel(app)  # Initialize Babel with app
 
-# Babel configuration
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
 
-# Initialize Babel
-babel = Babel()
-babel.init_app(app, locale_selector=get_locale)
+@babel.localeselector
+def get_locale():
+    # Select a locale from the user request or by default
+    return request.args.get('lang') or session.get('lang') or 'en'
 
 bcrypt = Bcrypt(app)
 
@@ -41,10 +40,11 @@ try:
     cur = conn.cursor(dictionary=True)  # Use dictionary=True to get dict cursor
 except mysql.connector.Error as error:
     print("Error: ", error)
-    
+
 # Normalising French characters
 def normalize_string(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
+
 
 # Function to check if all words in a keyword are in a text (case insensitive)
 def all_words_present(text, keyword):
@@ -72,9 +72,6 @@ def find_partial_match(df, column, keyword):
 
 # Function to extract shop name from URL
 def extract_shop_from_url(url):
-    if not isinstance(url, str):
-        return 'Unknown'  # Handle non-string URLs
-
     if 'auchan' in url:
         return 'Auchan'
     elif 'monoprix' in url:
@@ -86,96 +83,13 @@ def extract_shop_from_url(url):
     else:
         return 'Unknown'
 
-#this function builds the mapping across all elements in category and those in Description
-def build_relationship_map(df):
-
-    # Preprocess the columns by replacing '-' with ' '
-    df['category'] = df['category'].str.replace('-', ' ', regex=False)
-    df['Description'] = df['Description'].str.replace('-', ' ', regex=False)
-
-    category_to_descriptions = {}
-    description_to_categories = {}
-
-    # Create initial mappings
-    for _, row in df.iterrows():
-        category = row['category']
-        description = row['Description']
-
-        if category not in category_to_descriptions:
-            category_to_descriptions[category] = set()
-        category_to_descriptions[category].add(description)
-
-        if description not in description_to_categories:
-            description_to_categories[description] = set()
-        description_to_categories[description].add(category)
-
-    # Identify categories and descriptions with missing values
-    missing_categories = {category for category, descriptions in category_to_descriptions.items() if None in descriptions or pd.isna(category)}
-    missing_descriptions = {description for description, categories in description_to_categories.items() if None in categories or pd.isna(description)}
-
-    # Remove entries with missing values from mappings
-    for category in missing_categories:
-        del category_to_descriptions[category]
-
-    for description in missing_descriptions:
-        del description_to_categories[description]
-
-    # Additionally, remove missing values from the sets in mappings
-    category_to_descriptions = {k: {desc for desc in v if desc and not pd.isna(desc)} for k, v in category_to_descriptions.items()}
-    description_to_categories = {k: {cat for cat in v if cat and not pd.isna(cat)} for k, v in description_to_categories.items()}
-
-    return category_to_descriptions, description_to_categories
-
-
 def load_data(file_path):
     df = pd.read_csv(file_path)
     # Remove special characters and diacritics from all string columns except the URL column
     for col in df.columns:
         if col != 'URL' and df[col].dtype == object:
-            df[col] = df[col].str.replace('[^\w\s]', '', regex=True)
-            #df[col] = df[col].apply(remove_diacritics)
-    df['Shop'] = df['URL'].apply(extract_shop_from_url)
-    #df['DescBrand'] = df['Brand'].astype(str) + ' ' + df['Description'].astype(str)
-    return df
-
-def save_mappings_to_csv(category_to_descriptions, description_to_categories):
-    # Convert mappings to DataFrame
-    cat_to_desc_df = pd.DataFrame(list(category_to_descriptions.items()), columns=['category', 'Description'])
-    desc_to_cat_df = pd.DataFrame(list(description_to_categories.items()), columns=['Description', 'category'])
-
-    # Explode the sets into individual rows
-    cat_to_desc_df = cat_to_desc_df.explode('Description')
-    desc_to_cat_df = desc_to_cat_df.explode('category')
-
-    # Save to CSV
-    cat_to_desc_df.to_csv('category_to_descriptions.csv', index=False)
-    desc_to_cat_df.to_csv('description_to_categories.csv', index=False)
-
-    print("Mappings saved to CSV files.")
-
-
- # Load data from price_comprix.csv
-df = pd.read_csv('price_comprix.csv')  # Adjust the path if needed
-
-# Build the mappings
-category_to_descriptions, description_to_categories = build_relationship_map(df)
-
-# Uncomment these lines after defining df and build_relationship_map function
-save_mappings_to_csv(category_to_descriptions, description_to_categories)
-
-
-def load_data(file_path):
-    df = pd.read_csv(file_path)
-
-# Remove rows with missing information Prices
-
-    df = df.dropna(subset=['Price'])
-###################################### FM: we may decide to reinstate this, but not sure
-    
-    # Remove special characters and diacritics from all string columns except the URL column
-    for col in df.columns:
-        if col != 'URL' and df[col].dtype == object:
-            df[col] = df[col].str.replace('[^\w\s]', '', regex=True)
+            df[col] = df[col].str.replace(r'[^\w\s]', '', regex=True)
+            #df[col] = df[col].str.replace('[^\w\s]', '', regex=True)
             #df[col] = df[col].apply(remove_diacritics)
     df['Shop'] = df['URL'].apply(extract_shop_from_url)
     df['DescBrand'] = df['Brand'].astype(str) + ' ' + df['Description'].astype(str)
@@ -194,7 +108,7 @@ def landing():
     try:
         # Load data from Excel file
         df = pd.read_excel('./arrondissements.xlsx')
-        
+
         # Check if 'ZIP_code' column exists
         if 'ZIP_code' not in df.columns:
             raise ValueError("Column 'ZIP_code' not found in Excel file")
@@ -236,15 +150,15 @@ def shopping_list():
     # categories = [{'name': cat, 'image': cat.lower().replace(' ', '_').replace('&', 'and').replace('è', 'e') + '.jpg'} for cat in df_categories['category'].dropna().unique()]
     categories = [
     {
-        'name': cat, 
+        'name': cat,
         'image': normalize_string(cat).lower().replace(' ', '_').replace('&', 'and') + '.jpg'
-    } 
+    }
     for cat in df_categories['category'].dropna().unique()
 ]
-    
+
     # Sending the data to the frontend (noe the difference: categories are the aisles, category comes into the serach bar and price comparison)
-    return render_template('shopping_list.html', 
-                           descriptions=descriptions, 
+    return render_template('shopping_list.html',
+                           descriptions=descriptions,
                            brands=brands,
                            category=category,
                             categories=categories)
@@ -262,14 +176,14 @@ def category_page(category_name):
     # Create a list of dictionaries for subcategories with name and image
     subcategories = [
         {
-            'name': subcategory, 
+            'name': subcategory,
             'image': normalize_string(subcategory).lower().replace(' ', '_') + '.png'
-        } 
+        }
         for subcategory in raw_subcategories
     ]
 
-    return render_template('category_page.html', 
-                           subcategories=subcategories, 
+    return render_template('category_page.html',
+                           subcategories=subcategories,
                            category_name=category_name)
 
 
@@ -320,61 +234,34 @@ def subcategory_page(subcategory_name):
 
 @app.route('/compare_prices', methods=['GET'])
 def compare_prices():
-    main_file_path = 'price_comprix.csv'  # Adjust the path for the main data
-    mapping_file_path = 'category_to_descriptions.csv'  # Path for the category-to-description mapping
-
-    df = load_data(main_file_path)
-    # Convert the 'Price' column to numeric and handle non-numeric values
-    df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
-
-    cat_to_desc_df = pd.read_csv(mapping_file_path)
-
-    # Extract shop information and drop rows where shop is 'Unknown'
-    df['Shop'] = df['URL'].apply(extract_shop_from_url)
-    df = df[df['Shop'] != 'Unknown']
+    file_path = 'price_comprix.csv'  # Adjust the path if needed
+    df = load_data(file_path)
 
     shopping_list_text = request.args.get('shopping_list', '')
     shopping_list = re.split(',|\n', shopping_list_text.lower())
     shopping_list = [item.strip() for item in shopping_list if item.strip()]
 
     category_column = 'category'
+    descbrand_column = 'DescBrand'
     all_cheapest_items = pd.DataFrame()
 
     for keyword in shopping_list:
-        for shop in df['Shop'].unique():
-            df_shop = df[df['Shop'] == shop]
-            df_shop = df_shop[pd.to_numeric(df_shop['Price'], errors='coerce').notna()]
-
-            # Search in 'category'
-            df_keyword = df_shop[df_shop[category_column].str.lower() == keyword.lower()]
+        match_source = None
+        df_keyword = find_exact_match(df, category_column, keyword)
+        if not df_keyword.empty:
+            match_source = 'category'
+        if df_keyword.empty:
+            df_keyword = find_partial_match(df, descbrand_column, keyword)
             if not df_keyword.empty:
-                cheapest_item = df_keyword.nsmallest(1, 'Price')
-            else:
-                # Search in 'Description'
-                df_keyword = df_shop[df_shop['Description'].str.contains(keyword, case=False, na=False)]
-                cheapest_item = df_keyword.nsmallest(1, 'Price') if not df_keyword.empty else pd.DataFrame()
+                match_source = 'descbrand'
 
-                # If not found, use category_to_description mapping
-                if cheapest_item.empty:
-                    associated_descriptions = cat_to_desc_df[cat_to_desc_df['category'].str.lower() == keyword.lower()]['Description'].tolist()
-                    df_associated_items = df_shop[df_shop['Description'].isin(associated_descriptions)]
-                    
-                    # Ensure that only items with a valid price are considered
-                    df_associated_items = df_associated_items[pd.to_numeric(df_associated_items['Price'], errors='coerce').notna()]
-                        # Print associated items for debugging
-                    print(f"Associated items for '{keyword}' in shop '{shop}':")
-                    print(df_associated_items)
-                    cheapest_item = df_associated_items.nsmallest(1, 'Price') if not df_associated_items.empty else pd.DataFrame()
-
-            if not cheapest_item.empty:
-                cheapest_item['Keyword'] = keyword
-                cheapest_item['Shop'] = shop
-                all_cheapest_items = pd.concat([all_cheapest_items, cheapest_item], ignore_index=True)
-            else:
-                # Handle the case where no matching items with a price are found
-                no_match_item = pd.DataFrame({'Shop': [shop], 'Keyword': [keyword], 'Price': ['N/A'], 'URL': ['N/A']})
-                all_cheapest_items = pd.concat([all_cheapest_items, no_match_item], ignore_index=True)
-
+        if not df_keyword.empty:
+            df_keyword['Shop'] = df_keyword['URL'].apply(extract_shop_from_url)
+            cheapest_items = df_keyword.loc[df_keyword.groupby('Shop')['Price'].idxmin()]
+            label = keyword if match_source == 'descbrand' else df_keyword[category_column].iloc[0]
+            cheapest_items[category_column] = label
+            cheapest_items['Keyword'] = keyword
+            all_cheapest_items = pd.concat([all_cheapest_items, cheapest_items], ignore_index=True)
 
     # Initialize pivot_prices and pivot_urls
     pivot_prices = pd.DataFrame()
@@ -429,7 +316,6 @@ def compare_prices():
                            pivot_urls_dict=pivot_urls_dict)
 
 
-
 #RECIPES
 @app.route('/recipes')
 def recipes():
@@ -460,7 +346,7 @@ def login_action():
         # Establish a database connection using MySQL
         conn = mysql.connector.connect(**db_params)
         cur = conn.cursor(dictionary=True)
-        
+
         # Check user credentials
         cur.execute('SELECT * FROM users WHERE username = %s', (username,))
         user = cur.fetchone()
@@ -540,14 +426,14 @@ def dashboard():
         return render_template('dashboard.html')  # Render a dashboard template
     else:
         return redirect(url_for('login_page'))  # If not logged in, redirect to login
-    
+
 
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
 
 
-## NEWSLETTER 
+## NEWSLETTER
 @app.route('/subscribe_newsletter', methods=['POST'])
 def subscribe_newsletter():
     email = request.form.get('email')
@@ -571,7 +457,7 @@ def subscribe_newsletter():
             cur.close()
             conn.close()
 
-    
+
 
 # Make sure to add a secret key for sessions to work
 # app.secret_key = os.environ.get('SECRET_KEY')  # Replace with a real secret key
