@@ -46,30 +46,6 @@ except mysql.connector.Error as error:
 def normalize_string(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
 
-# Function to check if all words in a keyword are in a text (case insensitive)
-def all_words_present(text, keyword):
-    if isinstance(text, str):
-        text_lower = text.lower()
-        return all(word.lower() in text_lower for word in keyword.split())
-    else:
-        return False
-
-# Function to check if all words in a keyword are fully present in a text (case insensitive)
-def all_words_fully_present(text, keyword):
-    if isinstance(text, str):
-        text_lower = text.lower().split()
-        return all(word.lower() in text_lower for word in keyword.split())
-    else:
-        return False
-
-# Function to find exact match in a DataFrame column
-def find_exact_match(df, column, keyword):
-    return df[df[column].apply(lambda x: all_words_present(x, keyword))]
-
-# Function to find partial match in a DataFrame column
-def find_partial_match(df, column, keyword):
-    return df[df[column].apply(lambda x: all_words_fully_present(x, keyword))]
-
 # Function to extract shop name from URL
 def extract_shop_from_url(url):
     if not isinstance(url, str):
@@ -88,43 +64,42 @@ def extract_shop_from_url(url):
 
 #this function builds the mapping across all elements in category and those in Description
 def build_relationship_map(df):
-
-    # Preprocess the columns by replacing '-' with ' '
+    # Preprocess the columns
     df['category'] = df['category'].str.replace('-', ' ', regex=False)
     df['Description'] = df['Description'].str.replace('-', ' ', regex=False)
 
+    # Create the brand_cat column
+    df['brand_cat'] = df['Brand'] + ' > in ' + df['category']
+
     category_to_descriptions = {}
     description_to_categories = {}
+    brand_cat_to_descriptions = {}
 
     # Create initial mappings
     for _, row in df.iterrows():
         category = row['category']
         description = row['Description']
+        brand_cat = row['brand_cat']
 
-        if category not in category_to_descriptions:
-            category_to_descriptions[category] = set()
-        category_to_descriptions[category].add(description)
+        # Add to category_to_descriptions
+        category_to_descriptions.setdefault(category, set()).add(description)
 
-        if description not in description_to_categories:
-            description_to_categories[description] = set()
-        description_to_categories[description].add(category)
+        # Add to description_to_categories
+        description_to_categories.setdefault(description, set()).add(category)
 
-    # Identify categories and descriptions with missing values
-    missing_categories = {category for category, descriptions in category_to_descriptions.items() if None in descriptions or pd.isna(category)}
-    missing_descriptions = {description for description, categories in description_to_categories.items() if None in categories or pd.isna(description)}
+        # Add to brand_cat_to_descriptions
+        brand_cat_to_descriptions.setdefault(brand_cat, set()).add(description)
 
-    # Remove entries with missing values from mappings
-    for category in missing_categories:
-        del category_to_descriptions[category]
+    # Handle missing values in a general function
+    def clean_mapping(mapping):
+        return {k: {v for v in values if v and not pd.isna(v)} for k, values in mapping.items() if k and not pd.isna(k)}
 
-    for description in missing_descriptions:
-        del description_to_categories[description]
+    category_to_descriptions = clean_mapping(category_to_descriptions)
+    description_to_categories = clean_mapping(description_to_categories)
+    brand_cat_to_descriptions = clean_mapping(brand_cat_to_descriptions)
 
-    # Additionally, remove missing values from the sets in mappings
-    category_to_descriptions = {k: {desc for desc in v if desc and not pd.isna(desc)} for k, v in category_to_descriptions.items()}
-    description_to_categories = {k: {cat for cat in v if cat and not pd.isna(cat)} for k, v in description_to_categories.items()}
+    return category_to_descriptions, description_to_categories, brand_cat_to_descriptions
 
-    return category_to_descriptions, description_to_categories
 
 
 def load_data(file_path):
@@ -138,30 +113,29 @@ def load_data(file_path):
     #df['DescBrand'] = df['Brand'].astype(str) + ' ' + df['Description'].astype(str)
     return df
 
-def save_mappings_to_csv(category_to_descriptions, description_to_categories):
+def save_mappings_to_csv(category_to_descriptions, description_to_categories, brand_cat_to_descriptions):
     # Convert mappings to DataFrame
-    cat_to_desc_df = pd.DataFrame(list(category_to_descriptions.items()), columns=['category', 'Description'])
-    desc_to_cat_df = pd.DataFrame(list(description_to_categories.items()), columns=['Description', 'category'])
-
-    # Explode the sets into individual rows
-    cat_to_desc_df = cat_to_desc_df.explode('Description')
-    desc_to_cat_df = desc_to_cat_df.explode('category')
+    cat_to_desc_df = pd.DataFrame(list(category_to_descriptions.items()), columns=['category', 'Description']).explode('Description')
+    desc_to_cat_df = pd.DataFrame(list(description_to_categories.items()), columns=['Description', 'category']).explode('category')
+    brand_cat_to_desc_df = pd.DataFrame(list(brand_cat_to_descriptions.items()), columns=['brand_cat', 'Description']).explode('Description')
 
     # Save to CSV
     cat_to_desc_df.to_csv('category_to_descriptions.csv', index=False)
     desc_to_cat_df.to_csv('description_to_categories.csv', index=False)
+    brand_cat_to_desc_df.to_csv('brand_cat_to_descriptions.csv', index=False)
 
     print("Mappings saved to CSV files.")
 
 
- # Load data from price_comprix.csv
-df = pd.read_csv('price_comprix.csv')  # Adjust the path if needed
+
+# Load data from price_comprix_cleaned.csv
+df = pd.read_csv('price_comprix_cleaned.csv')  # Adjust the path if needed
 
 # Build the mappings
-category_to_descriptions, description_to_categories = build_relationship_map(df)
+category_to_descriptions, description_to_categories, brand_cat_to_descriptions = build_relationship_map(df)
 
-# Uncomment these lines after defining df and build_relationship_map function
-save_mappings_to_csv(category_to_descriptions, description_to_categories)
+# Save the mappings to CSV
+save_mappings_to_csv(category_to_descriptions, description_to_categories, brand_cat_to_descriptions)
 
 
 def load_data(file_path):
@@ -179,15 +153,11 @@ def load_data(file_path):
             #df[col] = df[col].apply(remove_diacritics)
     df['Shop'] = df['URL'].apply(extract_shop_from_url)
     df['DescBrand'] = df['Brand'].astype(str) + ' ' + df['Description'].astype(str)
+
+    # Create the brand_cat column
+    df['brand_cat'] = df['Brand'] + ' > in ' + df['category']
     return df
 
-# Read data from Excel file
-# df = pd.read_excel('./unique_supermarket_prices.xlsx')
-
-# Convert the DataFrame to a dictionary
-# products = df.to_dict(orient="index")
-# products = {str(k).lower(): v for k, v in products.items()}
-# products = {k.lower(): v for k, v in products.items()}
 
 @app.route('/', methods=['GET'])
 def landing():
@@ -218,8 +188,11 @@ def set_language(lang_code):
 # shopping list with a sophisticated autocompletion
 @app.route('/shopping_list', methods=['GET', 'POST'])
 def shopping_list():
-    # Load data from price_comprix.csv
-    df = pd.read_csv('price_comprix.csv')  # Adjust the path if needed
+    # Load data from price_comprix_cleaned.csv
+    df = pd.read_csv('price_comprix_cleaned.csv')  # Adjust the path if needed
+
+    # Create the brand_cat column
+    df['brand_cat'] = df['Brand'] + ' > in ' + df['category']
 
     # Assuming df is your DataFrame
     print(df.columns)  # To check if 'Core Identity' is in the columns
@@ -229,6 +202,7 @@ def shopping_list():
     descriptions = df['Description'].dropna().unique().tolist()
     brands = df['Brand'].dropna().unique().tolist()
     category = df['category'].dropna().unique().tolist()
+    brand_cats = df['brand_cat'].dropna().unique().tolist()
 
     # Read categories from Excel (this is for the aisles)
     df_categories = pd.read_excel('categories.xlsx')
@@ -242,12 +216,13 @@ def shopping_list():
     for cat in df_categories['category'].dropna().unique()
 ]
     
-    # Sending the data to the frontend (noe the difference: categories are the aisles, category comes into the serach bar and price comparison)
+    # Sending the data to the frontend (note the difference: categories are the aisles, category comes into the serach bar and price comparison)
     return render_template('shopping_list.html', 
                            descriptions=descriptions, 
                            brands=brands,
                            category=category,
-                            categories=categories)
+                           brand_cats=brand_cats,
+                           categories=categories)
 
 
 # SUBCATEGORIES PAGE (Different Fruits) (Subcategories of a given Category, browsing through the subcategories.xlxs)
@@ -320,17 +295,26 @@ def subcategory_page(subcategory_name):
 
 @app.route('/compare_prices', methods=['GET'])
 def compare_prices():
-    main_file_path = 'price_comprix.csv'  # Adjust the path for the main data
+    main_file_path = 'price_comprix_cleaned.csv'  # Adjust the path for the main data
     mapping_file_path = 'category_to_descriptions.csv'  # Path for the category-to-description mapping
+    
+    # Load the image URLs> they need to be treated differently due to formatting
+    df_images = pd.read_csv(main_file_path, usecols=['URL', 'image_small_url'], escapechar=None)
+    df_images['image_small_url'] = df_images['image_small_url'].fillna('N/A').astype(str)
 
+    # Load the brand_cat_to_desc mapping
+    brand_cat_to_desc_df = pd.read_csv('brand_cat_to_descriptions.csv')  # Adjust the path if needed
     df = load_data(main_file_path)
-    # Convert the 'Price' column to numeric and handle non-numeric values
-    df['Price'] = pd.to_numeric(df['Price'], errors='coerce')
-
+    df.drop('image_small_url', axis=1, inplace=True)  # Remove the image_small_url column
     cat_to_desc_df = pd.read_csv(mapping_file_path)
 
+    df_images = pd.read_csv(main_file_path, usecols=['URL', 'image_small_url'], escapechar=None)
+    df_images['image_small_url'] = df_images['image_small_url'].fillna('N/A').astype(str)
+
+    print(df_images['image_small_url'].head())  # Print first few URLs to check after loading
+
     # Extract shop information and drop rows where shop is 'Unknown'
-    df['Shop'] = df['URL'].apply(extract_shop_from_url)
+    df['Shop'] = df['URL'].apply(lambda url: extract_shop_from_url(url))
     df = df[df['Shop'] != 'Unknown']
 
     shopping_list_text = request.args.get('shopping_list', '')
@@ -342,91 +326,113 @@ def compare_prices():
 
     for keyword in shopping_list:
         for shop in df['Shop'].unique():
+            direct_match = True  # Assume a direct match initially
             df_shop = df[df['Shop'] == shop]
             df_shop = df_shop[pd.to_numeric(df_shop['Price'], errors='coerce').notna()]
 
-            # Search in 'category'
-            df_keyword = df_shop[df_shop[category_column].str.lower() == keyword.lower()]
-            if not df_keyword.empty:
-                cheapest_item = df_keyword.nsmallest(1, 'Price')
-            else:
-                # Search in 'Description'
-                df_keyword = df_shop[df_shop['Description'].str.contains(keyword, case=False, na=False)]
+            # Check if keyword contains ' >' and search in 'brand_cat' if it does
+            if ' >' in keyword:
+                df_keyword = df_shop[df_shop['brand_cat'].str.contains(keyword, case=False, na=False)]
                 cheapest_item = df_keyword.nsmallest(1, 'Price') if not df_keyword.empty else pd.DataFrame()
 
-                # If not found, use category_to_description mapping
                 if cheapest_item.empty:
-                    associated_descriptions = cat_to_desc_df[cat_to_desc_df['category'].str.lower() == keyword.lower()]['Description'].tolist()
+                    direct_match = False
+                    associated_descriptions = brand_cat_to_desc_df[brand_cat_to_desc_df['brand_cat'].str.lower().str.contains(keyword.lower())]['Description'].tolist()
                     df_associated_items = df_shop[df_shop['Description'].isin(associated_descriptions)]
-                    
-                    # Ensure that only items with a valid price are considered
                     df_associated_items = df_associated_items[pd.to_numeric(df_associated_items['Price'], errors='coerce').notna()]
-                        # Print associated items for debugging
-                    print(f"Associated items for '{keyword}' in shop '{shop}':")
-                    print(df_associated_items)
                     cheapest_item = df_associated_items.nsmallest(1, 'Price') if not df_associated_items.empty else pd.DataFrame()
 
+            else:
+                # Search in 'category'
+                df_keyword = df_shop[df_shop[category_column].str.lower() == keyword.lower()]
+                if not df_keyword.empty:
+                    cheapest_item = df_keyword.nsmallest(1, 'Price')
+                else:
+                    direct_match = False  # Not a direct match
+                    # Search in 'Description'
+                    df_keyword = df_shop[df_shop['Description'].str.contains(keyword, case=False, na=False)]
+                    cheapest_item = df_keyword.nsmallest(1, 'Price') if not df_keyword.empty else pd.DataFrame()
+
+                    # If not found, use category_to_description mapping
+                    if cheapest_item.empty:
+                        associated_descriptions = cat_to_desc_df[cat_to_desc_df['category'].str.lower() == keyword.lower()]['Description'].tolist()
+                        df_associated_items = df_shop[df_shop['Description'].isin(associated_descriptions)]
+                        df_associated_items = df_associated_items[pd.to_numeric(df_associated_items['Price'], errors='coerce').notna()]
+                        cheapest_item = df_associated_items.nsmallest(1, 'Price') if not df_associated_items.empty else pd.DataFrame()
+
+                    # Add the cheapest item or a placeholder for no match
             if not cheapest_item.empty:
                 cheapest_item['Keyword'] = keyword
                 cheapest_item['Shop'] = shop
+                cheapest_item['Is Direct Match'] = direct_match
+                cheapest_item['Nutriscore Grade'] = cheapest_item['nutriscore_grade']
                 all_cheapest_items = pd.concat([all_cheapest_items, cheapest_item], ignore_index=True)
             else:
-                # Handle the case where no matching items with a price are found
-                no_match_item = pd.DataFrame({'Shop': [shop], 'Keyword': [keyword], 'Price': ['N/A'], 'URL': ['N/A']})
+                no_match_item = pd.DataFrame({'Shop': [shop], 'Keyword': [keyword], 'Price': ['N/A'], 'URL': ['N/A'], 'Is Direct Match': [direct_match], 'Nutriscore Grade': ['N/A']})
                 all_cheapest_items = pd.concat([all_cheapest_items, no_match_item], ignore_index=True)
 
-
-    # Initialize pivot_prices and pivot_urls
-    pivot_prices = pd.DataFrame()
-    pivot_urls = pd.DataFrame()
+    pivot_prices_dict = {}
+    pivot_urls_dict = {}
+    pivot_direct_match_dict = {}
+    pivot_nutriscore_dict = {}
+    pivot_image_url_dict = {}
+    store_names = []
 
     if not all_cheapest_items.empty:
-        all_cheapest_items['Shop'] = all_cheapest_items['URL'].apply(extract_shop_from_url)
-        pivot_prices = all_cheapest_items.pivot(index='Keyword', columns='Shop', values='Price')
-        pivot_urls = all_cheapest_items.pivot(index='Keyword', columns='Shop', values='URL')
+        grouped = all_cheapest_items.groupby(['Keyword', 'Shop']).agg({
+            'Price': 'min', 
+            'URL': 'first', 
+            'Is Direct Match': 'first', 
+            'Nutriscore Grade': 'first',
+            'label_item': 'first',
+            #'image_small_url': 'first'  # Include image_small_url  # Add label_item here
+        }).reset_index()
+        grouped['Shop'] = grouped['URL'].apply(lambda url: extract_shop_from_url(url))
 
-        for index, row in pivot_prices.iterrows():
-            empty_shops = row[row.isna()].index.tolist()
-            if empty_shops:
-                cheapest_shop = row.idxmin()
-                cheapest_item_url = pivot_urls.at[index, cheapest_shop]
-                category_of_cheapest = df[df['URL'] == cheapest_item_url][category_column].iloc[0]
-
-                for shop in empty_shops:
-                    cheapest_in_category = df[(df['Shop'] == shop) & (df[category_column] == category_of_cheapest)].nsmallest(1, 'Price')
-                    if not cheapest_in_category.empty:
-                        pivot_prices.at[index, shop] = cheapest_in_category.iloc[0]['Price']
-                        pivot_urls.at[index, shop] = cheapest_in_category.iloc[0]['URL']
+        all_cheapest_items = all_cheapest_items.merge(df_images, on='URL', how='left')
+        # Check columns after merge to confirm 'image_small_url' is present
+        print("Columns in all_cheapest_items after merge:", all_cheapest_items.columns)
 
 
-        # Check if pivot_prices is not empty before calculating totals
-        if not pivot_prices.empty:
-            total_prices = pivot_prices.sum().to_dict()
-        else:
-            total_prices = {}
+        pivot_prices = grouped.pivot(index='Keyword', columns='Shop', values='Price')
+        pivot_urls = grouped.pivot(index='Keyword', columns='Shop', values='URL')
+        pivot_direct_match_dict = grouped.pivot(index='Keyword', columns='Shop', values='Is Direct Match').fillna(True).to_dict(orient='index')
+        pivot_nutriscore_dict = grouped.pivot(index='Keyword', columns='Shop', values='Nutriscore Grade').fillna('default').to_dict(orient='index')
+        pivot_label_item_dict = grouped.pivot(index='Keyword', columns='Shop', values='label_item').fillna('N/A').to_dict(orient='index')
 
-    # Export the results to a CSV file
-    output_csv_file = 'comparison_results.csv'  # You can change this file name and path as needed
-    all_cheapest_items.to_csv(output_csv_file, index=False)
+        #adding images to the table sent to html.
+        # Now, create the pivot table for image_small_url from all_cheapest_items
+        pivot_image_url_dict = all_cheapest_items.pivot(index='Keyword', columns='Shop', values='image_small_url').fillna('N/A').to_dict(orient='index')
 
-    # Convert pivot_prices to a dictionary format for Jinja2
-    pivot_prices_dict = {}
-    if not pivot_prices.empty:
+        
+
+        pivot_prices.drop(columns=['Unknown'], errors='ignore', inplace=True)
+        pivot_urls.drop(columns=['Unknown'], errors='ignore', inplace=True)
+
+        total_prices = pivot_prices.apply(pd.to_numeric, errors='coerce').sum().round(2)
+        total_prices = total_prices.apply(lambda x: f"€{x}" if pd.notna(x) else x).rename('Total')
+        pivot_prices = pd.concat([pivot_prices, total_prices.to_frame().T])
+
         pivot_prices_dict = pivot_prices.fillna('N/A').to_dict(orient='index')
+        pivot_urls_dict = pivot_urls.to_dict(orient='index')
+        store_names = list(pivot_prices.columns)
 
-    store_names = list(pivot_prices.columns) if not pivot_prices.empty else []
+    output_csv_file = 'comparison_results.csv'
+    all_cheapest_items.to_csv(output_csv_file, index=False)
+    
+    #debugging
+    #print(pivot_nutriscore_dict)
+    print(next(iter(pivot_image_url_dict.values())))  # Print first entry for check
 
-    # Convert pivot_urls to a dictionary format for Jinja2
-    pivot_urls_dict = pivot_urls.to_dict(orient='index') if not pivot_urls.empty else {}
-
-
-    return render_template('compare_results.html',
-                           pivot_prices_html=pivot_prices.to_html(classes='pivot-table', border=0) if not pivot_prices.empty else "",
-                           pivot_urls_html=pivot_urls.to_html(classes='pivot-table', border=0) if not pivot_urls.empty else "",
+    return render_template('compare_results.html', 
                            pivot_prices_dict=pivot_prices_dict,
+                           pivot_urls_dict=pivot_urls_dict,
+                           pivot_direct_match_dict=pivot_direct_match_dict,
+                           pivot_nutriscore_dict=pivot_nutriscore_dict,
+                           pivot_label_item_dict=pivot_label_item_dict,  # Add this
+                           pivot_image_url_dict=pivot_image_url_dict, # Add this for sending the images
                            store_names=store_names,
-                           total_prices=total_prices,
-                           pivot_urls_dict=pivot_urls_dict)
+                           total_prices=total_prices)
 
 
 

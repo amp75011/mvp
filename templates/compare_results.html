@@ -15,70 +15,167 @@ Comprix - Comparison Results
 
     <section class="content-section">
         {% if pivot_prices_dict %}
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        {% for store in store_names %}
-                            <th>{{ store }}</th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item, stores in pivot_prices_dict.items() %}
-                        <tr {% if item == 'Total' %} class="total-row" {% endif %}>
-                            <td>{{ item }}</td>
-                            {% for store, price in stores.items() %}
-                                <td>
-                                    {% if item != 'Total' and price != 'N/A' %}
-                                        <a href="{{ pivot_urls_dict[item][store] }}" target="_blank">€{{ price }}</a>
-                                    {% else %}
-                                        {{ price }}
+            <style>
+                /* Basic Styling */
+                body {
+                    font-family: 'Open Sans', sans-serif;
+                    background: rgba(236, 235, 235, 0.9);
+                    color: rgba(46, 46, 46, 0.9);
+                }
+
+                /* Header Styling */
+                .header-row {
+                    display: flex;
+                    padding: 10px;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-bottom: 3px solid rgba(29, 28, 28, 0.962);
+                    background-color: #b6b6b6;
+                }
+                .header-row th {
+                    flex: 1;
+                    text-align: center;
+                }
+
+                /* Row Styling */
+                .row {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px;
+                    align-items: center;
+                    justify-content: space-between;
+                    position: relative;
+                    transition: all 0.2s ease-out;
+                    background-color: #ffffff;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid rgba(119, 119, 119, 0.962);
+                }
+
+                .main-content, .additional-content {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+
+                .main-content li, .additional-content li {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    flex-basis: calc(100% / 5); /* Adjust based on number of columns */
+                    text-align: center;
+                }
+
+                .additional-content {
+                    visibility: hidden; /* Hide content initially */
+                    background-color: #f0f0f0;
+                    transform: scaleY(0);
+                    transform-origin: top;
+                    transition: transform 0.3s ease-in-out;
+                    overflow: hidden;
+                    max-height: 0;
+                    font-size: 7px; /* Smaller font size */
+                }
+                .product-image {
+                    max-height: 50px; /* Adjust as needed */
+                    width: auto;
+                    margin: 5px 0; /* Space above and below the image */
+                }
+                .row:hover .additional-content {
+                    visibility: visible; /* Show content on hover */
+                    transform: scaleY(1);
+                    max-height: 200px; /* Adjust as needed */
+                }
+
+                .nutriscore-icon, .label-item {
+                    margin-top: 5px;
+                    height: 20px;
+                    width: auto;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+                .row:hover .nutriscore-icon, .row:hover .label-item {
+                    opacity: 1;
+                }
+
+                /* Shop Logo Styling */
+                .shop-logo {
+                    height: 30px;
+                    width: auto;
+                }
+
+                /* Adjusting overall size of the table */
+                .header-row, .row {
+                    max-width: 75%;
+                    margin: auto;
+                }
+                                    /* Adjusting Font Size */
+                .main-content li {
+                    /* ... [other properties] ... */
+                    font-size: 14px; /* Example: setting font size to 14px */
+                }
+
+                    /* You can also target specific elements within the list items if needed */
+                .additional-content li .label-item, 
+                .additional-content li .nutriscore-icon {
+                    font-size: 10px; /* Adjust the size as needed */
+    }
+            </style>
+
+            <!-- Header with Shop Logos -->
+            <div class="header-row">
+                <th>Your shopping list</th> <!-- Placeholder for 'Item' -->
+                {% for store in (pivot_prices_dict.values() | list)[0] %}
+                    <th>
+                        <img src="{{ url_for('static', filename='images/' ~ store ~ '.png') }}" alt="{{ store }}" class="shop-logo">
+                    </th>
+                {% endfor %}
+            </div>
+
+            <!-- Rows with Products, Prices, Nutri-Scores, Label Items, and Product Photos -->
+            {% for item, stores in pivot_prices_dict.items() %}
+                <article class="row">
+                    <ul class="main-content">
+                        <li>{{ item }}</li>
+                        {% for store, price in stores.items() %}
+                            <li>
+                                {% if item != 'Total' and price != 'N/A' %}
+                                    <a href="{{ pivot_urls_dict.get(item, {}).get(store, '#') }}" target="_blank">€{{ price }}</a>
+                                    <!-- Display the nutriscore image -->
+                                    {% if pivot_nutriscore_dict.get(item, {}).get(store) != 'N/A' %}
+                                        <img src="{{ url_for('static', filename='images/nutriscore_icons/' ~ pivot_nutriscore_dict.get(item, {}).get(store, 'default') ~ '.png') }}" alt="Nutri-Score" class="nutriscore-icon">
                                     {% endif %}
-                                </td>
+                                {% else %}
+                                    {{ price }}
+                                    <!-- Display 'na.png' when price is 'N/A' -->
+                                    <img src="{{ url_for('static', filename='images/nutriscore_icons/na.png') }}" alt="Nutri-Score NA" class="nutriscore-icon">
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% if item != 'Total' %}
+                        <ul class="additional-content">
+                            <li></li> <!-- Placeholder for the item name column -->
+                            {% for store, price in stores.items() %}
+                                <li>
+                                    {% if pivot_image_url_dict.get(item, {}).get(store) != 'N/A' %}
+                                        <!-- Display the product image -->
+                                        <img src="{{ pivot_image_url_dict.get(item, {}).get(store) | safe }}" alt="Product Image" class="product-image">
+                                    {% endif %}
+                                    {% if pivot_nutriscore_dict.get(item, {}).get(store) != 'N/A' and price != 'N/A' %}
+                                        <img src="{{ url_for('static', filename='images/nutriscore_icons/' ~ pivot_nutriscore_dict.get(item, {}).get(store, 'default') ~ '.png') }}" alt="Nutri-Score" class="nutriscore-icon">
+                                    {% endif %}
+                                    {% if pivot_label_item_dict.get(item, {}).get(store) != 'N/A' %}
+                                        <span class="label-item">{{ pivot_label_item_dict.get(item, {}).get(store, 'N/A') }}</span>
+                                    {% endif %}
+                                </li>
                             {% endfor %}
-                        </tr>
-                    {% endfor %}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Total</th>
-                        {% for store in store_names %}
-                            <td>€{{ "%.2f"|format(total_prices[store]) }}</td>
-                        {% endfor %}
-                    </tr>
-                    <!-- Row for the "Go to shop" buttons -->
-                    <tr class="shop-button-row">
-                        <td></td> <!-- Empty cell for the "Item" column -->
-                        {% for store in store_names %}
-                            <td>
-                                <button class="shop-button">Go to {{ store }}</button>
-                            </td>
-                        {% endfor %}
-                    </tr>
-                </tfoot>
-            </table>
-
-            <!-- Render Pivot Tables as HTML
-            <h2>Price Comparison Pivot Table</h2>
-            {{ pivot_prices_html|safe }}
-
-            <h2>Shop URLs Pivot Table</h2>
-            {{ pivot_urls_html|safe }} -->
-
+                        </ul>
+                    {% endif %}
+                </article>
+            {% endfor %}
         {% else %}
             <p>No items were found for comparison. Please go back and enter your shopping list items.</p>
         {% endif %}
     </section>
-
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.table').DataTable({
-                responsive: true
-            });
-        });
-    </script>
-</section>
 </div>
 {% endblock %}

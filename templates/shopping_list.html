@@ -119,13 +119,13 @@
         <h4>{{ _('Contact Us') }}</h4>
         <!--<p>Lorem ipsum</p>-->
         <div class="icons">
-            <a href="https://www.facebook.com/comprix.shop" target="_blank" class="instagram-icon">
+            <a href="https://www.facebook.com/comprix.online" target="_blank" class="instagram-icon">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com/comprix.shop/" target="_blank" class="instagram-icon">
+            <a href="https://www.instagram.com/comprix.online/" target="_blank" class="instagram-icon">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.linkedin.com/company/comprix-shop" target="_blank" class="instagram-icon">
+            <a href="https://www.linkedin.com/company/comprixonline" target="_blank" class="instagram-icon">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </div>
@@ -199,39 +199,48 @@
 
         // New Autocomplete Logic
         $(document).ready(function() {
-            var category = {{ category|tojson|safe }};
-            var brands = {{ brands|tojson|safe }};
-            var descriptions = {{ descriptions|tojson|safe }};
+    var category = {{ category|tojson|safe }};
+    var descriptions = {{ descriptions|tojson|safe }};
+    var brandCats = {{ brand_cats|tojson|safe }}; 
+
+    // Function to remove accents and convert to lowercase
+    function normalizeString(str) {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    }
 
     $("#input-box").autocomplete({
         source: function(request, response) {
-            var terms = request.term.toLowerCase().split(/\s+/); // Split the term into words
+            var terms = normalizeString(request.term).split(/\s+/); // Normalize and split the input
 
             // Custom filter function to match the start of any word in the string
             function matchStartOfWord(sourceArray) {
                 return sourceArray.filter(function(item) {
                     return terms.every(function(term) {
-                        var words = item.split(/\s+/); // Split the item into words
-                        return words.some(word => word.toLowerCase().startsWith(term));
+                        var words = normalizeString(item).split(/\s+/); // Normalize and split the item
+                        return words.some(word => word.startsWith(term));
                     });
                 });
             }
 
             var categoryMatches = matchStartOfWord(category);
-            var brandMatches = matchStartOfWord(brands);
             var descriptionMatches = matchStartOfWord(descriptions);
+            var brandCatMatches = matchStartOfWord(brandCats);
 
-            var allMatches = [...new Set([...categoryMatches, ...brandMatches, ...descriptionMatches])];
-            response(allMatches);
+            var allMatches = [...new Set([...categoryMatches, ...descriptionMatches, ...brandCatMatches])];
+
+            // Sort by length and limit to 10 items
+            allMatches.sort((a, b) => a.length - b.length);
+            var limitedMatches = allMatches.slice(0, 7);
+
+            response(limitedMatches);
         },
         select: function(event, ui) {
-            event.preventDefault(); // Prevents the default action. This is important for clearing the search bar after hitting enter
+            event.preventDefault();
             inputBox.value = ui.item.value;
             addTask();
         }
     });
 });
-
 
         function compareItems() {
     // Get all the list items
